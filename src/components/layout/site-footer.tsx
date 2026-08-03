@@ -1,62 +1,116 @@
 import Link from "next/link";
-import { Code2, MessageCircle, Radio } from "lucide-react";
-
+import { GithubIcon, TwitterIcon, DiscordIcon } from "@/components/ui/icons";
 import { Container } from "@/components/layout/container";
 import { SiteLogo } from "@/components/layout/site-logo";
-import { navigationItems } from "@/lib/config/navigation";
-import { siteConfig } from "@/lib/config/site";
-
-const socialLinks = [
-  { href: "#", label: "Code profile", icon: Code2 },
-  { href: "#", label: "Community", icon: MessageCircle },
-  { href: "#", label: "Social feed", icon: Radio },
-] as const;
+import { siteConfig } from "@/config/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-border bg-surface/70 border-t">
-      <Container className="py-10 sm:py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
+    <footer className="border-slate-800 bg-slate-950/80 border-t text-slate-400 text-xs">
+      <Container className="py-8 sm:py-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-3">
             <SiteLogo />
-            <p className="text-muted-foreground mt-4 max-w-sm text-sm leading-6">
-              Independent games made with care, curiosity, and a little chaos.
+            <p className="text-slate-400 max-w-xs leading-relaxed">
+              {siteConfig.description}
             </p>
           </div>
-          <nav aria-label="Footer navigation">
-            <p className="text-foreground text-sm font-semibold">Explore</p>
-            <ul className="mt-3 space-y-2">
-              {navigationItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+
           <div>
-            <p className="text-foreground text-sm font-semibold">Follow the arcade</p>
-            <div className="mt-3 flex gap-2">
-              {socialLinks.map(({ href, label, icon: Icon }) => (
-                <a
-                  aria-label={label}
-                  className="border-border text-muted-foreground hover:border-primary hover:text-primary grid size-9 place-items-center rounded-md border transition-colors"
-                  href={href}
-                  key={label}
-                >
-                  <Icon aria-hidden="true" className="size-4" />
-                </a>
-              ))}
+            <p className="text-white font-pixel font-semibold uppercase text-xs tracking-wider mb-3">
+              Explore Platform
+            </p>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/games" className="hover:text-purple-400 transition">
+                  Games Catalog
+                </Link>
+              </li>
+              <li>
+                <Link href="/community" className="hover:text-purple-400 transition">
+                  Community Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/devlog" className="hover:text-purple-400 transition">
+                  Devlog & Updates
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-purple-400 transition">
+                  About the Studio
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-white font-pixel font-semibold uppercase text-xs tracking-wider mb-3">
+              Developer Controls
+            </p>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/cms" className="hover:text-purple-400 transition">
+                  Developer Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link href="/cms/analytics" className="hover:text-purple-400 transition">
+                  Analytics & Telemetry
+                </Link>
+              </li>
+              <li>
+                <Link href="/profile" className="hover:text-purple-400 transition">
+                  Player Profile & Cloud Saves
+                </Link>
+              </li>
+              <li>
+                <Link href="/login" className="hover:text-purple-400 transition">
+                  Sign In / Sign Up
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-white font-pixel font-semibold uppercase text-xs tracking-wider mb-3">
+              Connect With Us
+            </p>
+            <div className="flex items-center gap-3">
+              <a
+                href={siteConfig.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-purple-500 hover:text-purple-400 transition"
+                aria-label="GitHub Repository"
+              >
+                <GithubIcon className="w-4 h-4" />
+              </a>
+              <a
+                href={siteConfig.links.twitter}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-blue-500 hover:text-blue-400 transition"
+                aria-label="Twitter Profile"
+              >
+                <TwitterIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://discord.gg/kdarcade"
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-indigo-500 hover:text-indigo-400 transition"
+                aria-label="Discord Server"
+              >
+                <DiscordIcon className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
-        <div className="border-border text-muted-foreground mt-10 flex flex-col gap-3 border-t pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} KD Arcade. All rights reserved.</p>
-          <p>Built with Next.js, TypeScript, and good vibes · v{siteConfig.version}</p>
+
+        <div className="border-slate-800/80 text-slate-500 mt-8 flex flex-col sm:flex-row items-center justify-between border-t pt-4 gap-2 font-mono text-[11px]">
+          <p>© {new Date().getFullYear()} KD Arcade. All rights reserved. Created by Divyanshu Kumar.</p>
+          <p>Built with Next.js 15, TypeScript & Clean Architecture.</p>
         </div>
       </Container>
     </footer>
