@@ -9,6 +9,27 @@ export type LaunchTargets = {
 export type GameStatus = "released" | "in-development" | "coming-soon";
 
 export type Game = {
+  id?: string;
+  subtitle?: string;
+  longDescription?: string;
+  version?: string;
+  developer?: string;
+  publisher?: string;
+  tags?: string[];
+  updatedDate?: string;
+  browserSupport?: boolean;
+  trailer?: { provider: "youtube" | "mp4" | "vimeo"; src: string; poster?: string };
+  artwork?: string;
+  icon?: string;
+  achievements?: {
+    id: string;
+    title: string;
+    description: string;
+    icon?: string;
+    reward?: string;
+  }[];
+  systemRequirements?: string[];
+  downloadLinks?: { label: string; platform: string; url: string }[];
   slug: string;
   title: string;
   tagline: string;
