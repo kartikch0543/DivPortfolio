@@ -28,12 +28,12 @@ export function AchievementsWidget({ gameSlug }: AchievementsWidgetProps) {
   const unlockedCount = achievements.filter((a) => a.isUnlocked).length;
 
   return (
-    <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 space-y-4">
-      <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-        <h3 className="font-semibold text-lg text-white font-pixel flex items-center gap-2">
-          <Trophy className="w-5 h-5 text-amber-400" /> Player Achievements System
+    <div className="dark:bg-slate-900/40 bg-white border dark:border-slate-800 border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
+      <div className="flex items-center justify-between border-b dark:border-slate-800 border-slate-200 pb-4">
+        <h3 className="font-semibold text-lg dark:text-white text-slate-900 font-pixel flex items-center gap-2">
+          <Trophy className="w-5 h-5 text-amber-500" /> Player Achievements System
         </h3>
-        <span className="text-xs font-mono text-emerald-400">
+        <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">
           {unlockedCount} / {achievements.length} Unlocked
         </span>
       </div>
@@ -44,26 +44,26 @@ export function AchievementsWidget({ gameSlug }: AchievementsWidgetProps) {
             key={ach.id}
             className={`p-4 rounded-lg border text-xs space-y-2 transition ${
               ach.isUnlocked
-                ? "bg-slate-900/80 border-slate-700 text-slate-200"
-                : "bg-slate-950/60 border-slate-800/80 text-slate-500 opacity-70"
+                ? "dark:bg-slate-900/80 bg-slate-50 dark:border-slate-700 border-slate-300 dark:text-slate-200 text-slate-900 shadow-xs"
+                : "dark:bg-slate-950/60 bg-slate-100 dark:border-slate-800/80 border-slate-200 text-slate-500 opacity-70"
             }`}
           >
             <div className="flex items-center justify-between">
               <span className="text-2xl">{ach.icon}</span>
               {ach.isUnlocked ? (
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
               ) : (
-                <Lock className="w-4 h-4 text-slate-600" />
+                <Lock className="w-4 h-4 dark:text-slate-600 text-slate-400" />
               )}
             </div>
 
             <div>
-              <div className="font-semibold text-slate-100">{ach.title}</div>
-              <p className="text-[11px] text-slate-400 mt-0.5">{ach.description}</p>
+              <div className="font-semibold dark:text-slate-100 text-slate-900">{ach.title}</div>
+              <p className="text-[11px] dark:text-slate-400 text-slate-600 mt-0.5">{ach.description}</p>
             </div>
 
-            <div className="flex justify-between items-center text-[10px] font-mono pt-1 border-t border-slate-800">
-              <span className="text-amber-400">{ach.rarityPercentage}% of players</span>
+            <div className="flex justify-between items-center text-[10px] font-mono pt-1 border-t dark:border-slate-800 border-slate-200">
+              <span className="text-amber-600 dark:text-amber-400 font-medium">{ach.rarityPercentage}% of players</span>
               <span>{ach.isUnlocked ? "Unlocked" : "Locked"}</span>
             </div>
           </div>
