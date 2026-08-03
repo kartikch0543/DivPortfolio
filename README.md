@@ -2,6 +2,8 @@
 
 KD Arcade is a Next.js 15 foundation for an independent game studio. Phase 2 provides the reusable visual language, navigation, layout primitives, theme controls, and accessible UI components; it intentionally does not include homepage content or game pages.
 
+Phase 3 adds a data-driven studio homepage, game catalog, dynamic game pages, and multi-target launch support for itch.io, self-hosted WebGL, Google Play, Steam, and GitHub.
+
 ## Quick start
 
 ```bash
