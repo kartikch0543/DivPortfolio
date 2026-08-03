@@ -10,11 +10,13 @@ import {
   Settings,
   User,
   ArrowLeft,
+  BarChart3,
 } from "lucide-react";
 
 const navItems = [
   { href: "/cms", label: "Dashboard", icon: LayoutDashboard },
   { href: "/cms/games", label: "Game Manager", icon: Gamepad2 },
+  { href: "/cms/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/cms/media", label: "Media Library", icon: ImageIcon },
   { href: "/cms/devlog", label: "Devlog Manager", icon: BookOpen },
   { href: "/cms/roadmap", label: "Roadmap & Releases", icon: Milestone },
