@@ -24,15 +24,15 @@ export function PageHeader({
       )}
     >
       {eyebrow ? (
-        <p className="font-pixel text-secondary text-xs tracking-[0.16em] uppercase">
+        <p className="font-pixel text-purple-600 dark:text-pink-400 text-xs tracking-[0.16em] uppercase font-bold">
           {eyebrow}
         </p>
       ) : null}
-      <h1 className="font-pixel text-foreground mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
+      <h1 className="font-pixel dark:text-white text-slate-900 mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl font-bold">
         {title}
       </h1>
       {description ? (
-        <p className="text-muted-foreground mt-5 text-base leading-7 sm:text-lg">
+        <p className="dark:text-slate-400 text-slate-600 mt-4 text-base leading-relaxed sm:text-lg">
           {description}
         </p>
       ) : null}

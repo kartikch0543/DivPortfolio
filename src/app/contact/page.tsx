@@ -68,30 +68,30 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-[85vh] bg-slate-950 text-slate-100 py-12">
+    <div className="min-h-[85vh] dark:bg-slate-950 bg-slate-50 dark:text-slate-100 text-slate-900 py-12">
       <Container className="max-w-3xl px-4 space-y-8">
         {/* Header */}
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800 text-purple-300 text-xs font-mono">
-            <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full dark:bg-purple-950/80 bg-purple-100 dark:border-purple-800 border-purple-300 dark:text-purple-300 text-purple-900 text-xs font-mono">
+            <Sparkles className="w-3.5 h-3.5 text-pink-500" />
             <span>Connect with KD Arcade</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-pixel text-white">Get in Touch</h1>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold font-pixel dark:text-white text-slate-900">Get in Touch</h1>
+          <p className="text-xs sm:text-sm dark:text-slate-400 text-slate-600 max-w-lg mx-auto">
             Have a game inquiry, collaboration proposal, bug report, or press question? Divyanshu will read and reply.
           </p>
         </div>
 
         {/* Contact Form Card */}
-        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl backdrop-blur">
+        <div className="dark:bg-slate-900/60 bg-white dark:border-slate-800 border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl backdrop-blur">
           {successMsg && (
-            <div className="p-4 rounded-xl bg-emerald-950/80 border border-emerald-700 text-emerald-300 text-xs font-mono flex items-center gap-2">
+            <div className="p-4 rounded-xl dark:bg-emerald-950/80 bg-emerald-50 dark:border-emerald-700 border-emerald-300 dark:text-emerald-300 text-emerald-800 text-xs font-mono flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 flex-shrink-0" /> {successMsg}
             </div>
           )}
 
           {errorMsg && (
-            <div className="p-4 rounded-xl bg-rose-950/80 border border-rose-700 text-rose-300 text-xs font-mono flex items-center gap-2">
+            <div className="p-4 rounded-xl dark:bg-rose-950/80 bg-rose-50 dark:border-rose-700 border-rose-300 dark:text-rose-300 text-rose-800 text-xs font-mono flex items-center gap-2">
               <ShieldAlert className="w-4 h-4 flex-shrink-0" /> {errorMsg}
             </div>
           )}
@@ -102,56 +102,56 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-purple-400" /> Your Name
+                <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1 flex items-center gap-1.5">
+                  <User className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" /> Your Name
                 </label>
                 <input
                   {...register("name")}
                   type="text"
                   placeholder="e.g. Alex Smith"
-                  className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 dark:bg-slate-950 bg-white border dark:border-slate-800 border-slate-300 rounded-lg text-xs dark:text-white text-slate-900 focus:border-purple-500 focus:outline-none"
                 />
-                {errors.name && <p className="text-xs text-rose-400 mt-1">{String(errors.name.message)}</p>}
+                {errors.name && <p className="text-xs text-rose-500 mt-1">{String(errors.name.message)}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5 text-purple-400" /> Email Address
+                <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1 flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" /> Email Address
                 </label>
                 <input
                   {...register("email")}
                   type="email"
                   placeholder="name@domain.com"
-                  className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 dark:bg-slate-950 bg-white border dark:border-slate-800 border-slate-300 rounded-lg text-xs dark:text-white text-slate-900 focus:border-purple-500 focus:outline-none"
                 />
-                {errors.email && <p className="text-xs text-rose-400 mt-1">{String(errors.email.message)}</p>}
+                {errors.email && <p className="text-xs text-rose-500 mt-1">{String(errors.email.message)}</p>}
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Tag className="w-3.5 h-3.5 text-purple-400" /> Subject
+              <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1 flex items-center gap-1.5">
+                <Tag className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" /> Subject
               </label>
               <input
                 {...register("subject")}
                 type="text"
                 placeholder="Game Collaboration / Inquiry"
-                className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:border-purple-500 focus:outline-none"
+                className="w-full px-3.5 py-2.5 dark:bg-slate-950 bg-white border dark:border-slate-800 border-slate-300 rounded-lg text-xs dark:text-white text-slate-900 focus:border-purple-500 focus:outline-none"
               />
-              {errors.subject && <p className="text-xs text-rose-400 mt-1">{String(errors.subject.message)}</p>}
+              {errors.subject && <p className="text-xs text-rose-500 mt-1">{String(errors.subject.message)}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <MessageSquare className="w-3.5 h-3.5 text-purple-400" /> Message
+              <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1 flex items-center gap-1.5">
+                <MessageSquare className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" /> Message
               </label>
               <textarea
                 {...register("message")}
                 rows={5}
                 placeholder="Write your message details here..."
-                className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:border-purple-500 focus:outline-none"
+                className="w-full px-3.5 py-2.5 dark:bg-slate-950 bg-white border dark:border-slate-800 border-slate-300 rounded-lg text-xs dark:text-white text-slate-900 focus:border-purple-500 focus:outline-none"
               />
-              {errors.message && <p className="text-xs text-rose-400 mt-1">{String(errors.message.message)}</p>}
+              {errors.message && <p className="text-xs text-rose-500 mt-1">{String(errors.message.message)}</p>}
             </div>
 
             <button
