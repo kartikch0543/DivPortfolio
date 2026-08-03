@@ -5,6 +5,7 @@ import "@/app/globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/config/site";
 
 const inter = Inter({
@@ -26,6 +27,20 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.name,
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary",
+    title: siteConfig.name,
+    description: siteConfig.description,
+  },
   applicationName: siteConfig.name,
   robots: {
     index: true,
@@ -51,6 +66,21 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${pixelifySans.variable} antialiased`}>
         <ThemeProvider>
+          <JsonLd
+            data={{
+              "@context": "https://schema.org",
+              "@graph": [
+                { "@type": "WebSite", name: siteConfig.name, url: siteConfig.url },
+                {
+                  "@type": "Organization",
+                  name: siteConfig.name,
+                  url: siteConfig.url,
+                  sameAs: [siteConfig.itchUrl],
+                },
+                { "@type": "Person", name: "Kartik Choudhary", url: siteConfig.url },
+              ],
+            }}
+          />
           <div className="flex min-h-screen flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { BrowserGamePlayer } from "@/features/games/components/browser-game-player";
@@ -51,6 +52,18 @@ export default async function GameDetailPage({
   const related = games.filter((item) => item.slug !== game.slug);
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "VideoGame",
+          name: game.title,
+          description: game.description,
+          image: game.bannerImage,
+          gamePlatform: game.platforms,
+          applicationCategory: game.genre.join(", "),
+          url: `/games/${game.slug}`,
+        }}
+      />
       <section className="border-border relative overflow-hidden border-b">
         <Image
           alt=""

@@ -15,4 +15,5 @@ export const siteConfig = {
   description: "Independent games, playful worlds, and memorable interactions.",
   url: resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   version: "0.2.0",
+  itchUrl: "https://kdivyanshu.itch.io",
 } as const;

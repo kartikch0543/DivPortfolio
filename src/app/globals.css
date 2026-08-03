@@ -113,6 +113,38 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.12;
+  background-image: linear-gradient(rgb(255 255 255 / 3%) 1px, transparent 1px);
+  background-size: 100% 4px;
+}
+
+.pixel-glow {
+  background: radial-gradient(
+    circle at 50% 0%,
+    color-mix(in srgb, var(--primary) 24%, transparent),
+    transparent 60%
+  );
+}
+
+@keyframes pixel-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.pixel-particle {
+  animation: pixel-float 4s ease-in-out infinite;
+}
+
 body::selection {
   background: var(--primary);
   color: var(--primary-foreground);

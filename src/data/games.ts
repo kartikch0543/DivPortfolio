@@ -23,7 +23,7 @@ export const games: Game[] = [
     estimatedPlaytime: "15–25 min",
     featured: true,
     launch: {
-      browser: "https://kartikchoudhary.itch.io/tiny-together",
+      browser: "https://kdivyanshu.itch.io/tiny-together",
       webgl: null,
       playStore: null,
       steam: null,
@@ -71,7 +71,7 @@ export const games: Game[] = [
     estimatedPlaytime: "10–20 min",
     featured: true,
     launch: {
-      browser: "https://kartikchoudhary.itch.io/ulta-he-krega",
+      browser: "https://kdivyanshu.itch.io/ulta-he-krega",
       webgl: null,
       playStore: null,
       steam: null,
