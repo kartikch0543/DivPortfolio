@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import type { Game } from "@/types/game";
 import { getLaunchPlan } from "@/features/game-platform/services/launch-manager";
 import { useGameTelemetry } from "@/hooks/use-game-telemetry";
-import { Play, Maximize2, RotateCcw, MonitorPlay, ExternalLink, ShieldAlert, Command } from "lucide-react";
+import { Play, Maximize2, RotateCcw, ShieldAlert, Command } from "lucide-react";
 
 interface EnhancedBrowserPlayerProps {
   game: Game;
@@ -32,9 +32,9 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
           setIsLoading(false);
           return 100;
         }
-        return prev + 25;
+        return prev + 30;
       });
-    }, 250);
+    }, 200);
   };
 
   const handleToggleFullscreen = () => {
@@ -54,41 +54,21 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
     setTimeout(() => {
       setIsLoading(false);
       setLoadingProgress(100);
-    }, 500);
+    }, 400);
   };
 
-  if (!launchPlan.embedded && launchPlan.runtime === "external" && launchPlan.url) {
+  if (!launchPlan.url) {
     return (
-      <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-8 text-center space-y-4">
-        <MonitorPlay className="w-10 h-10 text-emerald-400 mx-auto" />
-        <h3 className="text-xl font-bold font-pixel text-white">Play {game.title} on itch.io</h3>
-        <p className="text-xs text-slate-400 max-w-md mx-auto">
-          This game is hosted on its external browser runtime. Click below to launch in full window.
-        </p>
-        <a
-          href={launchPlan.url}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-semibold rounded-lg text-xs transition"
-        >
-          Launch Game <ExternalLink className="w-4 h-4" />
-        </a>
-      </div>
-    );
-  }
-
-  if (!launchPlan.embedded) {
-    return (
-      <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-8 text-center space-y-2">
-        <ShieldAlert className="w-8 h-8 text-amber-400 mx-auto" />
-        <h3 className="text-lg font-bold font-pixel text-white">Browser Player Unavailable</h3>
-        <p className="text-xs text-slate-400">Download the native desktop build below to play.</p>
+      <div className="dark:bg-slate-900/60 bg-white border dark:border-slate-800 border-slate-200 rounded-xl p-8 text-center space-y-2 shadow-sm">
+        <ShieldAlert className="w-8 h-8 text-amber-500 mx-auto" />
+        <h3 className="text-lg font-bold font-pixel dark:text-white text-slate-900">Browser Player Unavailable</h3>
+        <p className="text-xs dark:text-slate-400 text-slate-600">Download the native desktop build below to play.</p>
       </div>
     );
   }
 
   return (
-    <div ref={containerRef} className="relative bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow-2xl group">
+    <div ref={containerRef} className="relative dark:bg-slate-950 bg-slate-900 border dark:border-slate-800 border-slate-700 rounded-xl overflow-hidden shadow-2xl group">
       {/* Controls Top Overlay Bar */}
       <div className="flex items-center justify-between px-4 py-2 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
         <div className="flex items-center gap-2">
@@ -131,7 +111,7 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
               alt={game.title}
               className="absolute inset-0 w-full h-full object-cover opacity-40 blur-xs"
             />
-            <div className="relative z-10 text-center space-y-3">
+            <div className="relative z-10 text-center space-y-3 p-4">
               <button
                 onClick={handleStartGame}
                 className="w-16 h-16 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center shadow-2xl transition transform hover:scale-105 mx-auto"
@@ -139,7 +119,7 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
                 <Play className="w-8 h-8 fill-slate-950 ml-1" />
               </button>
               <h3 className="font-pixel text-xl text-white">Click to Play {game.title}</h3>
-              <p className="text-xs font-mono text-emerald-400">Instant HTML5 / WebGL Session</p>
+              <p className="text-xs font-mono text-emerald-400">Instant Embedded Game Session (Same Page)</p>
             </div>
           </div>
         ) : (
@@ -161,6 +141,7 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
             )}
             <iframe
               allowFullScreen
+              allow="autoplay; fullscreen; focus; gamepad"
               className="w-full h-full border-none"
               src={launchPlan.url}
               title={`${game.title} player`}

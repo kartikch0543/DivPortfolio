@@ -10,11 +10,11 @@ export function getLaunchPlan(game: Game, browserBuild?: BrowserBuild): LaunchPl
     return {
       runtime: browserBuild.runtime,
       url: browserBuild.url,
-      embedded: browserBuild.runtime !== "external",
+      embedded: true,
     };
   if (game.launch.webgl)
     return { runtime: "unity-webgl", url: game.launch.webgl, embedded: true };
   if (game.launch.browser)
-    return { runtime: "external", url: game.launch.browser, embedded: false };
+    return { runtime: "html5", url: game.launch.browser, embedded: true };
   return { runtime: "unavailable", url: null, embedded: false };
 }

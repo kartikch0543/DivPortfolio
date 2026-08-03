@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { JsonLd } from "@/components/seo/json-ld";
-import { siteConfig } from "@/lib/config/site";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({
   subsets: ["latin"],
