@@ -2,10 +2,10 @@ import type { AuthUser, AuthSession, AuthProvider, UserRole } from "@/types/auth
 
 const DEFAULT_ADMIN_USER: AuthUser = {
   id: "usr-admin-1",
-  email: "kartik@kdarcade.com",
-  name: "Kartik Choudhary",
+  email: "divyanshu@kdarcade.com",
+  name: "Divyanshu Kumar",
   username: "kdivyanshu",
-  avatarUrl: "https://api.dicebear.com/7.x/bottts/svg?seed=Kartik",
+  avatarUrl: "https://api.dicebear.com/7.x/bottts/svg?seed=Divyanshu",
   bio: "Indie Game Developer & Creator of KD Arcade. Building browser, mobile, and desktop experiences.",
   role: "Admin",
   socials: {
@@ -62,7 +62,7 @@ export class AuthService {
     const user: AuthUser = {
       ...DEFAULT_ADMIN_USER,
       email,
-      role: email.includes("admin") || email.includes("kartik") ? "Admin" : "Player",
+      role: email.includes("admin") || email.includes("divyanshu") ? "Admin" : "Player",
     };
     currentSession = {
       user,

@@ -96,7 +96,7 @@ export function GameForm({ initialGame }: GameFormProps) {
         ],
         knownIssues: initialGame?.knownIssues || [],
         roadmap: initialGame?.roadmap || [],
-        credits: initialGame?.credits || [{ role: "Design & development", name: "Kartik Choudhary" }],
+        credits: initialGame?.credits || [{ role: "Design & development", name: "Divyanshu Kumar" }],
       };
 
       await CmsService.saveGame(fullGameData);

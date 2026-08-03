@@ -1,5 +1,5 @@
 export const developer = {
-  name: "Kartik Choudhary",
+  name: "Divyanshu Kumar",
   role: "Independent game developer",
   story: "I make small, expressive games where playfulness and technical craft meet.",
   philosophy: "Build worlds that invite curiosity before they explain themselves.",

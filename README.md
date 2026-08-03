@@ -7,7 +7,7 @@
 
 ## Overview
 
-**KD Arcade** is a high-performance, scalable indie game publishing platform created by Kartik Choudhary. Designed with Clean Architecture and strict TypeScript, KD Arcade connects players with HTML5/WebGL browser games, native multi-platform desktop/mobile downloads, developer devlogs, community reviews, and developer CMS tools.
+**KD Arcade** is a high-performance, scalable indie game publishing platform created by Divyanshu Kumar. Designed with Clean Architecture and strict TypeScript, KD Arcade connects players with HTML5/WebGL browser games, native multi-platform desktop/mobile downloads, developer devlogs, community reviews, and developer CMS tools.
 
 ---
 
@@ -62,7 +62,7 @@
 ### Installation
 
 ```bash
-git clone https.github.com/kartikch0543/DivPortfolio.git
+git clone https://github.com/kdivyanshu/DivPortfolio.git
 cd DivPortfolio
 npm install
 ```
@@ -132,4 +132,4 @@ This repository is optimized for direct, automated deployment on **Vercel**:
 
 ## License
 
-Created by Kartik Choudhary. Distributed under the MIT License.
+Created by Divyanshu Kumar. Distributed under the MIT License.

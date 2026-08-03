@@ -77,7 +77,7 @@ export default function RootLayout({
                   url: siteConfig.url,
                   sameAs: [siteConfig.itchUrl],
                 },
-                { "@type": "Person", name: "Kartik Choudhary", url: siteConfig.url },
+                { "@type": "Person", name: "Divyanshu Kumar", url: siteConfig.url },
               ],
             }}
           />

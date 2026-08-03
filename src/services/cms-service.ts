@@ -48,7 +48,7 @@ void ApplyJumpForce() {
 
 Stay tuned for our upcoming netcode update!`,
     gameSlug: "tiny-together",
-    author: "Kartik Choudhary",
+    author: "Divyanshu Kumar",
     publishedAt: "2025-01-20",
     updatedAt: "2025-01-20",
     status: "published",
@@ -70,7 +70,7 @@ When designing arcade games, comedy often comes from subverting player expectati
 2. Instant restart button reduces friction.
 3. Sound design amplifies comic timing.`,
     gameSlug: "ulta-he-krega",
-    author: "Kartik Choudhary",
+    author: "Divyanshu Kumar",
     publishedAt: "2025-04-15",
     updatedAt: "2025-04-15",
     status: "published",
@@ -158,9 +158,9 @@ let siteSettingsStore: SiteSettings = {
   studioName: "KD Arcade",
   tagline: "Premium Indie Game Studio & Publishing Platform",
   description:
-    "Created by Kartik Choudhary. Discover, play browser games, track devlogs, and follow future releases.",
+    "Created by Divyanshu Kumar. Discover, play browser games, track devlogs, and follow future releases.",
   canonicalUrl: "https://kdarcade.com",
-  contactEmail: "kartik@kdarcade.com",
+  contactEmail: "divyanshu@kdarcade.com",
   maintenanceMode: false,
   featuredGameSlug: "tiny-together",
   socials: {
@@ -172,11 +172,11 @@ let siteSettingsStore: SiteSettings = {
 };
 
 let profileSettingsStore: ProfileSettings = {
-  name: "Kartik Choudhary",
+  name: "Divyanshu Kumar",
   username: "kdivyanshu",
   bio: "Indie Game Developer & Creator of KD Arcade. Building playful browser, mobile, and desktop experiences.",
-  avatarUrl: "https://api.dicebear.com/7.x/bottts/svg?seed=Kartik",
-  email: "kartik@kdarcade.com",
+  avatarUrl: "https://api.dicebear.com/7.x/bottts/svg?seed=Divyanshu",
+  email: "divyanshu@kdarcade.com",
   role: "Admin",
   website: "https://kdarcade.com",
   socials: {
@@ -235,7 +235,7 @@ export class CmsService {
       summary: devlog.summary || devlog.content.slice(0, 120),
       content: devlog.content,
       gameSlug: devlog.gameSlug,
-      author: devlog.author || "Kartik Choudhary",
+      author: devlog.author || "Divyanshu Kumar",
       publishedAt: devlog.publishedAt || new Date().toISOString().split("T")[0],
       updatedAt: new Date().toISOString().split("T")[0],
       status: devlog.status || "draft",

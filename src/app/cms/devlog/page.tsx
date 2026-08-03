@@ -65,7 +65,7 @@ export default function DevlogManagerCmsPage() {
       title: "Untitled Devlog Entry",
       summary: "Write a short summary...",
       content: "# New Devlog\n\nWrite your MDX or Markdown content here...",
-      author: "Kartik Choudhary",
+      author: "Divyanshu Kumar",
       publishedAt: new Date().toISOString().split("T")[0],
       updatedAt: new Date().toISOString().split("T")[0],
       status: "draft",

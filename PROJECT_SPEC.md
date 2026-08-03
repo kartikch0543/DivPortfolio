@@ -2,7 +2,7 @@
 
 ## Vision
 
-KD Arcade is a premium indie game platform created by Kartik Choudhary.
+KD Arcade is a premium indie game platform created by Divyanshu Kumar.
 
 This is NOT a portfolio website.
 

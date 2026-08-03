@@ -47,7 +47,7 @@ export const games: Game[] = [
       "Evaluate a self-hosted WebGL build.",
       "Explore additional accessibility options.",
     ],
-    credits: [{ role: "Design & development", name: "Kartik Choudhary" }],
+    credits: [{ role: "Design & development", name: "Divyanshu Kumar" }],
   },
   {
     slug: "ulta-he-krega",
@@ -97,7 +97,7 @@ export const games: Game[] = [
       "Add a self-hosted browser build when available.",
       "Consider Android distribution.",
     ],
-    credits: [{ role: "Design & development", name: "Kartik Choudhary" }],
+    credits: [{ role: "Design & development", name: "Divyanshu Kumar" }],
   },
 ];
 

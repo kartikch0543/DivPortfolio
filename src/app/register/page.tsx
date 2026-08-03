@@ -63,7 +63,7 @@ export default function RegisterPage() {
                 {...register("name")}
                 type="text"
                 className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:border-emerald-500 focus:outline-none"
-                placeholder="Kartik Choudhary"
+                placeholder="Divyanshu Kumar"
               />
               {errors.name && <p className="text-xs text-rose-400 mt-1">{String(errors.name.message)}</p>}
             </div>

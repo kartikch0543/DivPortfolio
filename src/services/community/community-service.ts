@@ -28,9 +28,9 @@ const commentsStore: Comment[] = [
         gameSlug: "tiny-together",
         author: {
           id: "usr-admin-1",
-          name: "Kartik Choudhary",
+          name: "Divyanshu Kumar",
           username: "kdivyanshu",
-          avatarUrl: "https://api.dicebear.com/7.x/bottts/svg?seed=Kartik",
+          avatarUrl: "https://api.dicebear.com/7.x/bottts/svg?seed=Divyanshu",
           role: "Admin",
         },
         content: "Thanks Alex! Glad you enjoyed the shared momentum physics in level 2!",
@@ -122,8 +122,8 @@ const activityStore: ActivityFeedItem[] = [
   {
     id: "act-1",
     userId: "usr-admin-1",
-    userName: "Kartik Choudhary",
-    userAvatar: "https://api.dicebear.com/7.x/bottts/svg?seed=Kartik",
+    userName: "Divyanshu Kumar",
+    userAvatar: "https://api.dicebear.com/7.x/bottts/svg?seed=Divyanshu",
     type: "review",
     title: "Reviewed Tiny Together",
     subtitle: "Rated 5 stars - Pure cooperative magic!",
