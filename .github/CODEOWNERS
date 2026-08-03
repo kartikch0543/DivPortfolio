@@ -1,1 +1,7 @@
-* @kdivyanshu
+# Global Code Ownership Rules
+* @kartikch0543
+
+# Core Application & Features
+/src/ @kartikch0543
+/docs/ @kartikch0543
+/.github/ @kartikch0543
