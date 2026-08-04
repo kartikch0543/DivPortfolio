@@ -33,11 +33,6 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/devlog" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  Devlog & Updates
-                </Link>
-              </li>
-              <li>
                 <Link href="/about" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
                   About the Studio
                 </Link>
