@@ -3,14 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { games } from "@/data/games";
-import { Gamepad2, Sparkles, ExternalLink, Play, Cpu, Layers, Maximize2 } from "lucide-react";
+import { Gamepad2, Sparkles, Play, Cpu, Layers } from "lucide-react";
 
 export function InteractiveArcadeConsole() {
   const [activeSlug, setActiveSlug] = useState(games[0]?.slug || "tiny-together");
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const activeGame = games.find((g) => g.slug === activeSlug) || games[0];
-  const itchUrl = activeGame.launch.browser || `https://kdivyanshu.itch.io/${activeSlug}`;
 
   return (
     <div className="bg-indigo-950 dark:bg-slate-950 border-4 border-amber-400 rounded-3xl p-6 sm:p-8 space-y-6 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] text-white relative overflow-hidden">
@@ -35,10 +33,7 @@ export function InteractiveArcadeConsole() {
           {games.map((g) => (
             <button
               key={g.slug}
-              onClick={() => {
-                setActiveSlug(g.slug);
-                setIsPlaying(false);
-              }}
+              onClick={() => setActiveSlug(g.slug)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all border-2 ${
                 activeSlug === g.slug
                   ? "bg-amber-400 text-indigo-950 border-white shadow-xs scale-105"
@@ -54,7 +49,7 @@ export function InteractiveArcadeConsole() {
       {/* Screen & Game Controls Area */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Game Boy Screen Frame */}
-        <div className="lg:col-span-2 bg-slate-900 border-4 border-slate-700 rounded-2xl overflow-hidden shadow-inner flex flex-col relative min-h-[340px]">
+        <div className="lg:col-span-2 bg-slate-900 border-4 border-slate-700 rounded-2xl overflow-hidden shadow-inner flex flex-col relative min-h-[300px]">
           {/* Retro Screen Header */}
           <div className="bg-slate-950 px-4 py-2 border-b-2 border-slate-800 flex items-center justify-between font-mono text-xs text-slate-400">
             <span className="text-amber-400 font-bold flex items-center gap-1.5">
@@ -63,61 +58,26 @@ export function InteractiveArcadeConsole() {
             <span className="text-[10px]">FPS: 60 • ENGINE: {activeGame.engine.toUpperCase()}</span>
           </div>
 
-          {/* Screen Content / Embedded Player */}
+          {/* Screen Content / Embedded Player Launcher */}
           <div className="flex-1 bg-slate-950 relative flex items-center justify-center p-6 text-center">
-            {isPlaying ? (
-              <div className="w-full h-full min-h-[320px] flex flex-col items-center justify-center space-y-4 p-4">
-                <iframe
-                  src={itchUrl}
-                  className="w-full h-[280px] rounded-lg border-2 border-slate-700 bg-black"
-                  title={activeGame.title}
-                  allow="autoplay; fullscreen"
-                />
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href={itchUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-5 py-2 bg-amber-400 hover:bg-amber-300 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 flex items-center gap-1.5 shadow-xs"
-                  >
-                    PLAY ON ITCH.IO <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                  <button
-                    onClick={() => setIsPlaying(false)}
-                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs rounded-full border border-slate-600"
-                  >
-                    Close Demo
-                  </button>
-                </div>
+            <div className="space-y-4 max-w-md py-6">
+              <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-amber-400 to-emerald-400 text-indigo-950 grid place-items-center mx-auto shadow-md">
+                <Play className="w-8 h-8 fill-indigo-950 translate-x-0.5" />
               </div>
-            ) : (
-              <div className="space-y-4 max-w-md py-6">
-                <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-amber-400 to-emerald-400 text-indigo-950 grid place-items-center mx-auto shadow-md">
-                  <Play className="w-8 h-8 fill-indigo-950 translate-x-0.5" />
-                </div>
-                <div>
-                  <h4 className="font-pixel text-xl text-white font-bold">{activeGame.title}</h4>
-                  <p className="text-xs text-slate-300 font-sans mt-1 leading-relaxed">{activeGame.description}</p>
-                </div>
+              <div>
+                <h4 className="font-pixel text-xl text-white font-bold">{activeGame.title}</h4>
+                <p className="text-xs text-slate-300 font-sans mt-1 leading-relaxed">{activeGame.description}</p>
+              </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                  <a
-                    href={itchUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-6 py-2.5 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] transition-all hover:scale-105 flex items-center gap-1.5"
-                  >
-                    <Play className="w-4 h-4 fill-indigo-950" /> PLAY ON ITCH.IO <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                  <button
-                    onClick={() => setIsPlaying(true)}
-                    className="px-4 py-2.5 bg-indigo-800 hover:bg-indigo-700 text-white font-pixel font-bold text-xs rounded-full border-2 border-indigo-600 transition-all hover:scale-105 flex items-center gap-1.5"
-                  >
-                    <Maximize2 className="w-3.5 h-3.5" /> PREVIEW DEMO
-                  </button>
-                </div>
+              <div className="flex items-center justify-center gap-3 pt-2">
+                <Link
+                  href={`/games/${activeGame.slug}`}
+                  className="px-8 py-3 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-xs sm:text-sm rounded-full border-2 border-indigo-950 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] transition-all hover:scale-105 flex items-center gap-2"
+                >
+                  <Play className="w-4 h-4 fill-indigo-950" /> LAUNCH GAME PLAYER
+                </Link>
               </div>
-            )}
+            </div>
           </div>
         </div>
 

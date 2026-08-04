@@ -5,7 +5,7 @@ import { GameCard } from "@/features/games/components/game-card";
 import { InteractiveArcadeConsole } from "@/components/home/interactive-arcade-console";
 import { statistics, technologies } from "@/data/site-content";
 import { featuredGames } from "@/data/games";
-import { Gamepad2, Sparkles, ShieldCheck, Trophy, Star, Sparkle, Terminal, Layers, Code, Zap, ExternalLink } from "lucide-react";
+import { Gamepad2, Sparkles, ShieldCheck, Trophy, Star, Sparkle, Terminal, Layers, Code, Zap } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -46,24 +46,20 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Navigates directly in same tab */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://kdivyanshu.itch.io/tiny-together"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/games/tiny-together"
                 className="inline-flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-base px-6 py-3 rounded-full border-3 border-indigo-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:scale-105"
               >
-                <Gamepad2 className="w-5 h-5" /> TINY TOGETHER ON ITCH.IO <ExternalLink className="w-4 h-4" />
-              </a>
-              <a
-                href="https://kdivyanshu.itch.io/ulta-he-krega"
-                target="_blank"
-                rel="noreferrer"
+                <Gamepad2 className="w-5 h-5" /> PLAY TINY TOGETHER
+              </Link>
+              <Link
+                href="/games/ulta-he-krega"
                 className="inline-flex items-center justify-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-indigo-950 font-pixel font-bold text-base px-6 py-3 rounded-full border-3 border-indigo-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:scale-105"
               >
-                <Zap className="w-5 h-5 text-indigo-950" /> ULTA HE KREGA ON ITCH.IO <ExternalLink className="w-4 h-4" />
-              </a>
+                <Zap className="w-5 h-5 text-indigo-950" /> PLAY ULTA HE KREGA
+              </Link>
             </div>
           </div>
         </Container>
