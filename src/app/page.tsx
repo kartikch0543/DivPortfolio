@@ -2,9 +2,10 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { GameCard } from "@/features/games/components/game-card";
+import { InteractiveArcadeConsole } from "@/components/home/interactive-arcade-console";
 import { statistics, technologies } from "@/data/site-content";
 import { featuredGames } from "@/data/games";
-import { Gamepad2, Sparkles, ShieldCheck, Users, Trophy, Star, Sparkle, Terminal, Layers, Code, Zap } from "lucide-react";
+import { Gamepad2, Sparkles, ShieldCheck, Trophy, Star, Sparkle, Terminal, Layers, Code, Zap, ExternalLink } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -47,84 +48,39 @@ export default function HomePage() {
 
             {/* CTA Buttons */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/games"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-lg px-8 py-3.5 rounded-full border-3 border-indigo-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:scale-105"
+              <a
+                href="https://kdivyanshu.itch.io/tiny-together"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-base px-6 py-3 rounded-full border-3 border-indigo-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:scale-105"
               >
-                <Gamepad2 className="w-5 h-5" /> PLAY MY GAMES
-              </Link>
-              <Link
-                href="/community"
-                className="inline-flex items-center gap-2 bg-white text-indigo-950 font-pixel font-bold text-sm px-6 py-3.5 rounded-full border-2 border-indigo-950 shadow-[3px_3px_0px_0px_rgba(15,23,42,0.3)] transition-all hover:scale-105"
+                <Gamepad2 className="w-5 h-5" /> TINY TOGETHER ON ITCH.IO <ExternalLink className="w-4 h-4" />
+              </a>
+              <a
+                href="https://kdivyanshu.itch.io/ulta-he-krega"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-indigo-950 font-pixel font-bold text-base px-6 py-3 rounded-full border-3 border-indigo-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:scale-105"
               >
-                <Users className="w-4 h-4 text-purple-600" /> Community Reviews
-              </Link>
+                <Zap className="w-5 h-5 text-indigo-950" /> ULTA HE KREGA ON ITCH.IO <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </Container>
       </div>
 
       <Container className="space-y-12 py-12">
-        {/* Game Featured Showcase: Tiny Together & Split You (Inspired by Pinterest Game Scene UI) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Tiny Together World Card */}
-          <div className="bg-white dark:bg-slate-900 border-3 border-emerald-600 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(30,27,75,1)] dark:shadow-[4px_4px_0px_0px_rgba(34,197,94,0.4)] flex flex-col">
-            <div className="bg-emerald-600 px-4 py-2 text-white flex items-center justify-between font-mono font-bold text-xs">
-              <span className="font-pixel text-sm flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-amber-300 fill-amber-300" /> STAGE 1: TINY TOGETHER
-              </span>
-              <span className="bg-amber-400 text-indigo-950 px-2 py-0.5 rounded text-[10px] uppercase font-bold">CO-OP PUZZLE</span>
-            </div>
-            <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-              <div className="space-y-2">
-                <h3 className="font-pixel text-xl text-indigo-950 dark:text-white font-bold">
-                  Mom & Son Co-Op Platformer
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans font-medium">
-                  A heartwarming co-op puzzle platformer built with responsive custom physics, synchronized lever puzzles, and joint character momentum.
-                </p>
-              </div>
-              <div className="flex items-center justify-between pt-2 border-t-2 border-slate-200 dark:border-slate-800">
-                <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">Engine: Unity / WebGL</span>
-                <Link
-                  href="/games/tiny-together"
-                  className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 shadow-xs"
-                >
-                  PLAY NOW →
-                </Link>
-              </div>
-            </div>
+        {/* Interactive Handheld Console Section */}
+        <Section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="font-pixel text-xl sm:text-2xl font-bold text-indigo-950 dark:text-white flex items-center gap-2">
+              <Gamepad2 className="w-6 h-6 text-amber-500" /> INTERACTIVE PORTFOLIO DEMO CONSOLE
+            </h2>
+            <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">LIVE STAGE SELECT</span>
           </div>
 
-          {/* Split You World Card */}
-          <div className="bg-white dark:bg-slate-900 border-3 border-purple-600 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(30,27,75,1)] dark:shadow-[4px_4px_0px_0px_rgba(168,85,247,0.4)] flex flex-col">
-            <div className="bg-purple-700 px-4 py-2 text-white flex items-center justify-between font-mono font-bold text-xs">
-              <span className="font-pixel text-sm flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-cyan-300 fill-cyan-300" /> STAGE 2: ULTA HE KREGA
-              </span>
-              <span className="bg-cyan-400 text-indigo-950 px-2 py-0.5 rounded text-[10px] uppercase font-bold">COMEDY ARCADE</span>
-            </div>
-            <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-              <div className="space-y-2">
-                <h3 className="font-pixel text-xl text-indigo-950 dark:text-white font-bold">
-                  Arcade Comedy & Emergent Loops
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans font-medium">
-                  Fast-paced arcade game with subverted controls, instant restart button, comic sound design, and instant browser WebGL execution.
-                </p>
-              </div>
-              <div className="flex items-center justify-between pt-2 border-t-2 border-slate-200 dark:border-slate-800">
-                <span className="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400">Engine: Unity / WebGL</span>
-                <Link
-                  href="/games/ulta-he-krega"
-                  className="px-4 py-2 bg-cyan-400 hover:bg-cyan-300 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 shadow-xs"
-                >
-                  PLAY NOW →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+          <InteractiveArcadeConsole />
+        </Section>
 
         {/* 16-Bit Studio Stats Grid */}
         <div className="space-y-4">
