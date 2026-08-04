@@ -16,6 +16,7 @@ import {
   Plus,
   X,
   Send,
+  Heart,
 } from "lucide-react";
 
 export default function CommunityPage() {
@@ -96,22 +97,22 @@ export default function CommunityPage() {
   const activeGame = games.find((g) => g.slug === selectedGameSlug) || games[0];
 
   return (
-    <div className="min-h-screen dark:bg-slate-950 bg-slate-50 dark:text-slate-100 text-slate-900 py-10">
+    <div className="min-h-screen py-10">
       <Container className="max-w-6xl space-y-8 px-4">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b dark:border-slate-800 border-slate-200">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b-2 border-indigo-900/10 dark:border-purple-800/30">
           <div>
-            <h1 className="text-2xl font-bold font-pixel dark:text-white text-slate-900 flex items-center gap-2">
-              <Sparkles className="w-6 h-6 text-purple-600 dark:text-purple-400" /> KD Arcade Game Hub & Reviews
+            <h1 className="text-2xl font-bold font-pixel text-indigo-950 dark:text-white flex items-center gap-2">
+              <Sparkles className="w-6 h-6 text-pink-500" /> KD Arcade Game Hub & Reviews ♡
             </h1>
-            <p className="text-xs dark:text-slate-400 text-slate-600 mt-1">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">
               Rate studio games, leave visitor feedback, see top-rated titles, and share reviews
             </p>
           </div>
 
           <button
             onClick={() => setIsReviewModalOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold text-xs shadow-md transition"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-pink-400 hover:to-indigo-400 text-white font-bold text-xs shadow-[3px_3px_0px_0px_rgba(67,56,202,0.2)] border-2 border-indigo-900/30 transition-all hover:scale-105"
           >
             <Plus className="w-4 h-4" /> Rate & Review Game
           </button>
@@ -122,15 +123,15 @@ export default function CommunityPage() {
           {/* Main Review Section */}
           <div className="lg:col-span-2 space-y-6">
             {/* Game Selector Tabs */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b dark:border-slate-800 border-slate-200">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b-2 border-indigo-900/10 dark:border-purple-800/30">
               {games.map((g) => (
                 <button
                   key={g.slug}
                   onClick={() => setSelectedGameSlug(g.slug)}
-                  className={`px-4 py-2 rounded-lg text-xs font-mono font-medium transition whitespace-nowrap ${
+                  className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all whitespace-nowrap border-2 ${
                     selectedGameSlug === g.slug
-                      ? "dark:bg-purple-950 bg-purple-100 dark:text-purple-300 text-purple-900 border dark:border-purple-700 border-purple-300"
-                      : "dark:bg-slate-900 bg-white dark:text-slate-400 text-slate-700 border dark:border-slate-800 border-slate-200 hover:text-purple-600"
+                      ? "bg-pink-100 dark:bg-purple-950 text-pink-900 dark:text-purple-300 border-pink-300 dark:border-purple-700 shadow-xs scale-105"
+                      : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-indigo-900/20 dark:border-purple-800/40 hover:text-purple-600"
                   }`}
                 >
                   🎮 {g.title}
@@ -139,25 +140,25 @@ export default function CommunityPage() {
             </div>
 
             {/* Selected Game Rating Summary Banner */}
-            <div className="dark:bg-slate-900/60 bg-white dark:border-slate-800 border-slate-200 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur shadow-sm">
+            <div className="bg-white dark:bg-slate-900 border-2 border-indigo-900/30 dark:border-purple-800/50 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[4px_4px_0px_0px_rgba(67,56,202,0.12)]">
               <div className="flex items-center gap-4">
-                <div className="text-center dark:bg-slate-950 bg-slate-50 p-4 border dark:border-slate-800 border-slate-200 rounded-xl min-w-[90px]">
+                <div className="text-center bg-indigo-50 dark:bg-slate-950 p-4 border-2 border-indigo-900/20 dark:border-purple-800/50 rounded-2xl min-w-[90px] shadow-xs">
                   <div className="text-3xl font-bold font-mono text-amber-500">{ratingSummary.average}</div>
                   <div className="flex items-center justify-center gap-0.5 mt-1 text-amber-400">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <Star key={s} className="w-3 h-3 fill-amber-400" />
                     ))}
                   </div>
-                  <div className="text-[10px] font-mono dark:text-slate-400 text-slate-600 mt-1">{ratingSummary.count} Reviews</div>
+                  <div className="text-[10px] font-mono text-purple-700 dark:text-slate-400 font-bold mt-1">{ratingSummary.count} Reviews</div>
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold font-pixel dark:text-white text-slate-900">{activeGame.title}</h2>
-                  <p className="text-xs dark:text-slate-400 text-slate-600 mt-1">{activeGame.description}</p>
+                  <h2 className="text-lg font-bold font-pixel text-indigo-950 dark:text-white">{activeGame.title}</h2>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">{activeGame.description}</p>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded dark:bg-slate-800 bg-slate-100 dark:text-slate-300 text-slate-700">
+                    <span className="text-[10px] font-mono px-3 py-0.5 rounded-full bg-indigo-50 dark:bg-slate-800 text-indigo-900 dark:text-slate-300 font-semibold border border-indigo-200 dark:border-slate-700">
                       {activeGame.engine} Engine
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded dark:bg-purple-950 bg-purple-100 dark:text-purple-300 text-purple-900 border dark:border-purple-800 border-purple-300">
+                    <span className="text-[10px] font-mono px-3 py-0.5 rounded-full bg-pink-50 dark:bg-purple-950 text-pink-900 dark:text-purple-300 font-semibold border border-pink-200 dark:border-purple-800">
                       {activeGame.genre.join(" · ")}
                     </span>
                   </div>
@@ -166,7 +167,7 @@ export default function CommunityPage() {
 
               <Link
                 href={`/games/${activeGame.slug}`}
-                className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition flex-shrink-0 shadow-xs"
+                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold text-xs transition-all hover:scale-105 flex-shrink-0 shadow-[3px_3px_0px_0px_rgba(34,197,94,0.3)] border-2 border-emerald-800/30"
               >
                 Play Now →
               </Link>
@@ -174,17 +175,17 @@ export default function CommunityPage() {
 
             {/* Reviews List */}
             <div className="space-y-4">
-              <h3 className="text-sm font-mono uppercase text-purple-600 dark:text-purple-400 tracking-wider flex items-center gap-2">
-                <MessageSquare className="w-4 h-4" /> Visitor Reviews ({reviews.length})
+              <h3 className="text-sm font-mono uppercase text-purple-700 dark:text-purple-300 tracking-wider font-bold flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-pink-500" /> Visitor Reviews ({reviews.length})
               </h3>
 
               {reviews.length === 0 ? (
-                <div className="p-8 text-center dark:bg-slate-900/30 bg-white border dark:border-slate-800 border-slate-200 rounded-xl space-y-3 shadow-xs">
-                  <Star className="w-8 h-8 text-amber-400/50 mx-auto" />
-                  <p className="text-xs font-mono dark:text-slate-400 text-slate-600">No visitor reviews yet for {activeGame.title}. Be the first to rate!</p>
+                <div className="p-8 text-center bg-white dark:bg-slate-900 border-2 border-indigo-900/30 dark:border-purple-800/50 rounded-2xl space-y-3 shadow-[4px_4px_0px_0px_rgba(67,56,202,0.12)]">
+                  <Star className="w-8 h-8 text-amber-400 mx-auto fill-amber-400/30" />
+                  <p className="text-xs font-mono text-slate-600 dark:text-slate-400 font-medium">No visitor reviews yet for {activeGame.title}. Be the first to rate!</p>
                   <button
                     onClick={() => setIsReviewModalOpen(true)}
-                    className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-medium"
+                    className="px-5 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full text-xs font-bold shadow-xs hover:scale-105 transition-all"
                   >
                     ⭐ Submit First Review
                   </button>
@@ -192,26 +193,26 @@ export default function CommunityPage() {
               ) : (
                 <div className="space-y-3">
                   {reviews.map((rev) => (
-                    <div key={rev.id} className="p-4 dark:bg-slate-900/70 bg-white border dark:border-slate-800 border-slate-200 rounded-lg space-y-2 shadow-xs">
-                      <div className="flex items-center justify-between">
+                    <div key={rev.id} className="p-5 bg-white dark:bg-slate-900 border-2 border-indigo-900/20 dark:border-purple-800/40 rounded-2xl space-y-2 shadow-[3px_3px_0px_0px_rgba(67,56,202,0.1)]">
+                      <div className="flex items-center justify-between border-b-2 border-indigo-900/10 dark:border-purple-800/30 pb-2">
                         <div className="flex items-center gap-2">
-                          <span className="font-semibold text-xs dark:text-white text-slate-900">{rev.headline}</span>
+                          <span className="font-semibold text-xs text-indigo-950 dark:text-white font-pixel">{rev.headline}</span>
                           <div className="flex text-amber-400">
                             {[...Array(rev.rating)].map((_, i) => (
                               <Star key={i} className="w-3 h-3 fill-amber-400" />
                             ))}
                           </div>
                         </div>
-                        <span className="text-[10px] font-mono dark:text-slate-400 text-slate-500">{rev.createdAt}</span>
+                        <span className="text-[10px] font-mono text-purple-700 dark:text-slate-400 font-semibold">{rev.createdAt}</span>
                       </div>
 
-                      <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">{rev.body}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">{rev.body}</p>
 
-                      <div className="flex items-center justify-between text-[11px] font-mono dark:text-slate-400 text-slate-600 pt-2 border-t dark:border-slate-800/80 border-slate-100">
-                        <span className="dark:text-slate-400 text-slate-700 font-medium">By @{rev.author.name}</span>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-slate-600 dark:text-slate-400 pt-2 border-t border-indigo-900/10 dark:border-slate-800">
+                        <span className="text-purple-800 dark:text-slate-300 font-bold">By @{rev.author.name}</span>
                         <button
                           onClick={() => handleLikeReview(rev.id)}
-                          className="flex items-center gap-1 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+                          className="flex items-center gap-1 hover:text-emerald-600 dark:hover:text-emerald-400 transition font-bold"
                         >
                           <ThumbsUp className="w-3.5 h-3.5" /> Helpful ({rev.helpfulCount})
                         </button>
@@ -226,16 +227,16 @@ export default function CommunityPage() {
           {/* Right Sidebar */}
           <div className="space-y-6">
             {/* Top-Rated Games */}
-            <div className="dark:bg-slate-900/40 bg-white border dark:border-slate-800 border-slate-200 rounded-xl p-6 space-y-4 shadow-xs">
-              <h2 className="font-semibold text-sm dark:text-white text-slate-900 font-pixel flex items-center gap-2">
+            <div className="bg-white dark:bg-slate-900 border-2 border-indigo-900/30 dark:border-purple-800/50 rounded-2xl p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(67,56,202,0.12)]">
+              <h2 className="font-bold text-sm text-indigo-950 dark:text-white font-pixel flex items-center gap-2 border-b-2 border-indigo-900/10 dark:border-purple-800/30 pb-2">
                 <Trophy className="w-4 h-4 text-amber-500" /> Top-Rated Games
               </h2>
               <div className="space-y-3">
                 {topGames.map((tg, idx) => (
-                  <div key={tg.gameSlug} className="flex items-center justify-between p-3 dark:bg-slate-900/70 bg-slate-50 border dark:border-slate-800 border-slate-200 rounded-lg text-xs">
+                  <div key={tg.gameSlug} className="flex items-center justify-between p-3 bg-indigo-50/60 dark:bg-slate-800/60 border border-indigo-200 dark:border-slate-700 rounded-xl text-xs font-semibold">
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-xs text-amber-500 font-bold">#{idx + 1}</span>
-                      <span className="font-semibold dark:text-slate-200 text-slate-800">{tg.title}</span>
+                      <span className="text-indigo-950 dark:text-slate-200 font-bold">{tg.title}</span>
                     </div>
                     <div className="flex items-center gap-1 text-amber-500 font-mono text-xs font-bold">
                       <Star className="w-3 h-3 fill-amber-400" /> {tg.averageRating}
@@ -246,21 +247,21 @@ export default function CommunityPage() {
             </div>
 
             {/* Recently Published Releases */}
-            <div className="dark:bg-slate-900/40 bg-white border dark:border-slate-800 border-slate-200 rounded-xl p-6 space-y-4 shadow-xs">
-              <h2 className="font-semibold text-sm dark:text-white text-slate-900 font-pixel flex items-center gap-2">
+            <div className="bg-white dark:bg-slate-900 border-2 border-indigo-900/30 dark:border-purple-800/50 rounded-2xl p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(67,56,202,0.12)]">
+              <h2 className="font-bold text-sm text-indigo-950 dark:text-white font-pixel flex items-center gap-2 border-b-2 border-indigo-900/10 dark:border-purple-800/30 pb-2">
                 <Flame className="w-4 h-4 text-rose-500" /> Recently Published Games
               </h2>
               <div className="space-y-3">
                 {games.map((g) => (
-                  <div key={g.slug} className="p-3 dark:bg-slate-900/70 bg-slate-50 border dark:border-slate-800 border-slate-200 rounded-lg space-y-1 text-xs">
-                    <div className="flex justify-between font-semibold dark:text-slate-100 text-slate-900">
+                  <div key={g.slug} className="p-3 bg-indigo-50/60 dark:bg-slate-800/60 border border-indigo-200 dark:border-slate-700 rounded-xl space-y-1 text-xs">
+                    <div className="flex justify-between font-bold text-indigo-950 dark:text-slate-100">
                       <span>{g.title}</span>
-                      <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400">{g.status}</span>
+                      <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">{g.status}</span>
                     </div>
-                    <p className="text-[11px] dark:text-slate-400 text-slate-600">{g.tagline}</p>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">{g.tagline}</p>
                     <Link
                       href={`/games/${g.slug}`}
-                      className="inline-block text-[10px] font-mono text-purple-600 dark:text-purple-400 hover:underline pt-1"
+                      className="inline-block text-[10px] font-mono text-purple-700 dark:text-purple-400 font-bold hover:underline pt-1"
                     >
                       Play Game →
                     </Link>
@@ -275,32 +276,32 @@ export default function CommunityPage() {
       {/* Write Review Dialog Modal */}
       {isReviewModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="dark:bg-slate-900 bg-white border dark:border-slate-800 border-slate-300 rounded-xl max-w-md w-full p-6 space-y-4 relative dark:text-slate-100 text-slate-900 shadow-2xl">
+          <div className="bg-white dark:bg-slate-900 border-2 border-indigo-900/40 dark:border-purple-800 rounded-2xl max-w-md w-full p-6 space-y-4 relative text-indigo-950 dark:text-slate-100 shadow-[8px_8px_0px_0px_rgba(67,56,202,0.25)]">
             <button
               onClick={() => setIsReviewModalOpen(false)}
-              className="absolute top-4 right-4 dark:text-slate-400 text-slate-500 hover:text-slate-900 dark:hover:text-white p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 dark:hover:text-white p-1 rounded.full hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               <X className="w-4 h-4" />
             </button>
 
-            <h3 className="font-semibold font-pixel text-base dark:text-white text-slate-900 flex items-center gap-2">
-              <Star className="w-4 h-4 text-amber-400 fill-amber-400" /> Rate & Review {activeGame.title}
+            <h3 className="font-bold font-pixel text-base text-indigo-950 dark:text-white flex items-center gap-2">
+              <Heart className="w-4 h-4 text-pink-500 fill-pink-500" /> Rate & Review {activeGame.title}
             </h3>
 
             <form onSubmit={handleReviewSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1">Your Name / Handle</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Your Name / Handle</label>
                 <input
                   type="text"
                   value={visitorName}
                   onChange={(e) => setVisitorName(e.target.value)}
                   placeholder="e.g. IndieGamer"
-                  className="w-full px-3 py-2 dark:bg-slate-950 bg-white border dark:border-slate-800 border-slate-300 rounded-lg text-xs dark:text-white text-slate-900 focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 bg-indigo-50/50 dark:bg-slate-950 border-2 border-indigo-900/20 dark:border-purple-800/50 rounded-xl text-xs text-indigo-950 dark:text-white focus:border-purple-500 focus:outline-none font-medium"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1">Rating (1 to 5 Stars)</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Rating (1 to 5 Stars)</label>
                 <div className="flex gap-2 text-amber-400">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
@@ -316,26 +317,26 @@ export default function CommunityPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1">Headline</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Headline</label>
                 <input
                   type="text"
                   required
                   value={headline}
                   onChange={(e) => setHeadline(e.target.value)}
                   placeholder="Summarize your gameplay experience..."
-                  className="w-full px-3 py-2 dark:bg-slate-950 bg-white border dark:border-slate-800 border-slate-300 rounded-lg text-xs dark:text-white text-slate-900 focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 bg-indigo-50/50 dark:bg-slate-950 border-2 border-indigo-900/20 dark:border-purple-800/50 rounded-xl text-xs text-indigo-950 dark:text-white focus:border-purple-500 focus:outline-none font-medium"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium dark:text-slate-300 text-slate-700 mb-1">Feedback / Review Details</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Feedback / Review Details</label>
                 <textarea
                   rows={4}
                   required
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
                   placeholder="What did you think of physics, puzzle mechanics, audio, or game feel?"
-                  className="w-full px-3 py-2 dark:bg-slate-950 bg-white border dark:border-slate-800 border-slate-300 rounded-lg text-xs dark:text-white text-slate-900 focus:border-purple-500 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 bg-indigo-50/50 dark:bg-slate-950 border-2 border-indigo-900/20 dark:border-purple-800/50 rounded-xl text-xs text-indigo-950 dark:text-white focus:border-purple-500 focus:outline-none font-medium"
                 />
               </div>
 
@@ -343,14 +344,14 @@ export default function CommunityPage() {
                 <button
                   type="button"
                   onClick={() => setIsReviewModalOpen(false)}
-                  className="px-4 py-2 dark:bg-slate-800 bg-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-xs font-medium dark:text-slate-300 text-slate-700"
+                  className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-lg text-xs font-semibold transition flex items-center gap-1.5 shadow-xs"
+                  className="px-5 py-2.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full text-xs font-bold transition-all hover:scale-105 flex items-center gap-1.5 shadow-xs border border-indigo-900/30"
                 >
                   <Send className="w-3.5 h-3.5" /> {submitting ? "Publishing..." : "Submit Review"}
                 </button>

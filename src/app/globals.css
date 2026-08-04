@@ -3,64 +3,60 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Light Theme Color Tokens (WCAG AA High Contrast) */
-  --background: #f8fafc;
-  --foreground: #0f172a; /* Slate 900 for ultra crisp text */
-  --surface: #ffffff;
-  --surface-elevated: #f1f5f9;
-  --muted: #f1f5f9;
-  --muted-foreground: #334155; /* Slate 700 for high-contrast secondary text */
-  --border: #cbd5e1; /* Slate 300 */
-  
-  --primary: #7c3aed; /* Deep Pixel Purple */
+  /* Cute Soft Matte Pixel Palette (Inspired by Pixel Concept) */
+  --background: #f0f7ff; /* Soft Matte Sky Pastel */
+  --foreground: #1e1b4b; /* Deep Retro Indigo */
+  --surface: #ffffff; /* Matte White Card Surface */
+  --surface-elevated: #f5f3ff; /* Soft Lavender Surface */
+  --muted: #e0e7ff; /* Soft Pastel Blue Muted Surface */
+  --muted-foreground: #4338ca; /* Indigo Secondary Text */
+  --border: #c7d2fe; /* Soft Pastel Border */
+
+  --primary: #9333ea; /* Cute Bright Purple */
   --primary-foreground: #ffffff;
-  --secondary: #db2777; /* Deep Pixel Pink */
+  --secondary: #ec4899; /* Cute Bubblegum Pink */
   --secondary-foreground: #ffffff;
-  --accent: #0284c7; /* Sky 600 Blue */
-  --accent-foreground: #ffffff;
-  --ring: #7c3aed;
-  
-  --success: #059669; /* Emerald 600 */
-  --warning: #d97706; /* Amber 600 */
-  --danger: #dc2626; /* Red 600 */
+  --accent: #38bdf8; /* Soft Pastel Sky Blue */
+  --accent-foreground: #1e1b4b;
+  --ring: #a855f7;
 
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  --success: #22c55e; /* Cute Pastel Mint Green */
+  --warning: #f59e0b;
+  --danger: #ef4444;
 
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-pixel: 0 4px 0 0 #cbd5e1;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+
+  --shadow-cute: 4px 4px 0px 0px rgba(67, 56, 202, 0.12);
+  --shadow-cute-hover: 6px 6px 0px 0px rgba(67, 56, 202, 0.2);
 }
 
 .dark {
-  /* Dark Theme Color Tokens (Split You Inspired Deep Arcade) */
-  --background: #090d16;
-  --foreground: #f8fafc;
-  --surface: #111827;
-  --surface-elevated: #1f2937;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --border: #334155;
+  /* Cozy Dark Arcade Pastel Theme */
+  --background: #0f0d18;
+  --foreground: #f5f3ff;
+  --surface: #181524;
+  --surface-elevated: #231f33;
+  --muted: #2a253d;
+  --muted-foreground: #c4b5fd;
+  --border: #3b3354;
 
-  --primary: #a855f7; /* Bright Pixel Purple */
-  --primary-foreground: #ffffff;
-  --secondary: #f472b6; /* Soft Pixel Pink */
-  --secondary-foreground: #090d16;
-  --accent: #38bdf8; /* Sky Blue */
-  --accent-foreground: #090d16;
+  --primary: #c084fc;
+  --primary-foreground: #0f0d18;
+  --secondary: #f472b6;
+  --secondary-foreground: #0f0d18;
+  --accent: #38bdf8;
+  --accent-foreground: #0f0d18;
   --ring: #c084fc;
 
-  --success: #34d399; /* Vibrant Pixel Green */
+  --success: #4ade80;
   --warning: #fbbf24;
   --danger: #f87171;
 
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.4);
-  --shadow-lg: 0 12px 24px -4px rgb(0 0 0 / 0.5);
-  --shadow-pixel: 0 4px 0 0 #1e293b;
+  --shadow-cute: 4px 4px 0px 0px rgba(192, 132, 252, 0.18);
+  --shadow-cute-hover: 6px 6px 0px 0px rgba(192, 132, 252, 0.28);
 }
 
 @theme inline {
@@ -108,66 +104,64 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle Retro Grid Background Pattern for both Dark and Light modes */
+/* Cute Soft Floating Clouds Pattern Background */
 body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   content: "";
-  opacity: 0.15;
+  opacity: 0.35;
   background-image: 
-    linear-gradient(to right, rgb(100 116 139 / 10%) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(100 116 139 / 10%) 1px, transparent 1px);
-  background-size: 24px 24px;
+    radial-gradient(circle at 20% 20%, rgb(244 114 182 / 0.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgb(56 189 248 / 0.15), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgb(192 132 252 / 0.15), transparent 50%);
 }
 
-/* Pixel Glow Effects */
-.pixel-glow-purple {
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgb(168 85 247 / 0.18),
-    transparent 70%
-  );
+/* Cute Box Styling with Soft Borders & Solid Retro Shadows */
+.cute-card {
+  border-width: 2px;
+  border-radius: 1.25rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pixel-glow-pink {
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgb(244 114 182 / 0.15),
-    transparent 70%
-  );
+.cute-card-shadow {
+  box-shadow: var(--shadow-cute);
+}
+.cute-card-shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cute-hover);
 }
 
-/* Micro-Animations & Interactivity */
-@keyframes pixel-float {
+/* Floating Animations for Clouds & Badges */
+@keyframes cute-float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-8px) rotate(1deg);
   }
 }
 
-.animate-pixel-float {
-  animation: pixel-float 3.5s ease-in-out infinite;
+.animate-cute-float {
+  animation: cute-float 4s ease-in-out infinite;
 }
 
-.hover-lift {
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+.hover-bounce {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.hover-lift:hover {
-  transform: translateY(-2px);
+.hover-bounce:hover {
+  transform: scale(1.03);
 }
 
 body::selection {
-  background: var(--primary);
-  color: var(--primary-foreground);
+  background: var(--secondary);
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {

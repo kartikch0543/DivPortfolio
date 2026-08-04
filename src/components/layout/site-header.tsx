@@ -16,16 +16,16 @@ export function SiteHeader() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <header className="border-border/80 bg-background/90 sticky top-0 z-50 border-b backdrop-blur-xl">
+    <header className="border-b-2 border-indigo-900/20 dark:border-purple-800/50 bg-background/90 sticky top-0 z-50 backdrop-blur-xl">
       <Container className="flex h-16 items-center justify-between gap-4">
         <SiteLogo />
         <nav
           aria-label="Primary navigation"
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-1.5 lg:flex"
         >
           {navigationItems.map((item) => (
             <Link
-              className="text-muted-foreground hover:bg-muted hover:text-foreground rounded-md px-3 py-2 text-sm font-medium transition-colors"
+              className="text-slate-700 dark:text-slate-300 hover:bg-purple-100 dark:hover:bg-purple-950/80 hover:text-purple-700 dark:hover:text-purple-300 rounded-full px-4 py-1.5 text-xs font-mono font-semibold transition-all hover:scale-105"
               href={item.href}
               key={item.href}
             >
@@ -39,7 +39,7 @@ export function SiteHeader() {
             aria-controls="mobile-navigation"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close navigation" : "Open navigation"}
-            className="lg:hidden"
+            className="lg:hidden rounded-full"
             onClick={() => setIsOpen((value) => !value)}
             size="icon"
             variant="ghost"
@@ -53,7 +53,7 @@ export function SiteHeader() {
           <motion.nav
             animate={{ height: "auto", opacity: 1 }}
             aria-label="Mobile navigation"
-            className="border-border bg-background overflow-hidden border-t lg:hidden"
+            className="border-b-2 border-indigo-900/20 dark:border-purple-800/50 bg-background overflow-hidden border-t lg:hidden"
             exit={{ height: 0, opacity: 0 }}
             id="mobile-navigation"
             initial={{ height: 0, opacity: 0 }}
@@ -62,7 +62,7 @@ export function SiteHeader() {
             <Container className="flex flex-col gap-1 py-3">
               {navigationItems.map((item) => (
                 <Link
-                  className="text-muted-foreground hover:bg-muted hover:text-foreground rounded-md px-3 py-3 text-sm font-medium transition-colors"
+                  className="text-slate-700 dark:text-slate-300 hover:bg-purple-100 dark:hover:bg-purple-950/80 hover:text-purple-700 dark:hover:text-purple-300 rounded-xl px-4 py-2.5 text-xs font-mono font-semibold transition-colors"
                   href={item.href}
                   key={item.href}
                   onClick={() => setIsOpen(false)}
