@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { games } from "@/data/games";
-import { Gamepad2, Sparkles, ExternalLink, Play, Cpu, Layers } from "lucide-react";
+import { Gamepad2, Sparkles, ExternalLink, Play, Cpu, Layers, Maximize2 } from "lucide-react";
 
 export function InteractiveArcadeConsole() {
   const [activeSlug, setActiveSlug] = useState(games[0]?.slug || "tiny-together");
@@ -54,25 +54,41 @@ export function InteractiveArcadeConsole() {
       {/* Screen & Game Controls Area */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Game Boy Screen Frame */}
-        <div className="lg:col-span-2 bg-slate-900 border-4 border-slate-700 rounded-2xl overflow-hidden shadow-inner flex flex-col relative min-h-[300px]">
+        <div className="lg:col-span-2 bg-slate-900 border-4 border-slate-700 rounded-2xl overflow-hidden shadow-inner flex flex-col relative min-h-[340px]">
           {/* Retro Screen Header */}
           <div className="bg-slate-950 px-4 py-2 border-b-2 border-slate-800 flex items-center justify-between font-mono text-xs text-slate-400">
             <span className="text-amber-400 font-bold flex items-center gap-1.5">
-              ● PLAYABLE STAGE: {activeGame.title.toUpperCase()}
+              ● ACTIVE STAGE: {activeGame.title.toUpperCase()}
             </span>
-            <span className="text-[10px]">FPS: 60 • ENGINE: UNITY</span>
+            <span className="text-[10px]">FPS: 60 • ENGINE: {activeGame.engine.toUpperCase()}</span>
           </div>
 
           {/* Screen Content / Embedded Player */}
           <div className="flex-1 bg-slate-950 relative flex items-center justify-center p-6 text-center">
             {isPlaying ? (
-              <div className="w-full h-full min-h-[320px]">
+              <div className="w-full h-full min-h-[320px] flex flex-col items-center justify-center space-y-4 p-4">
                 <iframe
                   src={itchUrl}
-                  className="w-full h-full min-h-[320px] rounded-lg border-0"
+                  className="w-full h-[280px] rounded-lg border-2 border-slate-700 bg-black"
                   title={activeGame.title}
                   allow="autoplay; fullscreen"
                 />
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <a
+                    href={itchUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-5 py-2 bg-amber-400 hover:bg-amber-300 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 flex items-center gap-1.5 shadow-xs"
+                  >
+                    PLAY ON ITCH.IO <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <button
+                    onClick={() => setIsPlaying(false)}
+                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs rounded-full border border-slate-600"
+                  >
+                    Close Demo
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="space-y-4 max-w-md py-6">
@@ -84,21 +100,21 @@ export function InteractiveArcadeConsole() {
                   <p className="text-xs text-slate-300 font-sans mt-1 leading-relaxed">{activeGame.description}</p>
                 </div>
 
-                <div className="flex items-center justify-center gap-3 pt-2">
-                  <button
-                    onClick={() => setIsPlaying(true)}
-                    className="px-6 py-2.5 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] transition-all hover:scale-105 flex items-center gap-1.5"
-                  >
-                    <Play className="w-4 h-4 fill-indigo-950" /> LAUNCH IN CONSOLE
-                  </button>
+                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                   <a
                     href={itchUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] transition-all hover:scale-105 flex items-center gap-1.5"
+                    className="px-6 py-2.5 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-xs rounded-full border-2 border-indigo-950 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] transition-all hover:scale-105 flex items-center gap-1.5"
                   >
-                    ITCH.IO PAGE <ExternalLink className="w-3.5 h-3.5" />
+                    <Play className="w-4 h-4 fill-indigo-950" /> PLAY ON ITCH.IO <ExternalLink className="w-3.5 h-3.5" />
                   </a>
+                  <button
+                    onClick={() => setIsPlaying(true)}
+                    className="px-4 py-2.5 bg-indigo-800 hover:bg-indigo-700 text-white font-pixel font-bold text-xs rounded-full border-2 border-indigo-600 transition-all hover:scale-105 flex items-center gap-1.5"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" /> PREVIEW DEMO
+                  </button>
                 </div>
               </div>
             )}

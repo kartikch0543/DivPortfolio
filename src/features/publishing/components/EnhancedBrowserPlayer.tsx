@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import type { Game } from "@/types/game";
 import { getLaunchPlan } from "@/features/game-platform/services/launch-manager";
 import { useGameTelemetry } from "@/hooks/use-game-telemetry";
-import { Play, Maximize2, RotateCcw, ShieldAlert, Command } from "lucide-react";
+import { Play, Maximize2, RotateCcw, ShieldAlert, Command, ExternalLink } from "lucide-react";
 
 interface EnhancedBrowserPlayerProps {
   game: Game;
@@ -19,6 +19,7 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
   const [loadingProgress, setLoadingProgress] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const itchUrl = game.launch.browser || `https://kdivyanshu.itch.io/${game.slug}`;
 
   const handleStartGame = () => {
     setIsLoading(true);
@@ -111,15 +112,26 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
               alt={game.title}
               className="absolute inset-0 w-full h-full object-cover opacity-40 blur-xs"
             />
-            <div className="relative z-10 text-center space-y-3 p-4">
-              <button
-                onClick={handleStartGame}
-                className="w-16 h-16 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center shadow-2xl transition transform hover:scale-105 mx-auto"
-              >
-                <Play className="w-8 h-8 fill-slate-950 ml-1" />
-              </button>
-              <h3 className="font-pixel text-xl text-white">Click to Play {game.title}</h3>
-              <p className="text-xs font-mono text-emerald-400">Instant Embedded Game Session (Same Page)</p>
+            <div className="relative z-10 text-center space-y-4 p-4 max-w-md mx-auto">
+              <h3 className="font-pixel text-xl sm:text-2xl text-white font-bold">{game.title}</h3>
+              <p className="text-xs font-mono text-emerald-400">Playable Browser Target Ready</p>
+
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <a
+                  href={itchUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-pixel font-bold text-xs shadow-2xl transition transform hover:scale-105 flex items-center gap-2"
+                >
+                  <Play className="w-4 h-4 fill-slate-950" /> PLAY ON ITCH.IO <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <button
+                  onClick={handleStartGame}
+                  className="px-5 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-pixel font-bold text-xs border border-slate-600 transition"
+                >
+                  Preview Player
+                </button>
+              </div>
             </div>
           </div>
         ) : (
