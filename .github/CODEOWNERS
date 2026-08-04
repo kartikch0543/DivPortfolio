@@ -1,7 +1,0 @@
-# Global Code Ownership Rules
-* @kdivyanshu
-
-# Core Application & Features
-/src/ @kdivyanshu
-/docs/ @kdivyanshu
-/.github/ @kdivyanshu
