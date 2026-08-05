@@ -12,21 +12,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { games, getGameBySlug } from "@/data/games";
 import { GameCard } from "@/features/games/components/game-card";
 
-// Milestone 5 Publishing Platform Components
+// Browser Game Player Component
 import { EnhancedBrowserPlayer } from "@/features/publishing/components/EnhancedBrowserPlayer";
-import { PublishingDownloadHub } from "@/features/publishing/components/PublishingDownloadHub";
-import { VersionHistoryTimeline } from "@/features/publishing/components/VersionHistoryTimeline";
-import { SystemRequirementsWidget } from "@/features/publishing/components/SystemRequirementsWidget";
-import { DlcGallery } from "@/features/publishing/components/DlcGallery";
-import { AchievementsWidget } from "@/features/publishing/components/AchievementsWidget";
 
-// Milestone 3 Community Components
+// Community Components
 import { CommentSection } from "@/features/community/components/CommentSection";
 import { RatingReviewSection } from "@/features/community/components/RatingReviewSection";
 import { WishlistFavoriteActions } from "@/features/community/components/WishlistFavoriteActions";
-
-// Milestone 4 Analytics Components
-import { GameTelemetryWidget } from "@/features/analytics/components/GameTelemetryWidget";
 
 export function generateStaticParams() {
   return games.map(({ slug }) => ({ slug }));
@@ -113,22 +105,16 @@ export default async function GameDetailPage({
         {/* Interactive Browser Game Player Launcher */}
         <EnhancedBrowserPlayer game={game} />
 
-        {/* Multi-Platform Downloads Hub */}
-        <PublishingDownloadHub gameSlug={game.slug} />
-
-        {/* Telemetry & Performance Widget */}
-        <GameTelemetryWidget gameSlug={game.slug} />
-
         {/* Game Details Grid */}
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-6">
-            <div className="dark:bg-slate-900/40 bg-white dark:border-slate-800 border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
-              <h2 className="text-xl font-bold font-pixel dark:text-white text-slate-900">About the game</h2>
-              <p className="dark:text-slate-300 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div className="dark:bg-slate-900/40 bg-white border-2 border-indigo-900/30 dark:border-purple-800/50 rounded-2xl p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(67,56,202,0.12)]">
+              <h2 className="text-xl font-bold font-pixel dark:text-white text-indigo-950">About the game</h2>
+              <p className="dark:text-slate-300 text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
                 {game.developmentStory}
               </p>
-              <h3 className="text-sm font-semibold font-mono text-purple-600 dark:text-purple-400">Core Features</h3>
-              <ul className="grid gap-2 text-xs dark:text-slate-300 text-slate-700">
+              <h3 className="text-sm font-semibold font-mono text-purple-700 dark:text-purple-400 font-bold">Core Features</h3>
+              <ul className="grid gap-2 text-xs dark:text-slate-300 text-slate-700 font-medium">
                 {game.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500" /> {feature}
@@ -136,18 +122,6 @@ export default async function GameDetailPage({
                 ))}
               </ul>
             </div>
-
-            {/* DLC Gallery */}
-            <DlcGallery gameSlug={game.slug} />
-
-            {/* Achievements System */}
-            <AchievementsWidget gameSlug={game.slug} />
-
-            {/* Version History & Release Notes */}
-            <VersionHistoryTimeline gameSlug={game.slug} />
-
-            {/* System Requirements */}
-            <SystemRequirementsWidget gameSlug={game.slug} />
 
             {/* Ratings & Reviews */}
             <RatingReviewSection gameSlug={game.slug} />
@@ -158,36 +132,36 @@ export default async function GameDetailPage({
 
           {/* Sidebar */}
           <aside className="space-y-6">
-            <div className="dark:bg-slate-900/60 bg-white dark:border-slate-800 border-slate-200 rounded-xl p-6 space-y-4 text-xs font-mono shadow-sm">
-              <h2 className="font-semibold text-sm dark:text-white text-slate-900 font-pixel border-b dark:border-slate-800 border-slate-200 pb-2">
+            <div className="bg-white dark:bg-slate-900 border-2 border-indigo-900/30 dark:border-purple-800/50 rounded-2xl p-6 space-y-4 text-xs font-mono shadow-[4px_4px_0px_0px_rgba(67,56,202,0.12)]">
+              <h2 className="font-bold text-sm text-indigo-950 dark:text-white font-pixel border-b-2 border-indigo-900/10 dark:border-purple-800/30 pb-2">
                 Game Specifications
               </h2>
               <dl className="space-y-3">
                 <div>
-                  <dt className="dark:text-slate-500 text-slate-600">Engine</dt>
-                  <dd className="dark:text-slate-200 text-slate-900 font-semibold">{game.engine}</dd>
+                  <dt className="text-slate-500 dark:text-slate-400">Engine</dt>
+                  <dd className="text-indigo-950 dark:text-slate-200 font-bold">{game.engine}</dd>
                 </div>
                 <div>
-                  <dt className="dark:text-slate-500 text-slate-600">Supported Platforms</dt>
-                  <dd className="dark:text-slate-200 text-slate-900">{game.platforms.join(", ")}</dd>
+                  <dt className="text-slate-500 dark:text-slate-400">Supported Platforms</dt>
+                  <dd className="text-indigo-950 dark:text-slate-200 font-medium">{game.platforms.join(", ")}</dd>
                 </div>
                 <div>
-                  <dt className="dark:text-slate-500 text-slate-600">Input Controls</dt>
-                  <dd className="dark:text-slate-200 text-slate-900">{game.controls.join(" · ")}</dd>
+                  <dt className="text-slate-500 dark:text-slate-400">Input Controls</dt>
+                  <dd className="text-indigo-950 dark:text-slate-200 font-medium">{game.controls.join(" · ")}</dd>
                 </div>
                 <div>
-                  <dt className="dark:text-slate-500 text-slate-600">Release Version</dt>
-                  <dd className="text-purple-600 dark:text-purple-400 font-semibold">v1.0.0 Stable</dd>
+                  <dt className="text-slate-500 dark:text-slate-400">Release Version</dt>
+                  <dd className="text-purple-700 dark:text-purple-400 font-bold">v1.0.0 Stable</dd>
                 </div>
               </dl>
             </div>
 
             {/* Developer Notes & Known Issues */}
-            <div className="dark:bg-slate-900/40 bg-white dark:border-slate-800 border-slate-200 rounded-xl p-6 space-y-3 text-xs shadow-sm">
-              <h3 className="font-semibold dark:text-white text-slate-900 font-pixel">Developer Notes</h3>
-              <p className="dark:text-slate-400 text-slate-700 leading-relaxed">{game.developerNotes}</p>
-              <h4 className="font-semibold text-amber-600 dark:text-amber-400 font-mono pt-2">Known Issues</h4>
-              <ul className="space-y-1 dark:text-slate-400 text-slate-700">
+            <div className="bg-white dark:bg-slate-900 border-2 border-indigo-900/30 dark:border-purple-800/50 rounded-2xl p-6 space-y-3 text-xs shadow-[4px_4px_0px_0px_rgba(67,56,202,0.12)]">
+              <h3 className="font-bold text-indigo-950 dark:text-white font-pixel">Developer Notes</h3>
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium">{game.developerNotes}</p>
+              <h4 className="font-bold text-amber-600 dark:text-amber-400 font-mono pt-2">Known Issues</h4>
+              <ul className="space-y-1 text-slate-700 dark:text-slate-300 font-medium">
                 {game.knownIssues.map((issue) => (
                   <li key={issue}>• {issue}</li>
                 ))}
@@ -197,8 +171,8 @@ export default async function GameDetailPage({
         </div>
 
         {/* Related Games Engine */}
-        <Section className="dark:border-slate-800 border-slate-200 border-t pt-8">
-          <h2 className="text-xl font-bold font-pixel dark:text-white text-slate-900">More from KD Arcade</h2>
+        <Section className="border-t-2 border-indigo-900/10 dark:border-purple-800/30 pt-8">
+          <h2 className="text-xl font-bold font-pixel text-indigo-950 dark:text-white">More from KD Arcade</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {related.map((item) => (
               <GameCard game={item} key={item.slug} />
@@ -206,7 +180,7 @@ export default async function GameDetailPage({
           </div>
           <div className="mt-6">
             <Link
-              className={`${buttonVariants({ variant: "outline" })} font-mono text-xs`}
+              className={`${buttonVariants({ variant: "outline" })} font-mono text-xs rounded-full border-2 border-indigo-950 dark:border-purple-700`}
               href="/games"
             >
               Browse All Games →
