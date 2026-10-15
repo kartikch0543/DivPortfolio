@@ -1,116 +1,187 @@
 import Link from "next/link";
-import { GithubIcon, TwitterIcon, DiscordIcon } from "@/components/ui/icons";
-import { Container } from "@/components/layout/container";
-import { SiteLogo } from "@/components/layout/site-logo";
-import { siteConfig } from "@/config/site";
-import { Heart } from "lucide-react";
+import { PlaceholderRect } from "@/components/ui/placeholder-rect";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t-2 border-indigo-900/20 dark:border-purple-800/50 dark:bg-slate-950/90 bg-indigo-50/70 dark:text-slate-400 text-slate-700 text-xs">
-      <Container className="py-8 sm:py-10">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-3">
-            <SiteLogo />
-            <p className="dark:text-slate-400 text-slate-600 max-w-xs leading-relaxed font-medium">
-              {siteConfig.description}
-            </p>
-          </div>
+    <footer className="border-t border-brand-cream/40 bg-brand-primary text-brand-cream transition-colors duration-300">
+      {/* Top Media / Ambient Banner Placeholder */}
+      <div className="relative h-28 md:h-44 overflow-hidden border-b border-brand-cream/40">
+        <PlaceholderRect
+          label="FOOTER AMBIENT BANNER"
+          sublabel="1920 × 400 · GAMEPLAY MONTAGE PLACEHOLDER"
+          aspectRatio="h-full w-full"
+          className="border-0 bg-brand-cream/5"
+        />
+      </div>
 
-          <div>
-            <p className="dark:text-white text-indigo-950 font-pixel font-bold uppercase text-xs tracking-wider mb-3">
-              Explore Platform
-            </p>
-            <ul className="space-y-2 font-medium">
-              <li>
-                <Link href="/games" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  Games Catalog
-                </Link>
-              </li>
-              <li>
-                <Link href="/community" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  Community Hub
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  About the Studio
-                </Link>
-              </li>
-            </ul>
-          </div>
+      {/* Navigation Row with Rolling Text Animations */}
+      <nav className="flex border-b border-brand-cream/40">
+        <Link
+          href="#the-developer"
+          className="group/roll flex flex-1 items-center justify-center border-r border-brand-cream/40 p-4 py-8 md:py-12 text-base md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-cream hover:text-brand-primary"
+        >
+          <span className="relative block shrink-0 overflow-hidden font-bold">
+            <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
+              about
+            </span>
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
+            >
+              about
+            </span>
+          </span>
+        </Link>
 
-          <div>
-            <p className="dark:text-white text-indigo-950 font-pixel font-bold uppercase text-xs tracking-wider mb-3">
-              Developer Controls
-            </p>
-            <ul className="space-y-2 font-medium">
-              <li>
-                <Link href="/cms" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  Developer Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link href="/cms/analytics" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  Analytics & Telemetry
-                </Link>
-              </li>
-              <li>
-                <Link href="/profile" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  Player Profile & Cloud Saves
-                </Link>
-              </li>
-              <li>
-                <Link href="/login" className="hover:text-pink-600 dark:hover:text-purple-300 transition">
-                  Sign In / Sign Up
-                </Link>
-              </li>
-            </ul>
-          </div>
+        <Link
+          href="#selected-works"
+          className="group/roll flex flex-1 items-center justify-center border-r border-brand-cream/40 p-4 py-8 md:py-12 text-base md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-cream hover:text-brand-primary"
+        >
+          <span className="relative block shrink-0 overflow-hidden font-bold">
+            <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
+              works
+            </span>
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
+            >
+              works
+            </span>
+          </span>
+        </Link>
 
-          <div>
-            <p className="dark:text-white text-indigo-950 font-pixel font-bold uppercase text-xs tracking-wider mb-3">
-              Connect With Us
-            </p>
-            <div className="flex items-center gap-3">
-              <a
-                href={siteConfig.links.github}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2.5 rounded-2xl dark:bg-slate-900 bg-white border-2 border-indigo-900/30 dark:border-slate-800 dark:text-slate-300 text-indigo-950 hover:border-pink-500 hover:text-pink-500 transition-all hover:scale-110 shadow-[2px_2px_0px_0px_rgba(67,56,202,0.15)]"
-                aria-label="GitHub Repository"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={siteConfig.links.twitter}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2.5 rounded-2xl dark:bg-slate-900 bg-white border-2 border-indigo-900/30 dark:border-slate-800 dark:text-slate-300 text-indigo-950 hover:border-sky-500 hover:text-sky-500 transition-all hover:scale-110 shadow-[2px_2px_0px_0px_rgba(67,56,202,0.15)]"
-                aria-label="Twitter Profile"
-              >
-                <TwitterIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://discord.gg/kdarcade"
-                target="_blank"
-                rel="noreferrer"
-                className="p-2.5 rounded-2xl dark:bg-slate-900 bg-white border-2 border-indigo-900/30 dark:border-slate-800 dark:text-slate-300 text-indigo-950 hover:border-purple-500 hover:text-purple-500 transition-all hover:scale-110 shadow-[2px_2px_0px_0px_rgba(67,56,202,0.15)]"
-                aria-label="Discord Server"
-              >
-                <DiscordIcon className="w-4 h-4" />
-              </a>
+        <Link
+          href="#contact"
+          className="group/roll flex flex-1 items-center justify-center p-4 py-8 md:py-12 text-base md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-cream hover:text-brand-primary"
+        >
+          <span className="relative block shrink-0 overflow-hidden font-bold">
+            <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
+              contact
+            </span>
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
+            >
+              contact
+            </span>
+          </span>
+        </Link>
+      </nav>
+
+      {/* Grid: Elsewhere & Colophon */}
+      <div className="grid grid-cols-4 md:grid-cols-12">
+        <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-cream/40">
+          <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-cream/40">
+            {/* Elsewhere Links */}
+            <div className="col-span-4 md:col-span-6 p-4 md:p-6 flex flex-col justify-between gap-6 py-8 md:min-h-[16rem] md:py-12">
+              <p className="text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                elsewhere
+              </p>
+              <ul className="flex flex-col gap-2">
+                <li>
+                  <a
+                    href="https://kdivyanshu.itch.io/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="group/roll inline-flex items-center gap-3 text-base md:text-lg leading-[1.3] tracking-[0.06em] uppercase opacity-85 transition-opacity hover:opacity-100"
+                  >
+                    <span className="relative block shrink-0 overflow-hidden font-bold">
+                      <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
+                        itch.io
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
+                      >
+                        itch.io
+                      </span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform group-hover/roll:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://github.com/kdivyanshu1012"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="group/roll inline-flex items-center gap-3 text-base md:text-lg leading-[1.3] tracking-[0.06em] uppercase opacity-85 transition-opacity hover:opacity-100"
+                  >
+                    <span className="relative block shrink-0 overflow-hidden font-bold">
+                      <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
+                        GitHub
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
+                      >
+                        GitHub
+                      </span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform group-hover/roll:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="mailto:kdivyanshu1012@gmail.com"
+                    className="group/roll inline-flex items-center gap-3 text-base md:text-lg leading-[1.3] tracking-[0.06em] uppercase opacity-85 transition-opacity hover:opacity-100"
+                  >
+                    <span className="relative block shrink-0 overflow-hidden font-bold">
+                      <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
+                        Email
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
+                      >
+                        Email
+                      </span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform group-hover/roll:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Colophon */}
+            <div className="col-span-4 md:col-span-4 p-4 md:p-6 flex flex-col justify-between gap-6 border-t md:border-t-0 md:border-l border-brand-cream/40 py-8 md:py-12">
+              <p className="text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                colophon
+              </p>
+              <div className="space-y-1.5 text-[0.65rem] tracking-[0.18em] uppercase opacity-75 font-mono">
+                <p>Designed with minimal brutalist grid aesthetics.</p>
+                <p>Unity & WebGL Game Engine Deployment.</p>
+                <p>© {new Date().getFullYear()} divyanshu. All rights reserved.</p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="border-t-2 border-indigo-900/10 dark:border-purple-800/30 text-slate-500 dark:text-slate-400 mt-8 flex flex-col sm:flex-row items-center justify-between pt-4 gap-2 font-mono text-[11px]">
-          <p className="flex items-center gap-1">
-            © {new Date().getFullYear()} KD Arcade. Made with <Heart className="w-3 h-3 fill-pink-500 text-pink-500 inline" /> by Divyanshu Kumar.
+      {/* Monumental Giant Wordmark */}
+      <div className="grid grid-cols-4 md:grid-cols-12 overflow-hidden select-none">
+        <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-cream/40 overflow-hidden">
+          <p className="-mb-[0.14em] px-2 text-center text-[24vw] leading-[0.7] font-bold tracking-[-0.13em]">
+            divyanshu.
           </p>
-          <p>Built with Next.js 15, TypeScript & Clean Architecture.</p>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

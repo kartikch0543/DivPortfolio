@@ -1,177 +1,494 @@
 import Link from "next/link";
-import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
-import { GameCard } from "@/features/games/components/game-card";
-import { InteractiveArcadeConsole } from "@/components/home/interactive-arcade-console";
-import { statistics, technologies } from "@/data/site-content";
-import { featuredGames } from "@/data/games";
-import { Gamepad2, Sparkles, ShieldCheck, Trophy, Star, Sparkle, Terminal, Layers, Code, Zap } from "lucide-react";
+import { PlaceholderRect } from "@/components/ui/placeholder-rect";
+import { SelectedWorks } from "@/components/home/selected-works";
+import { ArrowUpRight, Award, GraduationCap, Gamepad2, Code2, Sparkles, Terminal } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="relative overflow-hidden min-h-screen">
-      {/* Top Game World Banner Header (Inspired directly by Divyanshu's itch.io Banner) */}
-      <div className="relative border-b-4 border-indigo-950 dark:border-indigo-600 bg-gradient-to-b from-sky-400 via-sky-300 to-indigo-900 dark:from-indigo-950 dark:via-purple-950 dark:to-slate-950 text-white py-12 sm:py-16 overflow-hidden">
-        {/* Pixel World Grid & Mountain Backdrop */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(34,197,94,0.3),transparent_70%)] pointer-events-none" />
-
-        <Container className="relative z-10 max-w-5xl mx-auto px-4">
-          <div className="bg-indigo-950/80 dark:bg-slate-950/90 border-3 border-amber-400 rounded-3xl p-6 sm:p-10 text-center space-y-6 shadow-[8px_8px_0px_0px_rgba(15,23,42,0.8)] backdrop-blur-md">
-            {/* Top Stage Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400 text-indigo-950 text-xs font-mono font-bold border-2 border-indigo-950 shadow-xs">
-              <Trophy className="w-4 h-4 fill-indigo-950" />
-              <span>INDIE GAME STUDIO & GAMEPLAY PROGRAMMER PORTFOLIO</span>
-            </div>
-
-            {/* Character & Title Banner */}
-            <div className="space-y-3">
-              <h1 className="font-pixel text-4xl sm:text-6xl lg:text-7xl font-bold tracking-wider uppercase text-white drop-shadow-[4px_4px_0px_rgba(30,27,75,1)]">
-                DIVYANSHU KUMAR
-              </h1>
-              <p className="font-pixel text-amber-400 text-sm sm:text-lg tracking-widest uppercase flex items-center justify-center gap-2">
-                <span>—</span> 🎮 GAMEPLAY PROGRAMMER <span>—</span>
-              </p>
-            </div>
-
-            {/* Game Tech Engines Badges (Unity, Godot, C#) */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-indigo-900/90 border-2 border-indigo-400 text-white text-xs font-mono font-bold shadow-xs">
-                <Layers className="w-4 h-4 text-cyan-400" /> UNITY
+    <div className="relative text-brand-primary">
+      {/* =========================================================================
+          HERO SECTION (Exact mijobello structure)
+          ========================================================================= */}
+      <section className="flex flex-col border-b border-brand-primary/50 md:min-h-[calc(100svh-4rem)]">
+        {/* Top Split Media Grid: 8 Cols Gameplay Reel + 4 Cols Portrait */}
+        <div className="grid grid-cols-4 md:grid-cols-12 md:min-h-[42svh] md:flex-1 border-b border-brand-primary/50">
+          {/* Hero Media Card (8 cols) */}
+          <div className="relative col-span-4 md:col-span-8 aspect-[4/3] md:aspect-auto md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-brand-primary/50">
+            <PlaceholderRect
+              label="HERO SHOWCASE · GAMEPLAY REEL"
+              sublabel="1920 × 1080 · SHIPPED UNITY & GODOT TITLES · 60 FPS"
+              aspectRatio="h-full w-full"
+              className="border-0 bg-brand-primary/5"
+            >
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+                  Split You
+                </span>
+                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+                  Risky Business
+                </span>
+                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+                  Tiny Together
+                </span>
+                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+                  Ulta He Krega
+                </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-indigo-900/90 border-2 border-indigo-400 text-white text-xs font-mono font-bold shadow-xs">
-                <Zap className="w-4 h-4 text-emerald-400" /> GODOT
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-indigo-900/90 border-2 border-indigo-400 text-white text-xs font-mono font-bold shadow-xs">
-                <Code className="w-4 h-4 text-purple-400" /> C# PROGRAMMING
-              </div>
-            </div>
-
-            {/* CTA Buttons - Navigates directly in same tab */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/games/tiny-together"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold text-base px-6 py-3 rounded-full border-3 border-indigo-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:scale-105"
-              >
-                <Gamepad2 className="w-5 h-5" /> PLAY TINY TOGETHER
-              </Link>
-              <Link
-                href="/games/ulta-he-krega"
-                className="inline-flex items-center justify-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-indigo-950 font-pixel font-bold text-base px-6 py-3 rounded-full border-3 border-indigo-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:scale-105"
-              >
-                <Zap className="w-5 h-5 text-indigo-950" /> PLAY ULTA HE KREGA
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </div>
-
-      <Container className="space-y-12 py-12">
-        {/* Interactive Handheld Console Section */}
-        <Section className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="font-pixel text-xl sm:text-2xl font-bold text-indigo-950 dark:text-white flex items-center gap-2">
-              <Gamepad2 className="w-6 h-6 text-amber-500" /> INTERACTIVE PORTFOLIO DEMO CONSOLE
-            </h2>
-            <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">LIVE STAGE SELECT</span>
+            </PlaceholderRect>
           </div>
 
-          <InteractiveArcadeConsole />
-        </Section>
-
-        {/* 16-Bit Studio Stats Grid */}
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="font-pixel text-xl sm:text-2xl font-bold text-indigo-950 dark:text-white flex items-center gap-2">
-              <Terminal className="w-5 h-5 text-sky-500" /> STUDIO STATS & GAME METRICS
-            </h2>
-            <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">100% INDIE</span>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {statistics.map((statistic) => (
-              <div
-                className="bg-white dark:bg-slate-900 border-3 border-indigo-950 dark:border-indigo-500 rounded-2xl p-5 space-y-1 shadow-[4px_4px_0px_0px_rgba(30,27,75,1)] dark:shadow-[4px_4px_0px_0px_rgba(99,102,241,0.4)] hover:scale-103 transition-transform"
-                key={statistic.label}
-              >
-                <div className="flex justify-between items-center text-xs text-amber-500 font-mono">
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  <span>★</span>
-                </div>
-                <p className="font-pixel text-blue-600 dark:text-cyan-400 text-3xl font-bold">{statistic.value}</p>
-                <p className="text-slate-700 dark:text-slate-300 text-xs font-mono font-bold uppercase">{statistic.label}</p>
+          {/* Portrait / Character Card (4 cols) */}
+          <div className="relative col-span-4 md:col-span-4 aspect-[3/4] md:aspect-auto md:h-full overflow-hidden">
+            <PlaceholderRect
+              label="PORTRAIT"
+              sublabel="DIVYANSHU KUMAR · GAME DEVELOPER"
+              aspectRatio="h-full w-full"
+              className="border-0 bg-brand-primary/10"
+            >
+              <div className="mt-3 text-center">
+                <p className="text-[0.62rem] font-mono tracking-widest uppercase opacity-70">
+                  LPU CSE · PUNJAB, INDIA
+                </p>
               </div>
-            ))}
+            </PlaceholderRect>
           </div>
         </div>
 
-        {/* Featured Games Catalog Grid */}
-        <Section className="space-y-6 pt-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold font-pixel text-indigo-950 dark:text-white flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-500" /> ALL GAMES CATALOG
-              </h2>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">Click any title to launch and play directly in your browser</p>
-            </div>
-            <Link
-              href="/games"
-              className="text-xs font-mono font-bold text-indigo-950 dark:text-cyan-300 hover:underline flex items-center gap-1 bg-amber-400 dark:bg-slate-900 px-4 py-2 rounded-full border-2 border-indigo-950 shadow-xs"
+        {/* Bottom Hero Typography Bar */}
+        <div className="grid grid-cols-4 md:grid-cols-12 items-end">
+          {/* Clamped Name Heading (7 cols) */}
+          <div className="col-span-4 flex items-end px-3 py-4 md:col-span-7 md:px-5 md:py-6">
+            <h1
+              className="text-[clamp(3.5rem,18vw,14rem)] leading-[0.8] font-bold tracking-[-0.13em] lowercase"
+              aria-label="divyanshu."
             >
-              BROWSE CATALOG →
-            </Link>
+              divyanshu.
+            </h1>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {featuredGames.map((game) => (
-              <GameCard game={game} key={game.slug} />
-            ))}
-          </div>
-        </Section>
+          {/* Roles List (3 cols) */}
+          <ul className="col-span-3 md:col-span-3 md:border-l border-brand-primary/50 p-3 md:p-5 flex flex-col justify-end gap-1 text-base leading-[1.15] font-medium tracking-[-0.02em] md:text-xl lg:text-2xl border-t md:border-t-0">
+            <li>Game Developer</li>
+            <li>Gameplay Programmer</li>
+            <li>Unity & Godot Specialist</li>
+          </ul>
 
-        {/* Technology Stack Badges */}
-        <Section className="bg-white dark:bg-slate-900 border-3 border-indigo-950 dark:border-indigo-500 rounded-2xl p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(30,27,75,1)]">
-          <div className="flex items-center justify-between border-b-2 border-indigo-950/10 dark:border-slate-800 pb-3 text-xs font-mono font-bold text-indigo-950 dark:text-cyan-300">
-            <span className="font-pixel text-sm flex items-center gap-2">
-              <Sparkle className="w-4 h-4 text-emerald-500 fill-emerald-500" /> ENGINE & TECH STACK
-            </span>
-            <span>UNITY • GODOT • C# • NEXT.JS</span>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5 pt-2">
-            {technologies.map((tech) => (
-              <span
-                key={tech}
-                className="px-4 py-1.5 rounded-full text-xs font-mono font-bold bg-indigo-50 dark:bg-slate-800 text-indigo-950 dark:text-slate-200 border-2 border-indigo-950/30 dark:border-slate-700 shadow-xs"
-              >
-                ✨ {tech}
+          {/* Minimalist Stamp Badge (2 cols) */}
+          <div className="col-span-1 md:col-span-2 md:border-l border-brand-primary/50 p-3 md:p-5 flex items-center justify-center border-t md:border-t-0">
+            <div className="flex flex-col items-center justify-center border border-brand-primary/50 p-3 text-center select-none w-full max-w-[120px]">
+              <span className="text-[0.6rem] font-mono tracking-widest uppercase opacity-70">
+                STATUS
               </span>
-            ))}
+              <span className="text-xl md:text-2xl font-bold font-mono tracking-tighter">
+                4 SHIPPED
+              </span>
+              <span className="text-[0.55rem] font-mono tracking-widest uppercase opacity-70">
+                ITCH.IO BUILDS
+              </span>
+            </div>
           </div>
-        </Section>
+        </div>
+      </section>
 
-        {/* Connect Banner */}
-        <Section className="text-center space-y-4">
-          <div className="bg-gradient-to-r from-sky-300 via-indigo-200 to-emerald-200 dark:from-slate-900 dark:to-indigo-950 border-3 border-indigo-950 rounded-3xl p-8 max-w-2xl mx-auto space-y-4 relative overflow-hidden shadow-[6px_6px_0px_0px_rgba(30,27,75,1)]">
-            <div className="flex justify-center items-center gap-2 text-indigo-950 dark:text-cyan-300 font-mono text-xs font-bold">
-              <Sparkle className="w-4 h-4 fill-amber-400 text-amber-400" />
-              <span className="uppercase tracking-wider">KD ARCADE CONNECT</span>
-              <Sparkle className="w-4 h-4 fill-amber-400 text-amber-400" />
+      {/* =========================================================================
+          THE DEVELOPER (About / Statement Section)
+          ========================================================================= */}
+      <section id="the-developer" className="border-b border-brand-primary/50">
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-36 pb-0">
+            {/* Section Eyebrow & Title */}
+            <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
+              <div className="col-span-4 md:col-span-10 p-3 md:p-5">
+                <p className="mb-2 md:mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                  the
+                </p>
+                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                  developer.
+                </h2>
+              </div>
             </div>
-            <h2 className="font-pixel text-2xl text-indigo-950 dark:text-white font-bold">GET IN TOUCH WITH DIVYANSHU! 🎮</h2>
-            <p className="text-slate-800 dark:text-slate-300 text-xs sm:text-sm max-w-md mx-auto font-medium">
-              Have feedback, questions, or collaboration proposals? Send a message directly.
-            </p>
-            <div className="flex justify-center gap-3 pt-2">
-              <Link
-                className="px-8 py-3.5 bg-emerald-400 hover:bg-emerald-300 text-indigo-950 font-pixel font-bold rounded-full text-xs sm:text-sm transition-all hover:scale-105 flex items-center gap-2 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] border-2 border-indigo-950"
-                href="/contact"
-              >
-                <ShieldCheck className="w-4.5 h-4.5" /> CONTACT DEVELOPER
-              </Link>
+
+            {/* Split Bio Narrative & Workspace Placeholder */}
+            <div className="relative">
+              <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
+                {/* Bio text from About me.docx */}
+                <div className="col-span-4 md:col-span-5 border-r-0 md:border-r border-brand-primary/50 p-4 md:p-8 flex flex-col items-start gap-6 py-12 md:py-16">
+                  <p className="max-w-[48ch] text-base md:text-lg leading-relaxed">
+                    I'm Divyanshu Kumar, a game developer proficient in Unity and C#, with working knowledge of Godot and GDScript. I fell in love with game development after being inspired by Hollow Knight, turning a lifelong passion for AAA, RPGs, and indie games into shipping real games.
+                  </p>
+                  <p className="max-w-[48ch] text-sm md:text-base leading-relaxed opacity-85">
+                    To date, I've shipped 5 games alongside countless technical experiments. My core toolkit spans Unity, Godot, C#, Figma, Photoshop, Blender, Aseprite, and Milanote for game design documentation.
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4 pt-2">
+                    <a
+                      href="https://kdivyanshu.itch.io/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-5 py-2.5 text-sm md:text-base leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream"
+                    >
+                      <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:-translate-y-[200%]">
+                        itch.io profile →
+                      </span>
+                      <span
+                        className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:translate-y-0 font-bold"
+                        aria-hidden="true"
+                      >
+                        itch.io profile →
+                      </span>
+                    </a>
+
+                    <a
+                      href="https://github.com/kdivyanshu1012"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group/roll inline-flex items-center gap-1.5 text-xs md:text-sm font-bold tracking-[0.06em] uppercase opacity-80 hover:opacity-100"
+                    >
+                      <span className="relative block overflow-hidden">
+                        <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
+                          GitHub
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
+                        >
+                          GitHub
+                        </span>
+                      </span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Workspace visual placeholder (5 cols) */}
+                <div className="col-span-4 md:col-span-5 min-h-[260px] md:min-h-[340px]">
+                  <PlaceholderRect
+                    label="WORKSPACE & GAME DEV SETUP"
+                    sublabel="UNITY ENGINE · MILANOTE GDD · ASEPRITE SPRITES"
+                    aspectRatio="h-full w-full"
+                    className="border-0 bg-brand-primary/5"
+                  />
+                </div>
+              </div>
+
+              {/* Full Width Technical Showcase Strip */}
+              <div className="grid grid-cols-4 md:grid-cols-10">
+                <div className="col-span-4 md:col-span-10 aspect-[16/7]">
+                  <PlaceholderRect
+                    label="GAMEPLAY SYSTEMS & MECHANICS ARCHITECTURE"
+                    sublabel="CLONE SYNCHRONIZATION · MIRRORED INPUT LOGIC · 16 HANDCRAFTED PUZZLE LEVELS"
+                    aspectRatio="h-full w-full"
+                    className="border-0 bg-brand-primary/5"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </Section>
-      </Container>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SELECTED WORKS (Interactive 4 Games Showcase with Playable WebGL)
+          ========================================================================= */}
+      <section id="selected-works" className="border-b border-brand-primary/50">
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-36">
+            {/* Section Header */}
+            <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
+              <div className="col-span-4 md:col-span-10 p-3 md:p-5 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <div>
+                  <p className="mb-2 md:mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                    selected
+                  </p>
+                  <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                    works.
+                  </h2>
+                </div>
+                <div className="text-[0.68rem] font-mono tracking-widest uppercase opacity-75 md:text-right pb-1">
+                  [ 4 TITLES READY TO PLAY HERE IN BROWSER ]
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive Component with Playable Builds */}
+            <SelectedWorks />
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SERVICES & CAPABILITIES (Exact mijobello dynamic min-height rows)
+          ========================================================================= */}
+      <section id="my-services" className="border-b border-brand-primary/50">
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-36">
+            <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
+              <div className="col-span-4 md:col-span-10 p-3 md:p-5">
+                <p className="mb-2 md:mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                  my
+                </p>
+                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                  skills.
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Capability Row 01 */}
+        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[220px] md:hover:min-h-[320px]">
+          <span className="col-span-1 p-3 md:p-5 flex items-start tabular-nums opacity-60 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+            01
+          </span>
+          <h3 className="col-span-3 md:col-span-6 border-l border-brand-primary/50 md:border-r p-3 md:p-5 flex items-center text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
+            game programming
+          </h3>
+          <ul className="col-span-3 col-start-2 md:col-span-2 md:col-start-auto border-l border-brand-primary/50 md:border-r md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+            <li>unity & c#</li>
+            <li>godot & gdscript</li>
+            <li>movement & physics</li>
+            <li>state machines</li>
+            <li>webgl optimization</li>
+            <li>level logic & progression</li>
+          </ul>
+          <div className="relative col-span-4 h-44 overflow-hidden md:col-span-3 md:h-auto">
+            <PlaceholderRect
+              label="CODE ARCHITECTURE"
+              sublabel="C# DESIGN PATTERNS"
+              aspectRatio="h-full w-full"
+              className="border-0 bg-brand-primary/5"
+            />
+          </div>
+        </div>
+
+        {/* Capability Row 02 */}
+        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[220px] md:hover:min-h-[320px]">
+          <span className="col-span-1 p-3 md:p-5 flex items-start tabular-nums opacity-60 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+            02
+          </span>
+          <h3 className="col-span-3 md:col-span-6 border-l border-brand-primary/50 md:border-r p-3 md:p-5 flex items-center text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
+            systems & mechanics design
+          </h3>
+          <ul className="col-span-3 col-start-2 md:col-span-2 md:col-start-auto border-l border-brand-primary/50 md:border-r md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+            <li>clone synchronization</li>
+            <li>mirrored inputs</li>
+            <li>incremental loops</li>
+            <li>puzzle progression</li>
+            <li>2-player co-op systems</li>
+            <li>player retention pacing</li>
+          </ul>
+          <div className="relative col-span-4 h-44 overflow-hidden md:col-span-3 md:h-auto">
+            <PlaceholderRect
+              label="MECHANIC SCHEMATIC"
+              sublabel="DUAL-CONTROL PUZZLE FLOW"
+              aspectRatio="h-full w-full"
+              className="border-0 bg-brand-primary/5"
+            />
+          </div>
+        </div>
+
+        {/* Capability Row 03 */}
+        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[220px] md:hover:min-h-[320px]">
+          <span className="col-span-1 p-3 md:p-5 flex items-start tabular-nums opacity-60 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+            03
+          </span>
+          <h3 className="col-span-3 md:col-span-6 border-l border-brand-primary/50 md:border-r p-3 md:p-5 flex items-center text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
+            tools & pipeline
+          </h3>
+          <ul className="col-span-3 col-start-2 md:col-span-2 md:col-start-auto border-l border-brand-primary/50 md:border-r md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+            <li>figma ui design</li>
+            <li>photoshop</li>
+            <li>blender 3d</li>
+            <li>aseprite pixel art</li>
+            <li>milanote gdd</li>
+            <li>android & webgl export</li>
+          </ul>
+          <div className="relative col-span-4 h-44 overflow-hidden md:col-span-3 md:h-auto">
+            <PlaceholderRect
+              label="PIPELINE ASSETS"
+              sublabel="SPRITES & UI FRAMES"
+              aspectRatio="h-full w-full"
+              className="border-0 bg-brand-primary/5"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          TRACK RECORD & ACHIEVEMENTS (From CV)
+          ========================================================================= */}
+      <section className="border-b border-brand-primary/50">
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-36">
+            <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
+              <div className="col-span-4 md:col-span-10 p-3 md:p-5 flex flex-col md:flex-row md:items-end md:justify-between gap-2">
+                <div>
+                  <p className="mb-2 md:mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                    track
+                  </p>
+                  <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                    record.
+                  </h2>
+                </div>
+                <span className="text-[0.68rem] font-mono tracking-widest uppercase opacity-70 pb-1">
+                  [ COMPETITIVE JAMS & EDUCATION ]
+                </span>
+              </div>
+            </div>
+
+            {/* Achievements Table */}
+            <div className="divide-y divide-brand-primary/50">
+              {/* Item 1 */}
+              <div className="grid grid-cols-4 md:grid-cols-10 p-4 md:p-6 items-baseline gap-4 hover:bg-brand-primary/5 transition-colors">
+                <span className="col-span-1 text-[0.65rem] font-mono tracking-widest uppercase opacity-60">
+                  01
+                </span>
+                <div className="col-span-3 md:col-span-6">
+                  <h4 className="text-xl md:text-2xl font-bold tracking-[-0.03em]">
+                    Rank #2 Solo Developer — LPU Game Masters Game Jam
+                  </h4>
+                  <p className="text-sm leading-relaxed opacity-85 mt-1">
+                    Conducted in collaboration with Game Developer Association of India (GDAI). Competed against 25+ teams as a solo developer with "Ulta He Krega".
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-3 text-left md:text-right text-xs font-mono tracking-wider opacity-70">
+                  MAY 2026 · GDAI JAM
+                </div>
+              </div>
+
+              {/* Item 2 */}
+              <div className="grid grid-cols-4 md:grid-cols-10 p-4 md:p-6 items-baseline gap-4 hover:bg-brand-primary/5 transition-colors">
+                <span className="col-span-1 text-[0.65rem] font-mono tracking-widest uppercase opacity-60">
+                  02
+                </span>
+                <div className="col-span-3 md:col-span-6">
+                  <h4 className="text-xl md:text-2xl font-bold tracking-[-0.03em]">
+                    Top 10 Most Rated — Brainless Game Jam
+                  </h4>
+                  <p className="text-sm leading-relaxed opacity-85 mt-1">
+                    Achieved Top 10 position out of 550+ entries worldwide with "Tiny Together", celebrated for synchronized 2-player character puzzles.
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-3 text-left md:text-right text-xs font-mono tracking-wider opacity-70">
+                  MAY 2026 · 550+ ENTRIES
+                </div>
+              </div>
+
+              {/* Item 3 */}
+              <div className="grid grid-cols-4 md:grid-cols-10 p-4 md:p-6 items-baseline gap-4 hover:bg-brand-primary/5 transition-colors">
+                <span className="col-span-1 text-[0.65rem] font-mono tracking-widest uppercase opacity-60">
+                  03
+                </span>
+                <div className="col-span-3 md:col-span-6">
+                  <h4 className="text-xl md:text-2xl font-bold tracking-[-0.03em]">
+                    Unity Certified Associate: Game Developer
+                  </h4>
+                  <p className="text-sm leading-relaxed opacity-85 mt-1">
+                    In Progress. Deepening formal mastery in gameplay programming, Unity systems architecture, profiling, and debugging pipelines.
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-3 text-left md:text-right text-xs font-mono tracking-wider opacity-70">
+                  2026 · IN PROGRESS
+                </div>
+              </div>
+
+              {/* Item 4 */}
+              <div className="grid grid-cols-4 md:grid-cols-10 p-4 md:p-6 items-baseline gap-4 hover:bg-brand-primary/5 transition-colors">
+                <span className="col-span-1 text-[0.65rem] font-mono tracking-widest uppercase opacity-60">
+                  04
+                </span>
+                <div className="col-span-3 md:col-span-6">
+                  <h4 className="text-xl md:text-2xl font-bold tracking-[-0.03em]">
+                    Bachelor of Technology — Computer Science & Engineering
+                  </h4>
+                  <p className="text-sm leading-relaxed opacity-85 mt-1">
+                    Lovely Professional University, Punjab, India. CGPA: 7.32.
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-3 text-left md:text-right text-xs font-mono tracking-wider opacity-70">
+                  2023 — PRESENT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          WANT TO CHAT? (Contact Section)
+          ========================================================================= */}
+      <section id="contact" className="border-b border-brand-primary/50">
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-36 pb-0">
+            {/* Header */}
+            <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
+              <div className="col-span-4 md:col-span-10 p-3 md:p-5">
+                <p className="mb-2 md:mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                  want to
+                </p>
+                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                  chat?
+                </h2>
+              </div>
+            </div>
+
+            {/* Content Row */}
+            <div className="relative">
+              <div className="grid grid-cols-4 md:grid-cols-10">
+                <div className="col-span-4 md:col-span-4 border-r-0 md:border-r border-brand-primary/50 p-4 md:p-8 flex flex-col items-start justify-between gap-8 py-12 md:py-20">
+                  <div className="space-y-4">
+                    <p className="max-w-[44ch] text-lg md:text-xl leading-relaxed">
+                      Got a game project, game jam collaboration, or gameplay programming role in mind? I'd love to hear about it.
+                    </p>
+
+                    <div className="space-y-1.5 text-xs font-mono tracking-wider opacity-85 pt-2">
+                      <p>
+                        <span className="opacity-50">EMAIL:</span>{" "}
+                        <a
+                          href="mailto:kdivyanshu1012@gmail.com"
+                          className="hover:underline"
+                        >
+                          kdivyanshu1012@gmail.com
+                        </a>
+                      </p>
+                      <p>
+                        <span className="opacity-50">MOBILE:</span> +91-8146995417
+                      </p>
+                      <p>
+                        <span className="opacity-50">LOCATION:</span> Punjab, India
+                      </p>
+                    </div>
+                  </div>
+
+                  <a
+                    href="mailto:kdivyanshu1012@gmail.com"
+                    className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-5 py-2.5 text-base md:text-lg leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream"
+                  >
+                    <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:-translate-y-[200%]">
+                      contact me →
+                    </span>
+                    <span
+                      className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:translate-y-0 font-bold"
+                      aria-hidden="true"
+                    >
+                      contact me →
+                    </span>
+                  </a>
+                </div>
+
+                <div className="col-span-4 md:col-span-6 min-h-[300px] md:min-h-[460px]">
+                  <PlaceholderRect
+                    label="COLLABORATION INQUIRIES"
+                    sublabel="UNITY & GODOT · CONTRACT & FULL-TIME"
+                    aspectRatio="h-full w-full"
+                    className="border-0 bg-brand-primary/5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

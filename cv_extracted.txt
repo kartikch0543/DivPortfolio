@@ -1,0 +1,57 @@
+=== PAGE 1 ===
+Divyanshu Kumar 
+ itch.io:    https://kdivyanshu.itch.io/                                                                                            Email: kdivyanshu1012@gmail.com 
+ Github:    https://github.com/kdivyanshu1012                                                                          Mobile: +91-8146995417 
+ Portfolio: https://div-portfolio-eight.vercel.app/ 
+SKILLS 
+ Languages: C#, GDScript  
+ Game Engines: Unity, Godot 
+ Tools: Blender, GitHub, Figma, Aseprite, Photoshop 
+ Deployment: Android, WebGL 
+ 
+PROJECTS 
+Risky Business |  Unity | Web Deployment | Link                                                                              Oct 2026 
+ 
+ Developed and shipped a 2D incremental  game in Unity with resource collection, gambling mechanics, 
+progression upgrades. 
+ Designed the core mechanics around the theme “Plot-Twist” for IIIT- Nagpur Tantra Fiesta game jam. 
+ Designed, implemented and deployed the game within a span of 10 days.  
+Tiny Together |  Unity | Mobile Deployment |WEBGL Deployment | Link                                        May 2026 
+ 
+ Developed and shipped a 2D puzzle-platformer in Unity with 2-player character mechanics. 
+ Implemented 5+ core gameplay systems, including movement, interaction, level progression and puzzle logic. 
+ Designed 10+ unique puzzles/challenges focused on coordination and synchronized gameplay. 
+ Ranked among the Top 10 most rated game in the “Brainless Game Jam” out of 550+ entries. 
+ 
+Split You |  Unity | Mobile Deployment | Link                                                                                   May 2026 
+ 
+ Developed “Split You,” a puzzle-platformer centered around clone-based gameplay and synchronized problem solving.  
+ Designed and implemented a unique mechanic allowing players to spawn controllable clones dynamically, creating 
+emergent puzzle interactions instead of relying on pre-existing duplicate characters.  
+ Built gameplay systems for clone control, player switching, collision handling, and level progression using Unity and C#. 
+  
+  Ulta He Krega | Unity | Web Deployment | Link                                                                                    May 2026 
+ 
+ Designed a dual-character control system where one character mirrors opposite movement inputs, creating unique puzzle-
+solving gameplay.  
+ Developed and deployed a complete WebGL build on itch.io within 48 hours during a Game Jam.  
+ Achieved Rank #2 among 25+ teams as a solo developer.  
+ Optimized gameplay flow and level pacing for 4–5 minute session retention. 
+ACHIEVEMENTS  
+ Secured Top 3 in a Game Jam conducted by LPU | Link                                 May 2026 
+Secured 2nd place in LPU’s Game Masters Game Jam 2026, conducted in collaboration with Game Developer 
+Association of India (GDAI), competing against 25+ teams as a solo developer. 
+ Top 10 candidate in Brainless Game jam |Link                                             May 2026 
+         Achieved a Top 10 position in a competitive game jam among 500+ entries in Brainless Game Jam conducted 
+By Brainless. 
+CERTIFICATIONS  
+• Unity Certified Associate: Game Developer (In Progress) 
+Developing proficiency in gameplay programming, Unity systems, debugging, UI, and game development workflows.   
+                              
+EDUCATION 
+ Lovely Professional University     Punjab, India 
+Bachelor of Technology  - Computer  Science and Engineering;  CGPA: 7.32                             August 2023 - Present 
+ Apeejay School              Jalandhar, Punjab  
+Intermediate;  Percentage:  74%                                                                                   April 2021 - March 2022 
+ Apeejay School          Jalandhar, Punjab 
+Matriculation;  Percentage:  93%                                                                                   April 2019 - March 2020 

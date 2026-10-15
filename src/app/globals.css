@@ -1,155 +1,176 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
 
 :root {
-  /* Tiny Together & Split You Game-Inspired Pixel Palette */
-  --background: #e0f2fe; /* Vibrant Pixel Sky Blue */
-  --foreground: #0f172a; /* Deep Retro Slate/Navy */
-  --surface: #ffffff; /* Matte White Card Surface */
-  --surface-elevated: #f0f9ff; /* Light Sky Surface */
-  --muted: #cbd5e1; /* Retro Muted Slate */
-  --muted-foreground: #1e3a8a; /* Deep Game Blue Text */
-  --border: #1e1b4b; /* Solid 16-bit Retro Border */
+  /* Exact mijobello inspired palette */
+  --color-brand-primary: #6a0c06; /* Rich Burgundy / Oxblood */
+  --color-brand-cream: #b2c7ab;   /* Refined Sage / Celadon Cream */
+  --color-brand-dark: #1a1512;
+  
+  --background: var(--color-brand-cream);
+  --foreground: var(--color-brand-primary);
+  --border: color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
 
-  --primary: #2563eb; /* Platformer Arcade Blue */
-  --primary-foreground: #ffffff;
-  --secondary: #16a34a; /* Tiny Together Lush Grass Green */
-  --secondary-foreground: #ffffff;
-  --accent: #d97706; /* Sunset Mountain Gold */
-  --accent-foreground: #ffffff;
-  --hologram: #06b6d4; /* Split You Sci-Fi Cyan */
-  --ring: #2563eb;
+  --font-space-grotesk: var(--font-space), "Space Grotesk", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1.25rem;
-  --radius-xl: 1.75rem;
-
-  --shadow-pixel: 4px 4px 0px 0px rgba(15, 23, 42, 1);
-  --shadow-pixel-hover: 6px 6px 0px 0px rgba(15, 23, 42, 1);
+  --tracking-heading: -0.06em;
+  --tracking-tight: -0.04em;
+  --tracking-loose: 0.18em;
 }
 
+:root[data-theme="dark"],
 .dark {
-  /* Split You Sci-Fi Deep Space Theme */
-  --background: #090714;
-  --foreground: #f8fafc;
-  --surface: #131026;
-  --surface-elevated: #1e1a38;
-  --muted: #2d2650;
-  --muted-foreground: #a5b4fc;
-  --border: #4338ca;
+  --color-brand-primary: #b2c7ab;
+  --color-brand-cream: #140807;
+  --color-brand-dark: #0a0403;
 
-  --primary: #60a5fa;
-  --primary-foreground: #090714;
-  --secondary: #4ade80;
-  --secondary-foreground: #090714;
-  --accent: #fbbf24;
-  --accent-foreground: #090714;
-  --hologram: #22d3ee;
-  --ring: #60a5fa;
-
-  --success: #4ade80;
-  --warning: #fbbf24;
-  --danger: #f87171;
-
-  --shadow-pixel: 4px 4px 0px 0px rgba(99, 102, 241, 0.4);
-  --shadow-pixel-hover: 6px 6px 0px 0px rgba(99, 102, 241, 0.6);
+  --background: #140807;
+  --foreground: #b2c7ab;
+  --border: color-mix(in srgb, var(--color-brand-primary) 35%, transparent);
 }
 
 @theme inline {
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-cream: var(--color-brand-cream);
+  --color-brand-dark: var(--color-brand-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-surface-elevated: var(--surface-elevated);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-hologram: var(--hologram);
-  --color-ring: var(--ring);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-danger: var(--danger);
-  --font-sans: var(--font-inter);
-  --font-pixel: var(--font-pixel);
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-xl: var(--radius-xl);
+
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-mono);
 }
 
-* {
-  border-color: var(--border);
+/* Sharp brutalist architectural aesthetic - zero border radius */
+*, *::before, *::after {
+  border-radius: 0 !important;
 }
 
 html {
-  min-height: 100%;
+  background-color: var(--color-brand-cream);
   color-scheme: light dark;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--color-brand-primary) var(--color-brand-cream);
 }
 
 body {
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-primary);
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
-  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-/* Subtle Pixel Cloud & Mountain Pattern Backdrop */
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
+/* Text selections */
+::selection {
+  background: var(--color-brand-primary);
+  color: var(--color-brand-cream);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-primary);
+}
+
+/* Wireframe / Placeholder pattern generator */
+.placeholder-rect {
+  position: relative;
+  background-color: color-mix(in srgb, var(--color-brand-primary) 6%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-rect::before {
   content: "";
-  opacity: 0.25;
+  position: absolute;
+  inset: 0;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgb(56 189 248 / 0.3), transparent 35%),
-    radial-gradient(circle at 85% 25%, rgb(168 85 247 / 0.25), transparent 40%),
-    radial-gradient(circle at 50% 90%, rgb(34 197 94 / 0.2), transparent 45%);
+    linear-gradient(to right, color-mix(in srgb, var(--color-brand-primary) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-primary) 10%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
 }
 
-/* 16-bit Arcade Card Outlines */
-.arcade-card {
-  border-width: 3px;
-  border-color: #1e1b4b;
-  border-radius: 1.25rem;
-  box-shadow: var(--shadow-pixel);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+.placeholder-crosshair::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  background: 
+    linear-gradient(to right, transparent 11px, var(--color-brand-primary) 11px, var(--color-brand-primary) 13px, transparent 13px),
+    linear-gradient(to bottom, transparent 11px, var(--color-brand-primary) 11px, var(--color-brand-primary) 13px, transparent 13px);
+  opacity: 0.4;
+  pointer-events: none;
 }
 
-.dark .arcade-card {
-  border-color: #6366f1;
+/* Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.arcade-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-pixel-hover);
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
 }
 
-/* Glow effects for Hologram / Split You elements */
-.hologram-glow {
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 50s linear infinite;
 }
 
-body::selection {
-  background: #2563eb;
-  color: #ffffff;
+.animate-marquee:hover,
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
 }
 
-:focus-visible {
-  outline: 3px solid var(--ring);
-  outline-offset: 3px;
+/* Rolling Text Hover Effect */
+.group-roll {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.group-roll .roll-text-1 {
+  display: block;
+  transition: transform 450ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.group-roll .roll-text-2 {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform: translateY(-100%);
+  transition: transform 450ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.group-roll:hover .roll-text-1 {
+  transform: translateY(100%);
+}
+
+.group-roll:hover .roll-text-2 {
+  transform: translateY(0%);
 }
