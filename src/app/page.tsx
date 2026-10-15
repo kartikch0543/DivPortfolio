@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { PlaceholderRect } from "@/components/ui/placeholder-rect";
 import { SelectedWorks } from "@/components/home/selected-works";
-import { ArrowUpRight, Award, GraduationCap, Gamepad2, Code2, Sparkles, Terminal } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -114,10 +113,10 @@ export default function HomePage() {
                 {/* Bio text from About me.docx */}
                 <div className="col-span-4 md:col-span-5 border-r-0 md:border-r border-brand-primary/50 p-4 md:p-8 flex flex-col items-start gap-6 py-12 md:py-16">
                   <p className="max-w-[48ch] text-base md:text-lg leading-relaxed">
-                    I'm Divyanshu Kumar, a game developer proficient in Unity and C#, with working knowledge of Godot and GDScript. I fell in love with game development after being inspired by Hollow Knight, turning a lifelong passion for AAA, RPGs, and indie games into shipping real games.
+                    I&apos;m Divyanshu Kumar, a game developer proficient in Unity and C#, with working knowledge of Godot and GDScript. I fell in love with game development after being inspired by Hollow Knight, turning a lifelong passion for AAA, RPGs, and indie games into shipping real games.
                   </p>
                   <p className="max-w-[48ch] text-sm md:text-base leading-relaxed opacity-85">
-                    To date, I've shipped 5 games alongside countless technical experiments. My core toolkit spans Unity, Godot, C#, Figma, Photoshop, Blender, Aseprite, and Milanote for game design documentation.
+                    To date, I&apos;ve shipped 5 games alongside countless technical experiments. My core toolkit spans Unity, Godot, C#, Figma, Photoshop, Blender, Aseprite, and Milanote for game design documentation.
                   </p>
 
                   <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -348,7 +347,7 @@ export default function HomePage() {
                     Rank #2 Solo Developer — LPU Game Masters Game Jam
                   </h4>
                   <p className="text-sm leading-relaxed opacity-85 mt-1">
-                    Conducted in collaboration with Game Developer Association of India (GDAI). Competed against 25+ teams as a solo developer with "Ulta He Krega".
+                    Conducted in collaboration with Game Developer Association of India (GDAI). Competed against 25+ teams as a solo developer with &quot;Ulta He Krega&quot;.
                   </p>
                 </div>
                 <div className="col-span-4 md:col-span-3 text-left md:text-right text-xs font-mono tracking-wider opacity-70">
@@ -366,7 +365,7 @@ export default function HomePage() {
                     Top 10 Most Rated — Brainless Game Jam
                   </h4>
                   <p className="text-sm leading-relaxed opacity-85 mt-1">
-                    Achieved Top 10 position out of 550+ entries worldwide with "Tiny Together", celebrated for synchronized 2-player character puzzles.
+                    Achieved Top 10 position out of 550+ entries worldwide with &quot;Tiny Together&quot;, celebrated for synchronized 2-player character puzzles.
                   </p>
                 </div>
                 <div className="col-span-4 md:col-span-3 text-left md:text-right text-xs font-mono tracking-wider opacity-70">
@@ -438,7 +437,7 @@ export default function HomePage() {
                 <div className="col-span-4 md:col-span-4 border-r-0 md:border-r border-brand-primary/50 p-4 md:p-8 flex flex-col items-start justify-between gap-8 py-12 md:py-20">
                   <div className="space-y-4">
                     <p className="max-w-[44ch] text-lg md:text-xl leading-relaxed">
-                      Got a game project, game jam collaboration, or gameplay programming role in mind? I'd love to hear about it.
+                      Got a game project, game jam collaboration, or gameplay programming role in mind? I&apos;d love to hear about it.
                     </p>
 
                     <div className="space-y-1.5 text-xs font-mono tracking-wider opacity-85 pt-2">

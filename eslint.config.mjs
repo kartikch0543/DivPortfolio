@@ -10,6 +10,7 @@ export default defineConfig([
     "node_modules/**",
     "coverage/**",
     "dist/**",
+    "public/**",
     "next-env.d.ts",
   ]),
 ]);

@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 
+const emptySubscribe = () => () => {};
+
 export function SiteHeader() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [timeStr, setTimeStr] = useState({
@@ -17,7 +23,6 @@ export function SiteHeader() {
   });
 
   useEffect(() => {
-    setMounted(true);
     const updateTimes = () => {
       const now = new Date();
       const formatTime = (timeZone: string) => {
@@ -43,9 +48,12 @@ export function SiteHeader() {
       });
     };
 
-    updateTimes();
+    const timer = setTimeout(updateTimes, 0);
     const interval = setInterval(updateTimes, 1000);
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(timer);
+      clearInterval(interval);
+    };
   }, []);
 
   const isDark = mounted && (resolvedTheme === "dark" || theme === "dark");
