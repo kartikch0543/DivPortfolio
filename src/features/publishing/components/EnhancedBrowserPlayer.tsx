@@ -19,7 +19,6 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
   const [loadingProgress, setLoadingProgress] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const itchUrl = game.launch.browser || `https://kdivyanshu.itch.io/${game.slug}`;
 
   const handleStartGame = () => {
     setIsLoading(true);
@@ -117,20 +116,20 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
               <p className="text-xs font-mono text-emerald-400">Playable Browser Target Ready</p>
 
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                <a
-                  href={itchUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-pixel font-bold text-xs shadow-2xl transition transform hover:scale-105 flex items-center gap-2"
-                >
-                  <Play className="w-4 h-4 fill-slate-950" /> PLAY ON ITCH.IO <ExternalLink className="w-3.5 h-3.5" />
-                </a>
                 <button
                   onClick={handleStartGame}
-                  className="px-5 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-pixel font-bold text-xs border border-slate-600 transition"
+                  className="px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-pixel font-bold text-xs shadow-2xl transition transform hover:scale-105 flex items-center gap-2"
                 >
-                  Preview Player
+                  <Play className="w-4 h-4 fill-slate-950" /> PLAY GAME
                 </button>
+                <a
+                  href={`https://kdivyanshu.itch.io/${game.slug}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-5 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-pixel font-bold text-xs border border-slate-600 transition flex items-center gap-2"
+                >
+                  View on Itch.io <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
