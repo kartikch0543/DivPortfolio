@@ -223,28 +223,28 @@ export function SiteHeader() {
             <Link
               href="/#the-developer"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-5 md:p-6 transition-colors hover:bg-brand-primary hover:text-brand-cream overflow-hidden"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 01
               </span>
-              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-[clamp(1.4rem,2.3vw,3rem)] font-bold tracking-[-0.06em] leading-[0.9]">
                 about.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
-                Biography & Background →
+                Biography &amp; Background →
               </span>
             </Link>
 
             <Link
               href="/#selected-works"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-5 md:p-6 transition-colors hover:bg-brand-primary hover:text-brand-cream overflow-hidden"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 02
               </span>
-              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-[clamp(1.4rem,2.3vw,3rem)] font-bold tracking-[-0.06em] leading-[0.9]">
                 works.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
@@ -255,12 +255,12 @@ export function SiteHeader() {
             <Link
               href="/breakdowns"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream bg-brand-primary/5"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-5 md:p-6 transition-colors hover:bg-brand-primary hover:text-brand-cream bg-brand-primary/5 overflow-hidden"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 03
               </span>
-              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-[clamp(1.4rem,2.3vw,3rem)] font-bold tracking-[-0.06em] leading-[0.9]">
                 breakdowns.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
@@ -271,28 +271,28 @@ export function SiteHeader() {
             <Link
               href="/#my-services"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-5 md:p-6 transition-colors hover:bg-brand-primary hover:text-brand-cream overflow-hidden"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 04
               </span>
-              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-[clamp(1.4rem,2.3vw,3rem)] font-bold tracking-[-0.06em] leading-[0.9]">
                 skills.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
-                Unity, C# & Toolchain →
+                Unity, C# &amp; Toolchain →
               </span>
             </Link>
 
             <Link
               href="/cv"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-5 md:p-6 transition-colors hover:bg-brand-primary hover:text-brand-cream overflow-hidden"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 05
               </span>
-              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-[clamp(1.4rem,2.3vw,3rem)] font-bold tracking-[-0.06em] leading-[0.9]">
                 cv.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
@@ -303,12 +303,12 @@ export function SiteHeader() {
             <Link
               href="/#contact"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between p-5 md:p-6 transition-colors hover:bg-brand-primary hover:text-brand-cream overflow-hidden"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 06
               </span>
-              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-[clamp(1.4rem,2.3vw,3rem)] font-bold tracking-[-0.06em] leading-[0.9]">
                 contact.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">

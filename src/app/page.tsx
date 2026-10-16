@@ -20,7 +20,7 @@ export default function HomePage() {
               fill
               priority
               sizes="(max-width: 768px) 100vw, 66vw"
-              className="object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-105"
+              className="object-cover object-top opacity-85 transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/40" />
 
