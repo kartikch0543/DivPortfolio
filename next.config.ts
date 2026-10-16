@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; font-src 'self' data:; connect-src 'self'; frame-src 'self' https://*.itch.io; base-uri 'self'; form-action 'self'; frame-ancestors 'self'",
+              "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; font-src 'self' data:; connect-src 'self'; frame-src 'self' https://*.itch.io; object-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'",
           },
         ],
       },
@@ -42,6 +42,15 @@ const nextConfig: NextConfig = {
           { key: "Content-Encoding", value: "br" },
           { key: "Content-Type", value: "application/octet-stream" },
         ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/resume",
+        destination: "/cv",
+        permanent: true,
       },
     ];
   },

@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { PlaceholderRect } from "@/components/ui/placeholder-rect";
 import { SelectedWorks } from "@/components/home/selected-works";
 import { ArrowUpRight } from "lucide-react";
@@ -11,45 +13,77 @@ export default function HomePage() {
       <section className="flex flex-col border-b border-brand-primary/50 md:min-h-[calc(100svh-4rem)]">
         {/* Top Split Media Grid: 8 Cols Gameplay Reel + 4 Cols Portrait */}
         <div className="grid grid-cols-4 md:grid-cols-12 md:min-h-[42svh] md:flex-1 border-b border-brand-primary/50">
-          {/* Hero Media Card (8 cols) */}
-          <div className="relative col-span-4 md:col-span-8 aspect-[4/3] md:aspect-auto md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-brand-primary/50">
-            <PlaceholderRect
-              label="HERO SHOWCASE · GAMEPLAY REEL"
-              sublabel="1920 × 1080 · SHIPPED UNITY & GODOT TITLES · 60 FPS"
-              aspectRatio="h-full w-full"
-              className="border-0 bg-brand-primary/5"
-            >
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
-                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+          {/* Hero Media Card (8 cols) - Real Key Art Showcase */}
+          <div className="group relative col-span-4 md:col-span-8 aspect-[4/3] md:aspect-auto md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-brand-primary/50 bg-black/95">
+            <Image
+              src="/images/games/split-you-cover.png"
+              alt="Split You - Shipped Game Art"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 66vw"
+              className="object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/40" />
+
+            {/* Corner Badge */}
+            <div className="absolute top-3 left-3 z-10 flex items-center gap-2 border border-brand-cream/40 bg-black/70 px-2.5 py-1 text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream backdrop-blur-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>KEY ART · SPLIT YOU</span>
+            </div>
+
+            <div className="absolute bottom-4 inset-x-4 z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3">
+              <div>
+                <span className="text-[0.6rem] font-mono tracking-[0.2em] text-brand-cream/70 uppercase">
+                  Featured Unity Title
+                </span>
+                <h3 className="text-xl sm:text-3xl font-bold text-white tracking-tight">
+                  Two Minds. One Body.
+                </h3>
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
                   Split You
                 </span>
-                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
                   Risky Business
                 </span>
-                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
                   Tiny Together
                 </span>
-                <span className="border border-brand-primary/40 px-2 py-0.5 text-[0.62rem] font-mono tracking-widest uppercase">
+                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
                   Ulta He Krega
                 </span>
               </div>
-            </PlaceholderRect>
+            </div>
           </div>
 
-          {/* Portrait / Character Card (4 cols) */}
-          <div className="relative col-span-4 md:col-span-4 aspect-[3/4] md:aspect-auto md:h-full overflow-hidden">
-            <PlaceholderRect
-              label="PORTRAIT"
-              sublabel="DIVYANSHU KUMAR · GAME DEVELOPER"
-              aspectRatio="h-full w-full"
-              className="border-0 bg-brand-primary/10"
-            >
-              <div className="mt-3 text-center">
-                <p className="text-[0.62rem] font-mono tracking-widest uppercase opacity-70">
-                  LPU CSE · PUNJAB, INDIA
-                </p>
-              </div>
-            </PlaceholderRect>
+          {/* Portrait / Devlog Artwork Card (4 cols) */}
+          <div className="group relative col-span-4 md:col-span-4 aspect-[3/4] md:aspect-auto md:h-full overflow-hidden bg-black/90">
+            <Image
+              src="/images/devlog-journey.png"
+              alt="Game Dev Chronicles & Journey"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover opacity-75 grayscale contrast-125 transition-all duration-700 group-hover:scale-105 group-hover:opacity-90 group-hover:grayscale-0"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
+
+            <div className="absolute top-3 right-3 z-10 border border-brand-cream/40 bg-black/70 px-2.5 py-1 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream backdrop-blur-xs">
+              DEVLOG · ISSUE 02
+            </div>
+
+            <div className="absolute bottom-4 left-4 right-4 z-10 space-y-1">
+              <p className="text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream/70">
+                LPU CSE · PUNJAB, INDIA
+              </p>
+              <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                Divyanshu Kumar
+              </h4>
+              <p className="text-[0.65rem] text-brand-cream/80 font-mono">
+                Gameplay Programmer & Indie Creator
+              </p>
+            </div>
           </div>
         </div>
 
@@ -159,26 +193,59 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Workspace visual placeholder (5 cols) */}
-                <div className="col-span-4 md:col-span-5 min-h-[260px] md:min-h-[340px]">
-                  <PlaceholderRect
-                    label="WORKSPACE & GAME DEV SETUP"
-                    sublabel="UNITY ENGINE · MILANOTE GDD · ASEPRITE SPRITES"
-                    aspectRatio="h-full w-full"
-                    className="border-0 bg-brand-primary/5"
+                {/* Workspace / Production Plan visual (5 cols) */}
+                <div className="group relative col-span-4 md:col-span-5 min-h-[260px] md:min-h-[340px] overflow-hidden bg-slate-950 border-t md:border-t-0">
+                  <Image
+                    src="/images/games/tiny-together-devplan.png"
+                    alt="Tiny Together Production & Development Plan"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 z-10 space-y-1">
+                    <span className="text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream/70 border border-brand-cream/30 px-2 py-0.5 rounded backdrop-blur-xs">
+                      PRODUCTION ROADMAP
+                    </span>
+                    <h4 className="text-sm sm:text-base font-bold text-white tracking-tight">
+                      Game Architecture & Task Board
+                    </h4>
+                    <p className="text-[0.65rem] text-brand-cream/80 font-mono">
+                      Tiny Together Sprint Plan: Levels, Mechanics & Monetization
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* Full Width Technical Showcase Strip */}
+              {/* Full Width Technical Showcase Strip - Real Mechanics Screenshot */}
               <div className="grid grid-cols-4 md:grid-cols-10">
-                <div className="col-span-4 md:col-span-10 aspect-[16/7]">
-                  <PlaceholderRect
-                    label="GAMEPLAY SYSTEMS & MECHANICS ARCHITECTURE"
-                    sublabel="CLONE SYNCHRONIZATION · MIRRORED INPUT LOGIC · 16 HANDCRAFTED PUZZLE LEVELS"
-                    aspectRatio="h-full w-full"
-                    className="border-0 bg-brand-primary/5"
+                <div className="group relative col-span-4 md:col-span-10 aspect-[16/7] overflow-hidden bg-slate-950">
+                  <Image
+                    src="/images/games/ulta-he-krega-gameplay.png"
+                    alt="Ulta He Krega Gameplay Mechanics & Dual Input Control Logic"
+                    fill
+                    sizes="100vw"
+                    className="object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-102"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                    <div className="space-y-1 max-w-xl">
+                      <span className="text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream/70 border border-brand-cream/30 px-2 py-0.5 rounded backdrop-blur-xs">
+                        GAMEPLAY MECHANICS BREAKDOWN
+                      </span>
+                      <h4 className="text-base sm:text-xl font-bold text-white tracking-tight">
+                        Ulta He Krega · Mirrored Dual-Character Control System
+                      </h4>
+                      <p className="text-[0.7rem] text-brand-cream/80 font-mono">
+                        Mother (WASD) vs Rebellious Child (Opposite ULTA movement) with synchronized dual-door victory logic.
+                      </p>
+                    </div>
+                    <div className="shrink-0">
+                      <span className="border border-brand-cream/50 bg-black/60 px-2.5 py-1 text-[0.65rem] font-mono tracking-widest uppercase text-brand-cream">
+                        GDAI Jam · Rank #2
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -451,10 +518,16 @@ export default function HomePage() {
                         </a>
                       </p>
                       <p>
-                        <span className="opacity-50">MOBILE:</span> +91-8146995417
-                      </p>
-                      <p>
                         <span className="opacity-50">LOCATION:</span> Punjab, India
+                      </p>
+                      <p className="pt-2">
+                        <Link
+                          href="/cv"
+                          className="inline-flex items-center gap-1.5 font-bold text-brand-primary underline hover:opacity-80"
+                        >
+                          <span>VIEW CURRICULUM VITAE (CV)</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -475,13 +548,26 @@ export default function HomePage() {
                   </a>
                 </div>
 
-                <div className="col-span-4 md:col-span-6 min-h-[300px] md:min-h-[460px]">
-                  <PlaceholderRect
-                    label="COLLABORATION INQUIRIES"
-                    sublabel="UNITY & GODOT · CONTRACT & FULL-TIME"
-                    aspectRatio="h-full w-full"
-                    className="border-0 bg-brand-primary/5"
+                <div className="group relative col-span-4 md:col-span-6 min-h-[300px] md:min-h-[460px] overflow-hidden bg-black/90 flex items-center justify-center">
+                  <Image
+                    src="/images/games/risky-business-banner.png"
+                    alt="Risky Business Island Showcase"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover opacity-80 transition-transform duration-700 ease-out group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/40" />
+                  <div className="relative z-10 p-6 text-center space-y-2 max-w-sm">
+                    <span className="text-[0.6rem] font-mono tracking-[0.2em] text-brand-cream/80 uppercase border border-brand-cream/30 px-2.5 py-1 rounded-full backdrop-blur-xs">
+                      OPEN FOR COLLABORATION
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                      Let&apos;s Build Games Together
+                    </h3>
+                    <p className="text-xs text-brand-cream/80 font-mono">
+                      Unity & Godot Gameplay Programming · Game Jam Partnerships
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

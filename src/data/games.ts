@@ -7,12 +7,12 @@ export const games: Game[] = [
     tagline: "One move. Two consequences.",
     description:
       "Can you think in two directions at once? Split You is a puzzle-platformer where every move affects both you and your ninja clone simultaneously. A movement that helps one character may hinder the other.",
-    coverImage: "/images/games/split-you-cover.svg",
-    bannerImage: "/images/games/split-you-banner.svg",
+    coverImage: "/images/games/split-you-cover.png",
+    bannerImage: "/images/games/split-you-banner.png",
     gallery: [
       {
-        src: "/images/games/split-you-cover.svg",
-        alt: "Split You gameplay scene",
+        src: "/images/games/split-you-cover.png",
+        alt: "Split You key visual and gameplay mechanics",
       },
     ],
     genre: ["Puzzle", "Platformer"],
@@ -66,7 +66,11 @@ export const games: Game[] = [
     gallery: [
       {
         src: "/images/games/tiny-together-cover.svg",
-        alt: "Tiny Together gameplay scene",
+        alt: "Tiny Together cover",
+      },
+      {
+        src: "/images/games/tiny-together-devplan.png",
+        alt: "Tiny Together Dev Plan & Architecture",
       },
     ],
     genre: ["Puzzle", "Platformer"],
@@ -114,12 +118,16 @@ export const games: Game[] = [
     tagline: "In Desi Chaos, even logic goes ULTA.",
     description:
       "Ulta He Krega is a chaotic, brain-twisting puzzle experience inspired by Indian moms vs rebellious kids. You control both the Mother and the Child — but the rebellious child ALWAYS moves in the opposite direction (ULTA)!",
-    coverImage: "/images/games/ulta-he-krega-cover.svg",
-    bannerImage: "/images/games/ulta-he-krega-banner.svg",
+    coverImage: "/images/games/ulta-he-krega-cover.png",
+    bannerImage: "/images/games/ulta-he-krega-banner.png",
     gallery: [
       {
-        src: "/images/games/ulta-he-krega-cover.svg",
-        alt: "Ulta He Karega gameplay scene",
+        src: "/images/games/ulta-he-krega-cover.png",
+        alt: "Ulta He Karega Key Visual",
+      },
+      {
+        src: "/images/games/ulta-he-krega-gameplay.png",
+        alt: "Ulta He Karega Level 1 Mechanics",
       },
     ],
     genre: ["Puzzle", "Platformer"],
@@ -171,12 +179,20 @@ export const games: Game[] = [
     tagline: "A pirate who gambles? Play and find out.",
     description:
       "You are a pirate king stranded on an island, surrounded by crates, machines, and questionable financial decisions. Your only way off: a ship waiting for you — but escaping isn't cheap. Break → Earn → Upgrade → Gamble → Repeat. Do you play it safe, or risk everything?",
-    coverImage: "/images/games/risky-business-cover.svg",
-    bannerImage: "/images/games/risky-business-banner.svg",
+    coverImage: "/images/games/risky-business-cover.png",
+    bannerImage: "/images/games/risky-business-banner.png",
     gallery: [
       {
-        src: "/images/games/risky-business-cover.svg",
-        alt: "Risky Business gameplay scene",
+        src: "/images/games/risky-business-cover.png",
+        alt: "Risky Business Title Screen",
+      },
+      {
+        src: "/images/games/risky-business-banner.png",
+        alt: "Risky Business Island Scene",
+      },
+      {
+        src: "/images/games/risky-business-devlog.png",
+        alt: "Risky Business Game Jam Devlog",
       },
     ],
     genre: ["Arcade", "Incremental"],

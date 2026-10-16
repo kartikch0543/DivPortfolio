@@ -97,12 +97,26 @@
         document.querySelector("#unity-container").className = "unity-mobile";
         canvas.className = "unity-mobile";
 
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+        function requestMobileFullscreenLandscape() {
+          var el = document.documentElement;
+          var rfs = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+          if (rfs && !document.fullscreenElement) {
+            rfs.call(el).then(function() {
+              if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(function(){});
+              }
+            }).catch(function(){});
+          } else if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(function(){});
+          }
+        }
 
-
-      } else {
+        window.addEventListener('touchstart', function() {
+          requestMobileFullscreenLandscape();
+        }, { passive: true });
+        window.addEventListener('click', function() {
+          requestMobileFullscreenLandscape();
+        });
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
         canvas.style.width = "1280px";
         canvas.style.height = "720px";

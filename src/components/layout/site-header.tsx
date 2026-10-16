@@ -140,13 +140,20 @@ export function SiteHeader() {
           </div>
         </div>
 
-        {/* Right Section: Theme Toggle & Menu Offset (Cols 10-12) */}
+        {/* Right Section: CV Link, Theme Toggle & Menu Offset (Cols 10-12) */}
         <div className="col-span-2 flex items-stretch justify-end md:col-span-3">
+          <Link
+            href="/cv"
+            className="flex h-full items-center px-3 md:px-4 border-l border-brand-primary/50 text-[0.65rem] md:text-xs font-mono font-bold tracking-[0.18em] uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors"
+          >
+            [ CV ]
+          </Link>
+
           <button
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="group/roll flex h-full cursor-pointer items-center gap-2.5 px-4 transition-colors hover:bg-brand-primary hover:text-brand-cream mr-14 md:mr-16"
+            className="group/roll flex h-full cursor-pointer items-center gap-2.5 px-3 md:px-4 border-l border-brand-primary/50 transition-colors hover:bg-brand-primary hover:text-brand-cream mr-14 md:mr-16"
           >
             <span className="relative block shrink-0 overflow-hidden leading-[1.4] text-[0.65rem] tracking-[0.18em] uppercase font-bold">
               <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
@@ -205,16 +212,16 @@ export function SiteHeader() {
       {/* Full-screen Slide-down Architectural Navigation Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-40 flex flex-col bg-brand-cream text-brand-primary pt-14 md:pt-16">
-          <nav className="flex-1 grid grid-cols-1 md:grid-cols-4 border-b border-brand-primary/50">
+          <nav className="flex-1 grid grid-cols-1 md:grid-cols-5 border-b border-brand-primary/50">
             <Link
-              href="#the-developer"
+              href="/#the-developer"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-10 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 01
               </span>
-              <span className="text-4xl md:text-6xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
                 about.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
@@ -223,14 +230,14 @@ export function SiteHeader() {
             </Link>
 
             <Link
-              href="#selected-works"
+              href="/#selected-works"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-10 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 02
               </span>
-              <span className="text-4xl md:text-6xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
                 works.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
@@ -239,14 +246,14 @@ export function SiteHeader() {
             </Link>
 
             <Link
-              href="#my-services"
+              href="/#my-services"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-10 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 03
               </span>
-              <span className="text-4xl md:text-6xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
                 skills.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
@@ -255,14 +262,30 @@ export function SiteHeader() {
             </Link>
 
             <Link
-              href="#contact"
+              href="/cv"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between p-6 md:p-10 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream bg-brand-primary/5"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
                 04
               </span>
-              <span className="text-4xl md:text-6xl font-bold tracking-[-0.06em]">
+              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+                cv.
+              </span>
+              <span className="text-xs font-mono tracking-widest uppercase">
+                Curriculum Vitae Document →
+              </span>
+            </Link>
+
+            <Link
+              href="/#contact"
+              onClick={() => setIsOpen(false)}
+              className="group flex flex-col justify-between p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
+            >
+              <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
+                05
+              </span>
+              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
                 contact.
               </span>
               <span className="text-xs font-mono tracking-widest uppercase">
@@ -289,10 +312,12 @@ export function SiteHeader() {
             >
               GitHub ↗
             </a>
-            <a href="mailto:kdivyanshu1012@gmail.com" className="hover:underline">
+            <Link href="/cv" onClick={() => setIsOpen(false)} className="hover:underline">
+              Curriculum Vitae (CV) ↗
+            </Link>
+            <a href="mailto:kdivyanshu1012@gmail.com" className="hover:underline text-right">
               kdivyanshu1012@gmail.com ↗
             </a>
-            <span className="opacity-60 text-right">+91-8146995417</span>
           </div>
         </div>
       )}

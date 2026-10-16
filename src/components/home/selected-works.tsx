@@ -1,36 +1,76 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { games } from "@/data/games";
-import { PlaceholderRect } from "@/components/ui/placeholder-rect";
-import { Maximize2, RotateCcw, ExternalLink, Play } from "lucide-react";
+import { Maximize2, RotateCcw, ExternalLink, Play, Smartphone } from "lucide-react";
+import {
+  isMobileDevice,
+  enterGameFullscreenLandscape,
+  exitGameFullscreen,
+} from "@/utils/mobile-game-utils";
 
 export function SelectedWorks() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isPortraitOnMobile, setIsPortraitOnMobile] = useState(false);
+  const playerContainerRef = useRef<HTMLDivElement>(null);
 
   const activeGame = games[activeIndex] || games[0];
 
+  useEffect(() => {
+    const checkOrientation = () => {
+      if (typeof window !== "undefined") {
+        const isMobile = isMobileDevice();
+        const isPortrait = window.innerHeight > window.innerWidth;
+        setIsPortraitOnMobile(isMobile && isPortrait);
+      }
+    };
+
+    checkOrientation();
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("orientationchange", checkOrientation);
+    return () => {
+      window.removeEventListener("resize", checkOrientation);
+      window.removeEventListener("orientationchange", checkOrientation);
+    };
+  }, []);
+
   const handlePrev = () => {
+    if (isPlaying) exitGameFullscreen();
     setIsPlaying(false);
     setActiveIndex((prev) => (prev === 0 ? games.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
+    if (isPlaying) exitGameFullscreen();
     setIsPlaying(false);
     setActiveIndex((prev) => (prev === games.length - 1 ? 0 : prev + 1));
   };
 
   const handleSelectGame = (index: number) => {
+    if (isPlaying) exitGameFullscreen();
     setIsPlaying(false);
     setActiveIndex(index);
   };
 
-  const toggleFullscreen = () => {
-    const iframe = document.getElementById("game-frame");
-    if (iframe?.requestFullscreen) {
-      iframe.requestFullscreen();
+  const handleStartGame = async () => {
+    setIsPlaying(true);
+    if (isMobileDevice()) {
+      // Automatically fullscreen and lock to landscape on phones
+      setTimeout(() => {
+        enterGameFullscreenLandscape(playerContainerRef.current);
+      }, 50);
     }
+  };
+
+  const handleStopGame = async () => {
+    await exitGameFullscreen();
+    setIsPlaying(false);
+  };
+
+  const toggleFullscreen = () => {
+    enterGameFullscreenLandscape(playerContainerRef.current);
   };
 
   return (
@@ -122,7 +162,7 @@ export function SelectedWorks() {
                 {!isPlaying ? (
                   <button
                     type="button"
-                    onClick={() => setIsPlaying(true)}
+                    onClick={handleStartGame}
                     className="group/cta inline-flex items-center gap-2 bg-brand-cream text-brand-primary px-5 py-2.5 text-xs md:text-sm font-bold tracking-[0.06em] uppercase hover:bg-brand-cream/90 transition-colors cursor-pointer"
                   >
                     <Play className="w-3.5 h-3.5 fill-current" />
@@ -132,7 +172,7 @@ export function SelectedWorks() {
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
-                      onClick={() => setIsPlaying(false)}
+                      onClick={handleStopGame}
                       className="inline-flex items-center gap-1.5 border border-brand-cream px-3 py-1.5 text-xs font-mono uppercase hover:bg-brand-cream hover:text-brand-primary transition-colors cursor-pointer"
                     >
                       <RotateCcw className="w-3 h-3" /> Stop Player
@@ -170,32 +210,71 @@ export function SelectedWorks() {
             </div>
           </div>
 
-          {/* Interactive Screen Container: Real Game WebGL Player OR Minimal Placeholder */}
-          <div className="relative w-full aspect-video min-h-[320px] md:min-h-[460px] bg-black/90 overflow-hidden flex items-center justify-center border-t border-brand-primary/50">
+          {/* Interactive Screen Container: Real Game WebGL Player OR Rich Artwork Preview */}
+          <div
+            ref={playerContainerRef}
+            className="relative w-full aspect-video min-h-[320px] md:min-h-[460px] bg-black/95 overflow-hidden flex items-center justify-center border-t border-brand-primary/50 group"
+          >
             {isPlaying && activeGame.launch.browser ? (
-              <iframe
-                id="game-frame"
-                src={activeGame.launch.browser}
-                title={activeGame.title}
-                className="w-full h-full border-0"
-                allow="autoplay; fullscreen; focus-without-user-activation *"
-              />
+              <>
+                <iframe
+                  id="game-frame"
+                  src={activeGame.launch.browser}
+                  title={activeGame.title}
+                  className="w-full h-full border-0"
+                  allow="autoplay; fullscreen *; screen-wake-lock; orientation-lock; gamepad"
+                  allowFullScreen
+                />
+                {isPortraitOnMobile && (
+                  <div className="absolute top-3 inset-x-3 z-30 p-2.5 rounded-lg bg-black/85 backdrop-blur-md border border-brand-cream/30 text-brand-cream text-xs font-mono flex items-center justify-between gap-2 shadow-xl animate-fade-in">
+                    <div className="flex items-center gap-2">
+                      <Smartphone className="w-4 h-4 text-emerald-400 rotate-90 animate-pulse shrink-0" />
+                      <span className="text-[11px]">Rotate phone to landscape for fullscreen</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={toggleFullscreen}
+                      className="px-2.5 py-1 rounded bg-brand-cream text-brand-primary text-[10px] font-bold uppercase tracking-wider"
+                    >
+                      Landscape
+                    </button>
+                  </div>
+                )}
+              </>
             ) : (
-              <PlaceholderRect
-                label={`${activeGame.title.toUpperCase()} · GAMEPLAY PREVIEW`}
-                sublabel="CLICK 'LAUNCH GAME IN BROWSER' TO RUN WEBGL BUILD DIRECTLY"
-                aspectRatio="w-full h-full"
-                className="border-0 bg-brand-primary/10"
-              >
-                <button
-                  type="button"
-                  onClick={() => setIsPlaying(true)}
-                  className="mt-4 inline-flex items-center gap-2 border border-brand-primary px-4 py-2 text-xs font-mono tracking-widest uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors cursor-pointer"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>Start WebGL Build</span>
-                </button>
-              </PlaceholderRect>
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                {/* Real Game Artwork */}
+                <Image
+                  src={activeGame.bannerImage || activeGame.coverImage}
+                  alt={activeGame.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 70vw"
+                  className="object-cover opacity-60 transition-transform duration-700 ease-out group-hover:scale-105"
+                  priority
+                />
+                {/* Atmospheric Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
+
+                <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 space-y-3 max-w-lg">
+                  <span className="text-[0.65rem] font-mono tracking-[0.25em] text-brand-cream/80 uppercase border border-brand-cream/30 px-3 py-1 rounded-full backdrop-blur-sm">
+                    {activeGame.engine} · WebGL Ready
+                  </span>
+                  <h4 className="text-2xl sm:text-4xl font-bold text-white tracking-[-0.03em] drop-shadow-md">
+                    {activeGame.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-brand-cream/90 font-mono tracking-wide max-w-md line-clamp-2">
+                    {activeGame.tagline}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleStartGame}
+                    className="mt-3 inline-flex items-center gap-2.5 bg-brand-cream text-brand-primary px-6 py-3 text-xs sm:text-sm font-bold tracking-[0.08em] uppercase hover:bg-white transition-all transform hover:scale-105 shadow-2xl cursor-pointer"
+                  >
+                    <Play className="w-4 h-4 fill-current" />
+                    <span>Launch Game in Browser</span>
+                  </button>
+                </div>
+              </div>
             )}
           </div>
 

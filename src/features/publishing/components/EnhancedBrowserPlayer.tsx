@@ -1,10 +1,15 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import type { Game } from "@/types/game";
 import { getLaunchPlan } from "@/features/game-platform/services/launch-manager";
 import { useGameTelemetry } from "@/hooks/use-game-telemetry";
-import { Play, Maximize2, RotateCcw, ShieldAlert, Command, ExternalLink } from "lucide-react";
+import { Play, Maximize2, RotateCcw, ShieldAlert, Command, ExternalLink, Smartphone } from "lucide-react";
+import {
+  isMobileDevice,
+  enterGameFullscreenLandscape,
+  exitGameFullscreen,
+} from "@/utils/mobile-game-utils";
 
 interface EnhancedBrowserPlayerProps {
   game: Game;
@@ -17,13 +22,38 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isPortraitOnMobile, setIsPortraitOnMobile] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkOrientation = () => {
+      if (typeof window !== "undefined") {
+        const isMobile = isMobileDevice();
+        const isPortrait = window.innerHeight > window.innerWidth;
+        setIsPortraitOnMobile(isMobile && isPortrait);
+      }
+    };
+
+    checkOrientation();
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("orientationchange", checkOrientation);
+    return () => {
+      window.removeEventListener("resize", checkOrientation);
+      window.removeEventListener("orientationchange", checkOrientation);
+    };
+  }, []);
 
   const handleStartGame = () => {
     setIsLoading(true);
     setIsPlaying(true);
     setLoadingProgress(10);
+
+    if (isMobileDevice()) {
+      setTimeout(() => {
+        enterGameFullscreenLandscape(containerRef.current);
+      }, 80);
+    }
 
     const interval = setInterval(() => {
       setLoadingProgress((prev) => {
@@ -38,12 +68,10 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
   };
 
   const handleToggleFullscreen = () => {
-    if (containerRef.current) {
-      if (!document.fullscreenElement) {
-        containerRef.current.requestFullscreen().catch((err) => console.error(err));
-      } else {
-        document.exitFullscreen().catch((err) => console.error(err));
-      }
+    if (!document.fullscreenElement) {
+      enterGameFullscreenLandscape(containerRef.current);
+    } else {
+      exitGameFullscreen();
     }
   };
 
@@ -152,11 +180,26 @@ export function EnhancedBrowserPlayer({ game }: EnhancedBrowserPlayerProps) {
             )}
             <iframe
               allowFullScreen
-              allow="autoplay; fullscreen; focus; gamepad"
+              allow="autoplay; fullscreen *; screen-wake-lock; orientation-lock; focus; gamepad"
               className="w-full h-full border-none"
               src={launchPlan.url}
               title={`${game.title} player`}
             />
+            {isPortraitOnMobile && (
+              <div className="absolute top-3 inset-x-3 z-30 p-2.5 rounded-lg bg-slate-900/90 backdrop-blur-md border border-slate-700 text-slate-200 text-xs font-mono flex items-center justify-between gap-2 shadow-xl animate-fade-in">
+                <div className="flex items-center gap-2">
+                  <Smartphone className="w-4 h-4 text-emerald-400 rotate-90 animate-pulse shrink-0" />
+                  <span className="text-[11px]">Rotate phone to landscape for fullscreen</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleToggleFullscreen}
+                  className="px-2.5 py-1 rounded bg-emerald-500 text-slate-950 text-[10px] font-bold uppercase tracking-wider hover:bg-emerald-400"
+                >
+                  Landscape
+                </button>
+              </div>
+            )}
           </>
         )}
       </div>
