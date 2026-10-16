@@ -144,7 +144,7 @@ export function SiteHeader() {
         <div className="col-span-2 flex items-stretch justify-end md:col-span-3">
           <Link
             href="/breakdowns"
-            className="hidden sm:flex h-full items-center px-2.5 md:px-3 border-l border-brand-primary/50 text-[0.65rem] md:text-xs font-mono font-bold tracking-[0.14em] uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors"
+            className="hidden md:flex h-full items-center px-2.5 md:px-3 border-l border-brand-primary/50 text-[0.65rem] md:text-xs font-mono font-bold tracking-[0.14em] uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors"
           >
             Breakdowns
           </Link>

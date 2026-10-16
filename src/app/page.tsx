@@ -87,11 +87,11 @@ export default function HomePage() {
         </div>
 
         {/* Bottom Hero Typography Bar */}
-        <div className="grid grid-cols-4 md:grid-cols-12 items-end">
-          {/* Clamped Name Heading (7 cols) */}
-          <div className="col-span-4 flex items-end px-3 py-4 md:col-span-7 md:px-5 md:py-6">
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          {/* Clamped Name Heading - full width own row on mobile, 7 cols on desktop */}
+          <div className="col-span-4 flex items-end px-3 py-4 md:col-span-7 md:px-5 md:py-6 border-b md:border-b-0 border-brand-primary/50">
             <h1
-              className="text-[clamp(3.5rem,18vw,14rem)] leading-[0.8] font-bold tracking-[-0.13em] lowercase"
+              className="text-[clamp(2.8rem,14vw,14rem)] leading-[0.85] font-bold tracking-[-0.10em] lowercase"
               aria-label="divyanshu."
             >
               divyanshu.
@@ -99,7 +99,7 @@ export default function HomePage() {
           </div>
 
           {/* Roles List (3 cols) */}
-          <ul className="col-span-3 md:col-span-3 md:border-l border-brand-primary/50 p-3 md:p-5 flex flex-col justify-end gap-1 text-base leading-[1.15] font-medium tracking-[-0.02em] md:text-xl lg:text-2xl border-t md:border-t-0">
+          <ul className="col-span-3 md:col-span-3 md:border-l border-brand-primary/50 p-3 md:p-5 flex flex-col justify-end gap-1 text-sm leading-[1.2] font-medium tracking-[-0.02em] md:text-xl lg:text-2xl border-r border-brand-primary/50 md:border-r-0">
             <li>Game Developer</li>
             <li>Gameplay Programmer</li>
             <li>Unity & Godot Specialist</li>
