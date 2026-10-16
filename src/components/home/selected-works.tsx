@@ -245,7 +245,7 @@ export function SelectedWorks() {
                   allowFullScreen
                 />
                 {isPortraitOnMobile && (
-                  <div className="absolute top-3 inset-x-3 z-30 p-2.5 rounded-lg bg-black/85 backdrop-blur-md border border-brand-cream/30 text-brand-cream text-xs font-mono flex items-center justify-between gap-2 shadow-xl animate-fade-in">
+                  <div className="absolute top-3 inset-x-3 z-30 p-2.5 rounded-lg bg-black/85 backdrop-blur-md border border-brand-cream/30 dark:border-brand-primary/30 text-brand-cream dark:text-brand-primary text-xs font-mono flex items-center justify-between gap-2 shadow-xl animate-fade-in">
                     <div className="flex items-center gap-2">
                       <Smartphone className="w-4 h-4 text-emerald-400 rotate-90 animate-pulse shrink-0" />
                       <span className="text-[11px]">Rotate phone to landscape for fullscreen</span>
@@ -253,7 +253,7 @@ export function SelectedWorks() {
                     <button
                       type="button"
                       onClick={toggleFullscreen}
-                      className="px-2.5 py-1 rounded bg-brand-cream text-brand-primary text-[10px] font-bold uppercase tracking-wider"
+                      className="px-2.5 py-1 rounded bg-brand-cream dark:bg-brand-primary text-brand-primary dark:text-brand-cream text-[10px] font-bold uppercase tracking-wider"
                     >
                       Landscape
                     </button>
@@ -275,13 +275,13 @@ export function SelectedWorks() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
 
                 <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 space-y-4 max-w-lg">
-                  <span className="text-[0.65rem] font-mono tracking-[0.25em] text-brand-cream/80 uppercase border border-brand-cream/30 px-3 py-1 rounded-full backdrop-blur-sm">
+                  <span className="text-[0.65rem] font-mono tracking-[0.25em] text-brand-cream/80 dark:text-brand-primary/90 uppercase border border-brand-cream/30 dark:border-brand-primary/30 px-3 py-1 rounded-full backdrop-blur-sm">
                     {activeGame.engine} · WebGL Ready
                   </span>
                   <h4 className="text-3xl sm:text-5xl font-bold text-white tracking-[-0.03em] drop-shadow-md">
                     {activeGame.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-brand-cream/90 font-mono tracking-wide max-w-md line-clamp-2">
+                  <p className="text-xs sm:text-sm text-brand-cream/90 dark:text-brand-primary/90 font-mono tracking-wide max-w-md line-clamp-2">
                     {activeGame.tagline}
                   </p>
 
@@ -296,7 +296,7 @@ export function SelectedWorks() {
                     </button>
                     <Link
                       href={`/games/${activeGame.slug}/breakdown`}
-                      className="inline-flex items-center gap-2 border border-brand-cream text-brand-cream px-5 py-3 text-xs sm:text-sm font-mono font-bold tracking-[0.08em] uppercase hover:bg-brand-cream hover:text-brand-primary transition-all backdrop-blur-xs"
+                      className="inline-flex items-center gap-2 border border-brand-cream dark:border-brand-primary text-brand-cream dark:text-brand-primary px-5 py-3 text-xs sm:text-sm font-mono font-bold tracking-[0.08em] uppercase hover:bg-brand-cream dark:hover:bg-brand-primary hover:text-brand-primary dark:hover:text-brand-cream transition-all backdrop-blur-xs"
                     >
                       <Code2 className="w-3.5 h-3.5" />
                       <span>Breakdown →</span>

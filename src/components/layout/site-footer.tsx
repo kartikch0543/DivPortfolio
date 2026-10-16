@@ -13,8 +13,8 @@ export function SiteFooter() {
           unoptimized
           className="object-cover opacity-75 group-hover:opacity-95 transition-all duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-black/40 to-transparent" />
-        <div className="absolute bottom-3 left-4 right-4 z-10 flex items-center justify-between text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream/80">
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute bottom-3 left-4 right-4 z-10 flex items-center justify-between text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream/80 dark:text-brand-primary/90">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>GAMEPLAY ARCHIVE · SHIPPED TITLES</span>

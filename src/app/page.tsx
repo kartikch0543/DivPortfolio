@@ -25,14 +25,14 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/40" />
 
             {/* Corner Badge */}
-            <div className="absolute top-3 left-3 z-10 flex items-center gap-2 border border-brand-cream/40 bg-black/70 px-2.5 py-1 text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream backdrop-blur-xs">
+            <div className="absolute top-3 left-3 z-10 flex items-center gap-2 border border-brand-cream/40 dark:border-brand-primary/40 bg-black/70 px-2.5 py-1 text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream dark:text-brand-primary backdrop-blur-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               <span>KEY ART · RISKY BUSINESS</span>
             </div>
 
             <div className="absolute bottom-4 inset-x-4 z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3">
               <div>
-                <span className="text-[0.6rem] font-mono tracking-[0.2em] text-brand-cream/70 uppercase">
+                <span className="text-[0.6rem] font-mono tracking-[0.2em] text-brand-cream/70 dark:text-brand-primary/80 uppercase">
                   Featured Unity Title · IIITN Tantrafiesta 2026
                 </span>
                 <h3 className="text-xl sm:text-3xl font-bold text-white tracking-tight">
@@ -40,16 +40,16 @@ export default function HomePage() {
                 </h3>
               </div>
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream font-bold">
+                <span className="border border-brand-cream/50 dark:border-brand-primary/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream dark:text-brand-primary font-bold">
                   Risky Business
                 </span>
-                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
+                <span className="border border-brand-cream/50 dark:border-brand-primary/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream dark:text-brand-primary">
                   Split You
                 </span>
-                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
+                <span className="border border-brand-cream/50 dark:border-brand-primary/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream dark:text-brand-primary">
                   Tiny Together
                 </span>
-                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
+                <span className="border border-brand-cream/50 dark:border-brand-primary/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream dark:text-brand-primary">
                   Ulta He Krega
                 </span>
               </div>
@@ -68,18 +68,18 @@ export default function HomePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
 
-            <div className="absolute top-3 right-3 z-10 border border-brand-cream/40 bg-black/70 px-2.5 py-1 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream backdrop-blur-xs">
+            <div className="absolute top-3 right-3 z-10 border border-brand-cream/40 dark:border-brand-primary/40 bg-black/70 px-2.5 py-1 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream dark:text-brand-primary backdrop-blur-xs">
               DEVLOG · ISSUE 02
             </div>
 
             <div className="absolute bottom-4 left-4 right-4 z-10 space-y-1">
-              <p className="text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream/70">
+              <p className="text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream/70 dark:text-brand-primary/80">
                 LPU CSE · PUNJAB, INDIA
               </p>
               <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
                 Divyanshu Kumar
               </h4>
-              <p className="text-[0.65rem] text-brand-cream/80 font-mono">
+              <p className="text-[0.65rem] text-brand-cream/80 dark:text-brand-primary/80 font-mono">
                 Gameplay Programmer & Indie Creator
               </p>
             </div>
@@ -203,13 +203,13 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 z-10 space-y-1">
-                    <span className="text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream/70 border border-brand-cream/30 px-2 py-0.5 rounded backdrop-blur-xs">
+                    <span className="text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream/70 dark:text-brand-primary/80 border border-brand-cream/30 dark:border-brand-primary/30 px-2 py-0.5 rounded backdrop-blur-xs">
                       PRODUCTION ROADMAP
                     </span>
                     <h4 className="text-sm sm:text-base font-bold text-white tracking-tight">
                       Game Architecture & Task Board
                     </h4>
-                    <p className="text-[0.65rem] text-brand-cream/80 font-mono">
+                    <p className="text-[0.65rem] text-brand-cream/80 dark:text-brand-primary/80 font-mono">
                       Sprint Architecture: Mechanics, Levels & Pipelines
                     </p>
                   </div>
@@ -230,18 +230,18 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
                     <div className="space-y-1 max-w-xl">
-                      <span className="text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream/70 border border-brand-cream/30 px-2 py-0.5 rounded backdrop-blur-xs">
+                      <span className="text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream/70 dark:text-brand-primary/80 border border-brand-cream/30 dark:border-brand-primary/30 px-2 py-0.5 rounded backdrop-blur-xs">
                         LIVE GAMEPLAY MECHANICS DEMO
                       </span>
                       <h4 className="text-base sm:text-xl font-bold text-white tracking-tight">
                         Real-time Gameplay & Physics Simulation
                       </h4>
-                      <p className="text-[0.7rem] text-brand-cream/80 font-mono">
+                      <p className="text-[0.7rem] text-brand-cream/80 dark:text-brand-primary/80 font-mono">
                         Handcrafted puzzle-platformer physics, dual entity synchronization, and state management in action.
                       </p>
                     </div>
                     <div className="shrink-0">
-                      <span className="border border-brand-cream/50 bg-black/60 px-2.5 py-1 text-[0.65rem] font-mono tracking-widest uppercase text-brand-cream">
+                      <span className="border border-brand-cream/50 dark:border-brand-primary/50 bg-black/60 px-2.5 py-1 text-[0.65rem] font-mono tracking-widest uppercase text-brand-cream dark:text-brand-primary">
                         GDAI Jam · Rank #2
                       </span>
                     </div>
@@ -534,13 +534,13 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/40" />
                   <div className="relative z-10 p-6 text-center space-y-2 max-w-sm">
-                    <span className="text-[0.6rem] font-mono tracking-[0.2em] text-brand-cream/80 uppercase border border-brand-cream/30 px-2.5 py-1 rounded-full backdrop-blur-xs">
+                    <span className="text-[0.6rem] font-mono tracking-[0.2em] text-brand-cream/80 dark:text-brand-primary/90 uppercase border border-brand-cream/30 dark:border-brand-primary/30 px-2.5 py-1 rounded-full backdrop-blur-xs">
                       OPEN FOR COLLABORATION
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                       Let&apos;s Build Games Together
                     </h3>
-                    <p className="text-xs text-brand-cream/80 font-mono">
+                    <p className="text-xs text-brand-cream/80 dark:text-brand-primary/80 font-mono">
                       Unity & Godot Gameplay Programming · Game Jam Partnerships
                     </p>
                   </div>
