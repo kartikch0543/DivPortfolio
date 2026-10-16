@@ -146,14 +146,14 @@ export function SiteHeader() {
             href="/breakdowns"
             className="hidden sm:flex h-full items-center px-2.5 md:px-3 border-l border-brand-primary/50 text-[0.65rem] md:text-xs font-mono font-bold tracking-[0.14em] uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors"
           >
-            [ Breakdowns ]
+            Breakdowns
           </Link>
 
           <Link
             href="/cv"
             className="flex h-full items-center px-3 md:px-4 border-l border-brand-primary/50 text-[0.65rem] md:text-xs font-mono font-bold tracking-[0.18em] uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors"
           >
-            [ CV ]
+            CV
           </Link>
 
           <button

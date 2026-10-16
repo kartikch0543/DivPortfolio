@@ -302,14 +302,14 @@ export default function HomePage() {
         </div>
 
         {/* Capability Row 01 */}
-        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[220px] md:hover:min-h-[320px]">
+        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height,background-color] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[160px] md:hover:min-h-[220px] hover:bg-brand-primary/5">
           <span className="col-span-1 p-3 md:p-5 flex items-start tabular-nums opacity-60 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
             01
           </span>
           <h3 className="col-span-3 md:col-span-6 border-l border-brand-primary/50 md:border-r p-3 md:p-5 flex items-center text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
             game programming
           </h3>
-          <ul className="col-span-3 col-start-2 md:col-span-2 md:col-start-auto border-l border-brand-primary/50 md:border-r md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+          <ul className="col-span-3 col-start-2 md:col-span-5 md:col-start-auto border-l border-brand-primary/50 md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1.5 text-[0.65rem] md:text-xs tracking-[0.18em] uppercase font-mono">
             <li>unity & c#</li>
             <li>godot & gdscript</li>
             <li>movement & physics</li>
@@ -317,31 +317,17 @@ export default function HomePage() {
             <li>webgl optimization</li>
             <li>level logic & progression</li>
           </ul>
-          {/* Skill Row 01 - Replaced with img9 */}
-          <div className="group relative col-span-4 h-48 md:h-auto overflow-hidden bg-slate-950">
-            <Image
-              src="/images/imported/img9.PNG"
-              alt="Code Architecture & C# Systems"
-              fill
-              sizes="(max-width: 768px) 100vw, 25vw"
-              className="object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-            <div className="absolute bottom-2 left-3 right-3 text-[0.6rem] font-mono uppercase tracking-widest text-brand-cream/80">
-              Code Architecture · C#
-            </div>
-          </div>
         </div>
 
         {/* Capability Row 02 */}
-        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[220px] md:hover:min-h-[320px]">
+        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height,background-color] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[160px] md:hover:min-h-[220px] hover:bg-brand-primary/5">
           <span className="col-span-1 p-3 md:p-5 flex items-start tabular-nums opacity-60 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
             02
           </span>
           <h3 className="col-span-3 md:col-span-6 border-l border-brand-primary/50 md:border-r p-3 md:p-5 flex items-center text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
             systems & mechanics design
           </h3>
-          <ul className="col-span-3 col-start-2 md:col-span-2 md:col-start-auto border-l border-brand-primary/50 md:border-r md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+          <ul className="col-span-3 col-start-2 md:col-span-5 md:col-start-auto border-l border-brand-primary/50 md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1.5 text-[0.65rem] md:text-xs tracking-[0.18em] uppercase font-mono">
             <li>clone synchronization</li>
             <li>mirrored inputs</li>
             <li>incremental loops</li>
@@ -349,32 +335,17 @@ export default function HomePage() {
             <li>2-player co-op systems</li>
             <li>player retention pacing</li>
           </ul>
-          {/* Skill Row 02 - Replaced with GIF1 */}
-          <div className="group relative col-span-4 h-48 md:h-auto overflow-hidden bg-slate-950">
-            <Image
-              src="/images/imported/GIF1.gif"
-              alt="Mechanic Schematic & Gameplay Flow"
-              fill
-              unoptimized
-              sizes="(max-width: 768px) 100vw, 25vw"
-              className="object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-            <div className="absolute bottom-2 left-3 right-3 text-[0.6rem] font-mono uppercase tracking-widest text-brand-cream/80">
-              Mechanic Flow · Synchronized Logic
-            </div>
-          </div>
         </div>
 
         {/* Capability Row 03 */}
-        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[220px] md:hover:min-h-[320px]">
+        <div className="group grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50 transition-[min-height,background-color] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[160px] md:hover:min-h-[220px] hover:bg-brand-primary/5">
           <span className="col-span-1 p-3 md:p-5 flex items-start tabular-nums opacity-60 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
             03
           </span>
           <h3 className="col-span-3 md:col-span-6 border-l border-brand-primary/50 md:border-r p-3 md:p-5 flex items-center text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
             tools & pipeline
           </h3>
-          <ul className="col-span-3 col-start-2 md:col-span-2 md:col-start-auto border-l border-brand-primary/50 md:border-r md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1 text-[0.65rem] tracking-[0.18em] uppercase font-mono">
+          <ul className="col-span-3 col-start-2 md:col-span-5 md:col-start-auto border-l border-brand-primary/50 md:border-l-0 p-3 md:p-5 flex flex-col justify-center gap-1.5 text-[0.65rem] md:text-xs tracking-[0.18em] uppercase font-mono">
             <li>figma ui design</li>
             <li>photoshop</li>
             <li>blender 3d</li>
@@ -382,20 +353,6 @@ export default function HomePage() {
             <li>milanote gdd</li>
             <li>android & webgl export</li>
           </ul>
-          {/* Skill Row 03 - Replaced with img8 */}
-          <div className="group relative col-span-4 h-48 md:h-auto overflow-hidden bg-slate-950">
-            <Image
-              src="/images/imported/img8.PNG"
-              alt="Pipeline Assets & Sprint Architecture"
-              fill
-              sizes="(max-width: 768px) 100vw, 25vw"
-              className="object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-            <div className="absolute bottom-2 left-3 right-3 text-[0.6rem] font-mono uppercase tracking-widest text-brand-cream/80">
-              Pipeline Assets · Level Design
-            </div>
-          </div>
         </div>
       </section>
 
