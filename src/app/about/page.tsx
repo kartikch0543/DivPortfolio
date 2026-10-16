@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
-import { developer, statistics } from "@/data/site-content";
-import { ArrowUpRight, Award, Gamepad2, FileText, CheckCircle2 } from "lucide-react";
+import { developer } from "@/data/site-content";
+import { ArrowUpRight, Award, FileText, CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -36,7 +36,7 @@ export default function AboutPage() {
           {/* Left Column: Bio Story */}
           <div className="md:col-span-7 space-y-6">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              From Hollow Knight inspiration to 4 shipped itch.io titles.
+              From Hollow Knight inspiration to 4 shipped and built games.
             </h2>
             <div className="space-y-4 text-sm sm:text-base leading-relaxed opacity-85 font-sans">
               <p>

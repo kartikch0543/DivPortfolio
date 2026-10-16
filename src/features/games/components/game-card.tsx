@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, Gamepad2, Sparkles, Star, Zap } from "lucide-react";
+import { Gamepad2, Sparkles, Star, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { getPrimaryLaunch } from "@/lib/game-launch";
 import type { Game } from "@/types/game";
@@ -63,24 +63,24 @@ export function GameCard({ game }: { game: Game }) {
             </span>
           </div>
 
-          <div className="flex items-center justify-between gap-3 pt-2.5 border-t-2 border-indigo-950/10 dark:border-slate-800">
+          <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5 border-t-2 border-indigo-950/10 dark:border-slate-800">
             <span className="text-[10px] font-mono text-indigo-900 dark:text-slate-400 font-bold">
               ⏱ {game.estimatedPlaytime}
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-1.5">
               {primaryLaunch && (
                 <Link
                   href={`/games/${game.slug}`}
-                  className="inline-flex items-center gap-1 px-4 py-1.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-indigo-950 font-pixel font-bold text-xs transition-all hover:scale-105 shadow-[3px_3px_0px_0px_rgba(30,27,75,1)] border-2 border-indigo-950"
+                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500 hover:bg-emerald-400 text-indigo-950 font-pixel font-bold text-xs transition-all hover:scale-105 shadow-[2px_2px_0px_0px_rgba(30,27,75,1)] border-2 border-indigo-950"
                 >
                   <Gamepad2 className="w-3.5 h-3.5" /> PLAY
                 </Link>
               )}
               <Link
-                href={`/games/${game.slug}`}
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-indigo-950 dark:text-slate-200 text-xs font-mono font-bold transition-all border border-indigo-950/30 dark:border-slate-700"
+                href={`/games/${game.slug}/breakdown`}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-400 hover:bg-amber-300 text-indigo-950 text-xs font-mono font-bold transition-all border border-indigo-950 shadow-[2px_2px_0px_0px_rgba(30,27,75,1)]"
               >
-                DETAILS <ExternalLink className="w-3 h-3" />
+                BREAKDOWN →
               </Link>
             </div>
           </div>

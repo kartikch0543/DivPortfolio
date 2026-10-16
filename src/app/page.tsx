@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PlaceholderRect } from "@/components/ui/placeholder-rect";
 import { SelectedWorks } from "@/components/home/selected-works";
 import { ArrowUpRight } from "lucide-react";
 
@@ -13,11 +12,11 @@ export default function HomePage() {
       <section className="flex flex-col border-b border-brand-primary/50 md:min-h-[calc(100svh-4rem)]">
         {/* Top Split Media Grid: 8 Cols Gameplay Reel + 4 Cols Portrait */}
         <div className="grid grid-cols-4 md:grid-cols-12 md:min-h-[42svh] md:flex-1 border-b border-brand-primary/50">
-          {/* Hero Media Card (8 cols) - Real Key Art Showcase */}
+          {/* Hero Media Card (8 cols) - Real Key Art Showcase featuring Risky Business */}
           <div className="group relative col-span-4 md:col-span-8 aspect-[4/3] md:aspect-auto md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-brand-primary/50 bg-black/95">
             <Image
-              src="/images/games/split-you-cover.png"
-              alt="Split You - Shipped Game Art"
+              src="/images/games/risky-business-cover.png"
+              alt="Risky Business - Shipped Game Art"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 66vw"
@@ -27,25 +26,25 @@ export default function HomePage() {
 
             {/* Corner Badge */}
             <div className="absolute top-3 left-3 z-10 flex items-center gap-2 border border-brand-cream/40 bg-black/70 px-2.5 py-1 text-[0.62rem] font-mono tracking-widest uppercase text-brand-cream backdrop-blur-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>KEY ART · SPLIT YOU</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+              <span>KEY ART · RISKY BUSINESS</span>
             </div>
 
             <div className="absolute bottom-4 inset-x-4 z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3">
               <div>
                 <span className="text-[0.6rem] font-mono tracking-[0.2em] text-brand-cream/70 uppercase">
-                  Featured Unity Title
+                  Featured Unity Title · IIITN Tantrafiesta 2026
                 </span>
                 <h3 className="text-xl sm:text-3xl font-bold text-white tracking-tight">
-                  Two Minds. One Body.
+                  Break. Earn. Upgrade. Gamble.
                 </h3>
               </div>
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
-                  Split You
+                <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream font-bold">
+                  Risky Business
                 </span>
                 <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
-                  Risky Business
+                  Split You
                 </span>
                 <span className="border border-brand-cream/50 bg-black/60 px-2 py-0.5 text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream">
                   Tiny Together
@@ -116,7 +115,7 @@ export default function HomePage() {
                 4 SHIPPED
               </span>
               <span className="text-[0.55rem] font-mono tracking-widest uppercase opacity-70">
-                ITCH.IO BUILDS
+                GAMES BUILT
               </span>
             </div>
           </div>
@@ -150,7 +149,7 @@ export default function HomePage() {
                     I&apos;m Divyanshu Kumar, a game developer proficient in Unity and C#, with working knowledge of Godot and GDScript. I fell in love with game development after being inspired by Hollow Knight, turning a lifelong passion for AAA, RPGs, and indie games into shipping real games.
                   </p>
                   <p className="max-w-[48ch] text-sm md:text-base leading-relaxed opacity-85">
-                    To date, I&apos;ve shipped 5 games alongside countless technical experiments. My core toolkit spans Unity, Godot, C#, Figma, Photoshop, Blender, Aseprite, and Milanote for game design documentation.
+                    To date, I&apos;ve shipped and built 4 games alongside countless technical experiments. My core toolkit spans Unity, Godot, C#, Figma, Photoshop, Blender, Aseprite, and Milanote for game design documentation.
                   </p>
 
                   <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -193,11 +192,11 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Workspace / Production Plan visual (5 cols) */}
+                {/* Workspace / Production Plan visual (5 cols) - Replaced img8 with img4 */}
                 <div className="group relative col-span-4 md:col-span-5 min-h-[260px] md:min-h-[340px] overflow-hidden bg-slate-950 border-t md:border-t-0">
                   <Image
-                    src="/images/games/tiny-together-devplan.png"
-                    alt="Tiny Together Production & Development Plan"
+                    src="/images/imported/img4.PNG"
+                    alt="Game Production & Technical Design"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-105"
@@ -211,33 +210,34 @@ export default function HomePage() {
                       Game Architecture & Task Board
                     </h4>
                     <p className="text-[0.65rem] text-brand-cream/80 font-mono">
-                      Tiny Together Sprint Plan: Levels, Mechanics & Monetization
+                      Sprint Architecture: Mechanics, Levels & Pipelines
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Full Width Technical Showcase Strip - Real Mechanics Screenshot */}
+              {/* Full Width Technical Showcase Strip - Replaced img3 with GIF2 */}
               <div className="grid grid-cols-4 md:grid-cols-10">
                 <div className="group relative col-span-4 md:col-span-10 aspect-[16/7] overflow-hidden bg-slate-950">
                   <Image
-                    src="/images/games/ulta-he-krega-gameplay.png"
-                    alt="Ulta He Krega Gameplay Mechanics & Dual Input Control Logic"
+                    src="/images/imported/GIF2.gif"
+                    alt="Gameplay Mechanics Demonstration & Live Action"
                     fill
+                    unoptimized
                     sizes="100vw"
-                    className="object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-102"
+                    className="object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-102"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
                     <div className="space-y-1 max-w-xl">
                       <span className="text-[0.6rem] font-mono tracking-widest uppercase text-brand-cream/70 border border-brand-cream/30 px-2 py-0.5 rounded backdrop-blur-xs">
-                        GAMEPLAY MECHANICS BREAKDOWN
+                        LIVE GAMEPLAY MECHANICS DEMO
                       </span>
                       <h4 className="text-base sm:text-xl font-bold text-white tracking-tight">
-                        Ulta He Krega · Mirrored Dual-Character Control System
+                        Real-time Gameplay & Physics Simulation
                       </h4>
                       <p className="text-[0.7rem] text-brand-cream/80 font-mono">
-                        Mother (WASD) vs Rebellious Child (Opposite ULTA movement) with synchronized dual-door victory logic.
+                        Handcrafted puzzle-platformer physics, dual entity synchronization, and state management in action.
                       </p>
                     </div>
                     <div className="shrink-0">
@@ -317,13 +317,19 @@ export default function HomePage() {
             <li>webgl optimization</li>
             <li>level logic & progression</li>
           </ul>
-          <div className="relative col-span-4 h-44 overflow-hidden md:col-span-3 md:h-auto">
-            <PlaceholderRect
-              label="CODE ARCHITECTURE"
-              sublabel="C# DESIGN PATTERNS"
-              aspectRatio="h-full w-full"
-              className="border-0 bg-brand-primary/5"
+          {/* Skill Row 01 - Replaced with img9 */}
+          <div className="group relative col-span-4 h-48 md:h-auto overflow-hidden bg-slate-950">
+            <Image
+              src="/images/imported/img9.PNG"
+              alt="Code Architecture & C# Systems"
+              fill
+              sizes="(max-width: 768px) 100vw, 25vw"
+              className="object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="absolute bottom-2 left-3 right-3 text-[0.6rem] font-mono uppercase tracking-widest text-brand-cream/80">
+              Code Architecture · C#
+            </div>
           </div>
         </div>
 
@@ -343,13 +349,20 @@ export default function HomePage() {
             <li>2-player co-op systems</li>
             <li>player retention pacing</li>
           </ul>
-          <div className="relative col-span-4 h-44 overflow-hidden md:col-span-3 md:h-auto">
-            <PlaceholderRect
-              label="MECHANIC SCHEMATIC"
-              sublabel="DUAL-CONTROL PUZZLE FLOW"
-              aspectRatio="h-full w-full"
-              className="border-0 bg-brand-primary/5"
+          {/* Skill Row 02 - Replaced with GIF1 */}
+          <div className="group relative col-span-4 h-48 md:h-auto overflow-hidden bg-slate-950">
+            <Image
+              src="/images/imported/GIF1.gif"
+              alt="Mechanic Schematic & Gameplay Flow"
+              fill
+              unoptimized
+              sizes="(max-width: 768px) 100vw, 25vw"
+              className="object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="absolute bottom-2 left-3 right-3 text-[0.6rem] font-mono uppercase tracking-widest text-brand-cream/80">
+              Mechanic Flow · Synchronized Logic
+            </div>
           </div>
         </div>
 
@@ -369,13 +382,19 @@ export default function HomePage() {
             <li>milanote gdd</li>
             <li>android & webgl export</li>
           </ul>
-          <div className="relative col-span-4 h-44 overflow-hidden md:col-span-3 md:h-auto">
-            <PlaceholderRect
-              label="PIPELINE ASSETS"
-              sublabel="SPRITES & UI FRAMES"
-              aspectRatio="h-full w-full"
-              className="border-0 bg-brand-primary/5"
+          {/* Skill Row 03 - Replaced with img8 */}
+          <div className="group relative col-span-4 h-48 md:h-auto overflow-hidden bg-slate-950">
+            <Image
+              src="/images/imported/img8.PNG"
+              alt="Pipeline Assets & Sprint Architecture"
+              fill
+              sizes="(max-width: 768px) 100vw, 25vw"
+              className="object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="absolute bottom-2 left-3 right-3 text-[0.6rem] font-mono uppercase tracking-widest text-brand-cream/80">
+              Pipeline Assets · Level Design
+            </div>
           </div>
         </div>
       </section>

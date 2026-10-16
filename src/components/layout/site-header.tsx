@@ -140,8 +140,15 @@ export function SiteHeader() {
           </div>
         </div>
 
-        {/* Right Section: CV Link, Theme Toggle & Menu Offset (Cols 10-12) */}
+        {/* Right Section: Breakdowns Link, CV Link, Theme Toggle & Menu Offset (Cols 10-12) */}
         <div className="col-span-2 flex items-stretch justify-end md:col-span-3">
+          <Link
+            href="/breakdowns"
+            className="hidden sm:flex h-full items-center px-2.5 md:px-3 border-l border-brand-primary/50 text-[0.65rem] md:text-xs font-mono font-bold tracking-[0.14em] uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors"
+          >
+            [ Breakdowns ]
+          </Link>
+
           <Link
             href="/cv"
             className="flex h-full items-center px-3 md:px-4 border-l border-brand-primary/50 text-[0.65rem] md:text-xs font-mono font-bold tracking-[0.18em] uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors"
@@ -212,7 +219,7 @@ export function SiteHeader() {
       {/* Full-screen Slide-down Architectural Navigation Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-40 flex flex-col bg-brand-cream text-brand-primary pt-14 md:pt-16">
-          <nav className="flex-1 grid grid-cols-1 md:grid-cols-5 border-b border-brand-primary/50">
+          <nav className="flex-1 grid grid-cols-1 md:grid-cols-6 border-b border-brand-primary/50">
             <Link
               href="/#the-developer"
               onClick={() => setIsOpen(false)}
@@ -246,12 +253,28 @@ export function SiteHeader() {
             </Link>
 
             <Link
+              href="/breakdowns"
+              onClick={() => setIsOpen(false)}
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream bg-brand-primary/5"
+            >
+              <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
+                03
+              </span>
+              <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
+                breakdowns.
+              </span>
+              <span className="text-xs font-mono tracking-widest uppercase">
+                Technical Deep Dives →
+              </span>
+            </Link>
+
+            <Link
               href="/#my-services"
               onClick={() => setIsOpen(false)}
               className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
-                03
+                04
               </span>
               <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
                 skills.
@@ -264,10 +287,10 @@ export function SiteHeader() {
             <Link
               href="/cv"
               onClick={() => setIsOpen(false)}
-              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream bg-brand-primary/5"
+              className="group flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-primary/50 p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
-                04
+                05
               </span>
               <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
                 cv.
@@ -283,7 +306,7 @@ export function SiteHeader() {
               className="group flex flex-col justify-between p-6 md:p-8 transition-colors hover:bg-brand-primary hover:text-brand-cream"
             >
               <span className="text-[0.65rem] font-bold tracking-[0.18em] uppercase opacity-70">
-                05
+                06
               </span>
               <span className="text-3xl md:text-5xl font-bold tracking-[-0.06em]">
                 contact.

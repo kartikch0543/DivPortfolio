@@ -98,6 +98,23 @@ export default async function GameDetailPage({
           <p className="dark:text-slate-300 text-slate-700 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed">
             {game.description}
           </p>
+
+          <div className="flex flex-wrap items-center gap-3 pt-4">
+            <Link
+              href={`/games/${game.slug}/breakdown`}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-mono font-bold text-xs uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] border-2 border-slate-950 transition-all hover:scale-102"
+            >
+              <span>Read Technical Breakdown →</span>
+            </Link>
+            <a
+              href={`https://kdivyanshu.itch.io/${game.slug}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-mono font-bold uppercase tracking-wider opacity-70 hover:opacity-100 underline transition-opacity"
+            >
+              itch.io page ↗
+            </a>
+          </div>
         </Container>
       </section>
 

@@ -2,6 +2,65 @@ import type { Game } from "@/types/game";
 
 export const games: Game[] = [
   {
+    slug: "risky-business",
+    title: "Risky Business",
+    tagline: "Break. Earn. Upgrade. Gamble. Repeat.",
+    description:
+      "You are a pirate king stranded on an island, surrounded by crates, machines, and questionable financial decisions. Your only way off: a ship waiting for you — but escaping isn't cheap. Break → Earn → Upgrade → Gamble → Repeat. Do you play it safe, or risk everything?",
+    coverImage: "/images/games/risky-business-cover.png",
+    bannerImage: "/images/games/risky-business-banner.png",
+    gallery: [
+      {
+        src: "/images/games/risky-business-cover.png",
+        alt: "Risky Business Title Screen",
+      },
+      {
+        src: "/images/games/risky-business-banner.png",
+        alt: "Risky Business Island Scene",
+      },
+      {
+        src: "/images/games/risky-business-devlog.png",
+        alt: "Risky Business Game Jam Devlog",
+      },
+    ],
+    genre: ["Arcade", "Incremental"],
+    engine: "Unity",
+    platforms: ["Browser"],
+    status: "released",
+    releaseDate: "2026-09-30",
+    estimatedPlaytime: "5–10 min",
+    featured: true,
+    launch: {
+      browser: "/games/risky-business/index.html",
+      webgl: null,
+      playStore: null,
+      steam: null,
+      github: null,
+    },
+    features: [
+      "Pirate-themed incremental gameplay loop",
+      "Gambling mechanic — you can lose everything",
+      "Break, earn, upgrade, and gamble your way to freedom",
+      "IIITN Game Jam — Tantrafiesta 2026 submission",
+    ],
+    controls: [
+      "Move: A / D or Arrow Keys",
+      "Jump: Space",
+      "Interact: E",
+    ],
+    developerNotes:
+      "Risky Business was built for IIITN Game Jam — Tantrafiesta 2026. The biggest plot twist is built into the progression: this isn't an incremental game where progress always moves upward. You can lose it all.",
+    developmentStory:
+      "The theme of the jam was 'Plot Twist', and in Risky Business the twist is built directly into the gameplay. The coins you've spent time collecting can disappear in seconds if you make the wrong gamble. Break crates, earn coins, upgrade your tools — then decide: play it safe, or bet everything for a faster escape?",
+    versionHistory: [
+      { version: "1.0.0", date: "2026-09-30", notes: "Initial release — Tantrafiesta 2026 submission." },
+      { version: "1.0.1", date: "2026-10-06", notes: "Bug fixes and balance adjustments." },
+    ],
+    knownIssues: ["Browser audio may require an initial click before playback."],
+    roadmap: ["Balance adjustments and additional content planned."],
+    credits: [{ role: "Design & development", name: "Divyanshu Kumar" }],
+  },
+  {
     slug: "split-you",
     title: "Split You",
     tagline: "One move. Two consequences.",
@@ -58,14 +117,14 @@ export const games: Game[] = [
   {
     slug: "tiny-together",
     title: "Tiny Together",
-    tagline: "Two little guys. One keyboard. Zero room for mistakes.",
+    tagline: "Two characters. One keyboard. Shared controls.",
     description:
       "In Tiny Together, you control two tiny adventurers at the same time — one walks on the ground, the other on the ceiling. Every move you make affects both of them, so reaching each character's door takes planning, timing, and creative thinking.",
-    coverImage: "/images/games/tiny-together-cover.svg",
-    bannerImage: "/images/games/tiny-together-banner.svg",
+    coverImage: "/images/games/tiny-together-cover.png",
+    bannerImage: "/images/games/tiny-together-banner.png",
     gallery: [
       {
-        src: "/images/games/tiny-together-cover.svg",
+        src: "/images/games/tiny-together-cover.png",
         alt: "Tiny Together cover",
       },
       {
@@ -91,7 +150,7 @@ export const games: Game[] = [
       "Dual-character shared controls (ground + ceiling)",
       "Handcrafted puzzle levels",
       "Simple to learn, tricky to master",
-      "Game Jam submission — The Brainless Game Jam",
+      "Game Jam submission — The Brainless Game Jam (Top 10)",
     ],
     controls: [
       "Move: A / D or ← / →",
@@ -148,7 +207,7 @@ export const games: Game[] = [
       "Opposite-movement mechanic — child always goes ULTA",
       "Desi chaos theme inspired by Indian family dynamics",
       "Short and snappy — done in 4–5 minutes",
-      "LPU Gaming Masters Game Jam submission",
+      "LPU Gaming Masters Game Jam submission — Rank #2 Solo Developer",
     ],
     controls: [
       "Move: WASD / Arrow Keys",
@@ -172,65 +231,6 @@ export const games: Game[] = [
       { role: "Main Art", name: "Pixel Frog (Pixel Adventure 1)" },
       { role: "UI & Doors Art", name: "Pixel Frog (Kings and Pigs)" },
     ],
-  },
-  {
-    slug: "risky-business",
-    title: "Risky Business",
-    tagline: "A pirate who gambles? Play and find out.",
-    description:
-      "You are a pirate king stranded on an island, surrounded by crates, machines, and questionable financial decisions. Your only way off: a ship waiting for you — but escaping isn't cheap. Break → Earn → Upgrade → Gamble → Repeat. Do you play it safe, or risk everything?",
-    coverImage: "/images/games/risky-business-cover.png",
-    bannerImage: "/images/games/risky-business-banner.png",
-    gallery: [
-      {
-        src: "/images/games/risky-business-cover.png",
-        alt: "Risky Business Title Screen",
-      },
-      {
-        src: "/images/games/risky-business-banner.png",
-        alt: "Risky Business Island Scene",
-      },
-      {
-        src: "/images/games/risky-business-devlog.png",
-        alt: "Risky Business Game Jam Devlog",
-      },
-    ],
-    genre: ["Arcade", "Incremental"],
-    engine: "Unity",
-    platforms: ["Browser"],
-    status: "released",
-    releaseDate: "2026-09-30",
-    estimatedPlaytime: "5–10 min",
-    featured: true,
-    launch: {
-      browser: "/games/risky-business/index.html",
-      webgl: null,
-      playStore: null,
-      steam: null,
-      github: null,
-    },
-    features: [
-      "Pirate-themed incremental gameplay loop",
-      "Gambling mechanic — you can lose everything",
-      "Break, earn, upgrade, and gamble your way to freedom",
-      "IIITN Game Jam — Tantrafiesta 2026 submission",
-    ],
-    controls: [
-      "Move: A / D",
-      "Jump: Space",
-      "Interact: E",
-    ],
-    developerNotes:
-      "Risky Business was built for IIITN Game Jam — Tantrafiesta 2026. The biggest plot twist is built into the progression: this isn't an incremental game where progress always moves upward. You can lose it all.",
-    developmentStory:
-      "The theme of the jam was 'Plot Twist', and in Risky Business the twist is built directly into the gameplay. The coins you've spent time collecting can disappear in seconds if you make the wrong gamble. Break crates, earn coins, upgrade your tools — then decide: play it safe, or bet everything for a faster escape?",
-    versionHistory: [
-      { version: "1.0.0", date: "2026-09-30", notes: "Initial release — Tantrafiesta 2026 submission." },
-      { version: "1.0.1", date: "2026-10-06", notes: "Bug fixes and balance adjustments." },
-    ],
-    knownIssues: ["Browser audio may require an initial click before playback."],
-    roadmap: ["Balance adjustments and additional content planned."],
-    credits: [{ role: "Design & development", name: "Divyanshu Kumar" }],
   },
 ];
 

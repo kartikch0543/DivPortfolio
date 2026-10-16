@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { games } from "@/data/games";
-import { Maximize2, RotateCcw, ExternalLink, Play, Smartphone } from "lucide-react";
+import { Maximize2, RotateCcw, ExternalLink, Play, Smartphone, Code2 } from "lucide-react";
 import {
   isMobileDevice,
   enterGameFullscreenLandscape,
@@ -111,6 +112,11 @@ export function SelectedWorks() {
                         Top 10
                       </span>
                     )}
+                    {game.slug === "risky-business" && (
+                      <span className="text-[0.58rem] font-mono px-1.5 py-0.5 border border-current tracking-wider uppercase">
+                        Featured
+                      </span>
+                    )}
                   </div>
                   <h3 className="mt-1.5 text-base md:text-xl font-bold tracking-[-0.03em] whitespace-nowrap md:whitespace-normal">
                     {game.title}
@@ -129,15 +135,28 @@ export function SelectedWorks() {
           {/* Header Info Panel */}
           <div className="bg-brand-primary text-brand-cream p-4 md:p-6 flex flex-col gap-4">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-              <div>
+              <div className="space-y-1">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[0.65rem] font-mono tracking-[0.18em] uppercase opacity-70">
                     {activeGame.engine} · WebGL Deployment
                   </span>
                 </div>
-                <h3 className="text-2xl md:text-4xl font-bold tracking-[-0.03em]">
-                  {activeGame.title}
-                </h3>
+                {/* Game Title with PROMINENT PLAY NOW BUTTON right next to it */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="text-2xl md:text-4xl font-bold tracking-[-0.03em]">
+                    {activeGame.title}
+                  </h3>
+                  {!isPlaying && (
+                    <button
+                      type="button"
+                      onClick={handleStartGame}
+                      className="inline-flex items-center gap-1.5 bg-emerald-400 hover:bg-emerald-300 text-slate-950 px-4 py-1.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,0.8)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer animate-pulse"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-slate-950" />
+                      <span>PLAY NOW</span>
+                    </button>
+                  )}
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-2 md:justify-end">
@@ -157,13 +176,13 @@ export function SelectedWorks() {
             </p>
 
             {/* Actions Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-brand-cream/30">
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-brand-cream/30">
               <div className="flex items-center gap-3">
                 {!isPlaying ? (
                   <button
                     type="button"
                     onClick={handleStartGame}
-                    className="group/cta inline-flex items-center gap-2 bg-brand-cream text-brand-primary px-5 py-2.5 text-xs md:text-sm font-bold tracking-[0.06em] uppercase hover:bg-brand-cream/90 transition-colors cursor-pointer"
+                    className="group/cta inline-flex items-center gap-2 bg-brand-cream text-brand-primary px-5 py-2 text-xs md:text-sm font-bold tracking-[0.06em] uppercase hover:bg-white transition-colors cursor-pointer"
                   >
                     <Play className="w-3.5 h-3.5 fill-current" />
                     <span>Launch Game in Browser</span>
@@ -186,25 +205,25 @@ export function SelectedWorks() {
                     </button>
                   </div>
                 )}
+
+                {/* Technical Breakdown Link */}
+                <Link
+                  href={`/games/${activeGame.slug}/breakdown`}
+                  className="inline-flex items-center gap-1.5 border border-brand-cream/60 hover:border-brand-cream hover:bg-brand-cream/10 px-3 py-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-cream transition-colors"
+                >
+                  <Code2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Technical Breakdown →</span>
+                </Link>
               </div>
 
+              {/* Secondary itch.io link */}
               <a
                 href={`https://kdivyanshu.itch.io/${activeGame.slug}`}
                 target="_blank"
                 rel="noreferrer"
-                className="group/roll inline-flex items-center gap-1.5 text-xs md:text-sm font-bold tracking-[0.06em] uppercase opacity-85 hover:opacity-100"
+                className="group/roll inline-flex items-center gap-1 text-[11px] font-mono tracking-wider uppercase opacity-75 hover:opacity-100 transition-opacity"
               >
-                <span className="relative block overflow-hidden">
-                  <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-full">
-                    itch.io Page
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 block -translate-y-full transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/roll:translate-y-0"
-                  >
-                    itch.io Page
-                  </span>
-                </span>
+                <span>itch.io page</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -243,36 +262,46 @@ export function SelectedWorks() {
               </>
             ) : (
               <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                {/* Real Game Artwork */}
+                {/* Real Game Artwork from desktop Games Cover */}
                 <Image
                   src={activeGame.bannerImage || activeGame.coverImage}
                   alt={activeGame.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 70vw"
-                  className="object-cover opacity-60 transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover opacity-65 transition-transform duration-700 ease-out group-hover:scale-105"
                   priority
                 />
                 {/* Atmospheric Vignette Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
 
-                <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 space-y-3 max-w-lg">
+                <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 space-y-4 max-w-lg">
                   <span className="text-[0.65rem] font-mono tracking-[0.25em] text-brand-cream/80 uppercase border border-brand-cream/30 px-3 py-1 rounded-full backdrop-blur-sm">
                     {activeGame.engine} · WebGL Ready
                   </span>
-                  <h4 className="text-2xl sm:text-4xl font-bold text-white tracking-[-0.03em] drop-shadow-md">
+                  <h4 className="text-3xl sm:text-5xl font-bold text-white tracking-[-0.03em] drop-shadow-md">
                     {activeGame.title}
                   </h4>
                   <p className="text-xs sm:text-sm text-brand-cream/90 font-mono tracking-wide max-w-md line-clamp-2">
                     {activeGame.tagline}
                   </p>
-                  <button
-                    type="button"
-                    onClick={handleStartGame}
-                    className="mt-3 inline-flex items-center gap-2.5 bg-brand-cream text-brand-primary px-6 py-3 text-xs sm:text-sm font-bold tracking-[0.08em] uppercase hover:bg-white transition-all transform hover:scale-105 shadow-2xl cursor-pointer"
-                  >
-                    <Play className="w-4 h-4 fill-current" />
-                    <span>Launch Game in Browser</span>
-                  </button>
+
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <button
+                      type="button"
+                      onClick={handleStartGame}
+                      className="inline-flex items-center gap-2.5 bg-emerald-400 hover:bg-emerald-300 text-slate-950 px-7 py-3.5 text-xs sm:text-sm font-mono font-bold tracking-[0.08em] uppercase transition-all transform hover:scale-105 shadow-2xl cursor-pointer"
+                    >
+                      <Play className="w-4 h-4 fill-slate-950" />
+                      <span>PLAY NOW</span>
+                    </button>
+                    <Link
+                      href={`/games/${activeGame.slug}/breakdown`}
+                      className="inline-flex items-center gap-2 border border-brand-cream text-brand-cream px-5 py-3 text-xs sm:text-sm font-mono font-bold tracking-[0.08em] uppercase hover:bg-brand-cream hover:text-brand-primary transition-all backdrop-blur-xs"
+                    >
+                      <Code2 className="w-3.5 h-3.5" />
+                      <span>Breakdown →</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
@@ -333,7 +362,7 @@ export function SelectedWorks() {
                 unity certified associate in progress<span className="px-6 opacity-40">/</span>
               </span>
               <span className="whitespace-nowrap">
-                4 shipped itch.io games<span className="px-6 opacity-40">/</span>
+                4 games shipped & built<span className="px-6 opacity-40">/</span>
               </span>
               <span className="whitespace-nowrap">
                 c# & gdscript gameplay programming<span className="px-6 opacity-40">/</span>

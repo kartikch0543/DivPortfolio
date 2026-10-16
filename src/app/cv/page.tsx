@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, Printer, ArrowLeft, ExternalLink, FileText, Sparkles } from "lucide-react";
+import { Download, ArrowLeft, ExternalLink, FileText } from "lucide-react";
 import { CvDocumentView } from "./cv-document-view";
 
 export const metadata: Metadata = {

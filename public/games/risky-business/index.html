@@ -112,6 +112,13 @@
         });
       }
 
+      canvas.addEventListener('click', function() {
+        canvas.focus();
+        window.focus();
+      });
+      window.addEventListener('load', function() {
+        canvas.focus();
+      });
 
       loadingBar.style.display = "block";
 
